@@ -43,13 +43,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IntDir>C:\Compile\$(ProjectName)\$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)Ouput\</OutDir>
+    <OutDir>$(SolutionDir)Output\</OutDir>
     <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IntDir>C:\Compile\$(ProjectName)\$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)Ouput\</OutDir>
+    <OutDir>$(SolutionDir)Output\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
