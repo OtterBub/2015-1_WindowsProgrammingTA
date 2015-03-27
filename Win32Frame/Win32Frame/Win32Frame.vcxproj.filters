@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{178a77a0-f518-4491-9bc4-1b7f9a6392f4}</UniqueIdentifier>
+      <Extensions>cpp;h</Extensions>
+    </Filter>
+    <Filter Include="Source\Object">
+      <UniqueIdentifier>{5490af23-2c0b-4d4a-93b0-95a6e73ae4af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\NewType">
+      <UniqueIdentifier>{1b387ea0-ab0d-4bbb-a462-363a005810ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System">
+      <UniqueIdentifier>{fb429362-b43a-4cd5-aa34-942397dcff9b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Object.h">
+      <Filter>Source\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Source\NewType</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32Frame.h">
+      <Filter>Source\System</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="List.cpp">
+      <Filter>Source\NewType</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32Frame.cpp">
+      <Filter>Source\System</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

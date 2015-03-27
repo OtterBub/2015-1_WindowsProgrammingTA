@@ -1,0 +1,3 @@
+﻿  Main.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32frame\win32frame\main.cpp(59): warning C4101: 'ps' : unreferenced local variable
+  Win32Frame.vcxproj -> C:\Myfolder\KPU\2015_First_Semester\WindowProgramming(TA)\Win32Frame\Debug\Win32Frame.exe
