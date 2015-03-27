@@ -77,3 +77,5 @@ $RECYCLE.BIN/
 *.log
 *.log
 *.pdb
+*.pdb
+*.ilk
