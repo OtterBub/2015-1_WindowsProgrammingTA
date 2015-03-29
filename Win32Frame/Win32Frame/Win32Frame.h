@@ -19,7 +19,10 @@ public:
 	void KeyUp( WPARAM wParam, LPARAM lParam );
 	void KeyChar( WPARAM wParam, LPARAM lParam );
 
+	void ChangeScene( Scene* scene );
+
 private:
+	Scene* mCurrentScene;
 
 };
 

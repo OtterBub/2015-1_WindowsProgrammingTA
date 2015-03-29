@@ -2,26 +2,29 @@
 #define __SCENE_H__
 
 #include <Windows.h>
+#include <memory>
+
+class Win32Frame;
 
 class Scene
 {
 public:
-	Scene();
-	~Scene();
+	Scene( Win32Frame* frame ){ mFrame = frame; };
+	virtual ~Scene(){ };
 
-	void Enter();
-	void Exit();
+	virtual void Enter() = 0;
+	virtual void Exit() = 0;
 
-	void Update( double dt );
-	void Draw( HWND hwnd, HDC hdc );
+	virtual void Update( double dt ) {}
+	virtual void Draw( HWND hwnd, HDC hdc ) {}
 
-	void KeyDown( WPARAM wParam, LPARAM lParam );
-	void KeyUp( WPARAM wParam, LPARAM lParam );
-	void KeyChar( WPARAM wParam, LPARAM lParam );
+	virtual void KeyDown( WPARAM wParam, LPARAM lParam ) {}
+	virtual void KeyUp( WPARAM wParam, LPARAM lParam ) {}
+	virtual void KeyChar( WPARAM wParam, LPARAM lParam ) {}
 
 
-private:
-
+protected:
+	Win32Frame* mFrame;
 };
 
 #endif __SCENE_H__

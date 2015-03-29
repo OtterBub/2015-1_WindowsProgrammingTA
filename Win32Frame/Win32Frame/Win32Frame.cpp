@@ -2,7 +2,7 @@
 
 Win32Frame::Win32Frame()
 {
-	mRect = {0, 0, 50, 50};
+	mCurrentScene = nullptr;
 }
 Win32Frame::~Win32Frame()
 {
@@ -24,21 +24,38 @@ void Win32Frame::Update( double dt )
 
 void Win32Frame::Draw( HWND hwnd, HDC hdc )
 {
-	TextOut( hdc, 100, 100, L"Hello World", wcslen( L"Hello World" ) );
+	if( mCurrentScene != nullptr )
+		mCurrentScene->Draw( hwnd, hdc );
 }
 
 
-void KeyDown( WPARAM wParam, LPARAM lParam )
+void Win32Frame::KeyDown( WPARAM wParam, LPARAM lParam )
 {
-	 
+	 if( mCurrentScene != nullptr )
+		mCurrentScene->KeyDown( wParam, lParam );
 }
 
-void KeyUp( WPARAM wParam, LPARAM lParam )
+void Win32Frame::KeyUp( WPARAM wParam, LPARAM lParam )
 {
-
+	if( mCurrentScene != nullptr )
+		mCurrentScene->KeyUp( wParam, lParam );
 }
 
-void KeyChar( WPARAM wParam, LPARAM lParam )
+void Win32Frame::KeyChar( WPARAM wParam, LPARAM lParam )
 {
+	if( mCurrentScene != nullptr )
+		mCurrentScene->KeyChar( wParam, lParam );
+}
 
+void Win32Frame::ChangeScene( Scene* scene )
+{
+	if( mCurrentScene != nullptr )
+	{
+		mCurrentScene->Exit();
+		delete mCurrentScene;
+		mCurrentScene = nullptr;
+	}
+	
+	mCurrentScene = scene;
+	mCurrentScene->Enter();
 }

@@ -1,5 +1,6 @@
 #include <Windows.h>
 #include "Win32Frame.h"
+#include "TestScene.h"
 #include "List.cpp"
 #include "Object.h"
 
@@ -63,6 +64,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 	{
 		case WM_CREATE:
 			frame.Initialize();
+			frame.ChangeScene( new TestScene( &frame ) );
 			SetTimer( hWnd, 0, 33, NULL );
 			break;
 
@@ -86,6 +88,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			// Draw
 			frame.Draw( hWnd, BackBuffDC );
 			
+			// Draw Second Buffer to Main Buffer
 			BitBlt( hdc, 0, 0, clientRect.right, clientRect.bottom, BackBuffDC, 0, 0, SRCCOPY );
 			
 			SelectObject( hdc, oldBmp );
