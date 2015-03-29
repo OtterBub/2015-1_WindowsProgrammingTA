@@ -1,15 +1,15 @@
-#ifndef __WIN32_FRAME_H__
-#define __WIN32_FRAME_H__
+#ifndef __SCENE_H__
+#define __SCENE_H__
 
-#include "Scene.h"
+#include <Windows.h>
 
-class Win32Frame
+class Scene
 {
 public:
-	Win32Frame();
-	~Win32Frame();
+	Scene();
+	~Scene();
 
-	void Initialize();
+	void Enter();
 	void Exit();
 
 	void Update( double dt );
@@ -19,8 +19,9 @@ public:
 	void KeyUp( WPARAM wParam, LPARAM lParam );
 	void KeyChar( WPARAM wParam, LPARAM lParam );
 
+
 private:
 
 };
 
-#endif __WIN32_FRAME_H__
+#endif __SCENE_H__

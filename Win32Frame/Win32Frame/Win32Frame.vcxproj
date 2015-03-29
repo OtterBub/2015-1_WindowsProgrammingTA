@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Win32Frame.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="List.h" />

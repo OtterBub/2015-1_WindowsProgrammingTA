@@ -68,7 +68,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 
 		case WM_PAINT:
 		{
-			PAINTSTRUCT ps;
 			RECT clientRect;
 			HDC BackBuffDC;
 			HBITMAP backbuffer;
@@ -81,30 +80,37 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			backbuffer = CreateCompatibleBitmap( hdc, clientRect.right, clientRect.bottom );
 			oldBmp = (HBITMAP)SelectObject( BackBuffDC, backbuffer );
 			
-			frame.Draw( hWnd, BackBuffDC );
+			// Clear
+			FillRect( BackBuffDC, &clientRect, (HBRUSH)GetStockObject(WHITE_BRUSH) );
 
+			// Draw
+			frame.Draw( hWnd, BackBuffDC );
+			
 			BitBlt( hdc, 0, 0, clientRect.right, clientRect.bottom, BackBuffDC, 0, 0, SRCCOPY );
 			
-
-			EndPaint( hWnd, &ps );
 			SelectObject( hdc, oldBmp );
 			DeleteObject( backbuffer );
 			DeleteDC( BackBuffDC );
+			EndPaint( hWnd, &ps );
 			
 		}
 			
 			break;
 
 		case WM_CHAR:
-			//InvalidateRect( hWnd, NULL, true );
+			frame.KeyChar( wParam, lParam );
 			break;
 
 		case WM_KEYDOWN:
-			//InvalidateRect( hWnd, NULL, true );
+			frame.KeyDown( wParam, lParam );
+			break;
+
+		case WM_KEYUP:
+			frame.KeyUp( wParam, lParam );
 			break;
 
 		case WM_TIMER:
-			InvalidateRect( hWnd, NULL, true );
+			InvalidateRect( hWnd, NULL, false );
 			break;
 
 		case WM_DESTROY:

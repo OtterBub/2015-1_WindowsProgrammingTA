@@ -18,6 +18,9 @@
     <Filter Include="Source\System">
       <UniqueIdentifier>{fb429362-b43a-4cd5-aa34-942397dcff9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{5d73b5df-6178-4656-8397-169f488f73a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object.h">
@@ -28,6 +31,9 @@
     </ClInclude>
     <ClInclude Include="Win32Frame.h">
       <Filter>Source\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
