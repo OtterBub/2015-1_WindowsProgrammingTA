@@ -2,6 +2,7 @@
 #define __MENUSCENE_H__
 
 #include "Scene.h"
+#include "GDIRect.h"
 
 class MenuScene : public Scene
 {
@@ -18,7 +19,7 @@ public:
 	void KeyDown( WPARAM wParam, LPARAM lParam );
 
 private:
-
+	GDIRect mRect;
 };
 
 #endif

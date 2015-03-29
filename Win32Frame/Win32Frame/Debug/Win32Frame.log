@@ -1,24 +1,22 @@
-﻿Build started 2015-03-29 오후 9:28:48.
-     1>Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 2015-03-29 오후 10:25:40.
+     1>Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt List.cpp Main.cpp MenuScene.cpp PlayScene.cpp TestScene.cpp Win32Frame.cpp
-         Win32Frame.cpp
-         TestScene.cpp
-         PlayScene.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MenuScene.cpp
          MenuScene.cpp
-         Main.cpp
-         List.cpp
-         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.lib" /MACHINE:X86 Debug\List.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.lib" /MACHINE:X86 Debug\GDIRect.obj
+         Debug\List.obj
          Debug\Main.obj
          Debug\MenuScene.obj
+         Debug\GDIObject.obj
+         Debug\Object.obj
+         Debug\OtterVector.obj
          Debug\PlayScene.obj
          Debug\TestScene.obj
          Debug\Win32Frame.obj
          Win32Frame.vcxproj -> C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.exe
-     1>Done Building Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" (Rebuild target(s)).
+     1>Done Building Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.42
+Time Elapsed 00:00:00.94

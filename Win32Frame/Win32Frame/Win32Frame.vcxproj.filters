@@ -23,9 +23,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Object.h">
-      <Filter>Source\Object</Filter>
-    </ClInclude>
     <ClInclude Include="List.h">
       <Filter>Source\NewType</Filter>
     </ClInclude>
@@ -43,6 +40,18 @@
     </ClInclude>
     <ClInclude Include="MenuScene.h">
       <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIObject.h">
+      <Filter>Source\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Source\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="OtterVector.h">
+      <Filter>Source\NewType</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIRect.h">
+      <Filter>Source\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +72,18 @@
     </ClCompile>
     <ClCompile Include="MenuScene.cpp">
       <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIObject.cpp">
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="OtterVector.cpp">
+      <Filter>Source\NewType</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIRect.cpp">
+      <Filter>Source\Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

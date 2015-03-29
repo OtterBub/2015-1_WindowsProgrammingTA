@@ -1,6 +1,6 @@
 #include <Windows.h>
 #include "Win32Frame.h"
-#include "TestScene.h"
+#include "MenuScene.h"
 #include "List.cpp"
 #include "Object.h"
 
@@ -64,7 +64,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 	{
 		case WM_CREATE:
 			frame.Initialize();
-			frame.ChangeScene( new TestScene( &frame ) );
+			frame.ChangeScene( new MenuScene( &frame ) );
 			SetTimer( hWnd, 0, 33, NULL );
 			break;
 
