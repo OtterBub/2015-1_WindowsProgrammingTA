@@ -65,7 +65,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 		case WM_CREATE:
 			frame.Initialize();
 			frame.ChangeScene( new MenuScene( &frame ) );
-			SetTimer( hWnd, 0, 33, NULL );
+			SetTimer( hWnd, 0, 16, NULL );
 			break;
 
 		case WM_PAINT:
@@ -105,14 +105,29 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_KEYDOWN:
-			frame.KeyDown( wParam, lParam );
+			OTTER_INPUT.SetKey( wParam, true );
+			//frame.KeyDown( wParam, lParam );
 			break;
 
 		case WM_KEYUP:
-			frame.KeyUp( wParam, lParam );
+			OTTER_INPUT.SetKey( wParam, false );
+			//frame.KeyUp( wParam, lParam );
+			break;
+
+		case WM_LBUTTONDOWN:
+			break;
+			
+		case WM_LBUTTONUP:
+			break;
+
+		case WM_RBUTTONDOWN:
+			break;
+
+		case WM_RBUTTONUP:
 			break;
 
 		case WM_TIMER:
+			frame.Update( 0 );
 			InvalidateRect( hWnd, NULL, false );
 			break;
 

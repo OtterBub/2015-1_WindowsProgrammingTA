@@ -2,7 +2,6 @@
 #define __OTTERVECTOR_CPP__
 
 #include "OtterVector.h"
-#include <list>
 
 template<typename T>
 OtterVector2<T>::OtterVector2( T x, T y )

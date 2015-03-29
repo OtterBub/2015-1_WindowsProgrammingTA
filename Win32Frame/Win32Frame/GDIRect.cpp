@@ -14,27 +14,35 @@ void GDIRect::Draw( HDC hdc )
 	Rectangle( hdc, mRect.left, mRect.top, mRect.right, mRect.bottom  );
 }
 
-void GDIRect::Translate( int x, int y )
+void GDIRect::Translate( float x, float y )
 {
-	mRect.left += x;
-	mRect.right += x;
+	Object::Translate( x, y );
+	int halfWidth = abs( mRect.right - mRect.left ) / 2;
+	int halfHeight = abs( mRect.bottom - mRect.top ) / 2;
+	mRect.left = mPosition.x - halfWidth;
+	mRect.right = mPosition.x + halfWidth;
 
-	mRect.top += y;
-	mRect.bottom += y;
+	mRect.top = mPosition.y - halfHeight;
+	mRect.bottom = mPosition.y + halfHeight;
 }
 
-void GDIRect::Translate( OtterVector2i trans )
+void GDIRect::Translate( OtterVector2f trans )
 {
-	mRect.left += trans.x;
-	mRect.right += trans.x;
+	Object::Translate( trans );
+	int halfWidth = abs( mRect.right - mRect.left ) / 2;
+	int halfHeight = abs( mRect.bottom - mRect.top ) / 2;
+	mRect.left = mPosition.x - halfWidth;
+	mRect.right = mPosition.x + halfWidth;
 
-	mRect.top += trans.y;
-	mRect.bottom += trans.y;
+	mRect.top = mPosition.y - halfHeight;
+	mRect.bottom = mPosition.y + halfHeight;
 }
 
 
 void GDIRect::SetRect( int x, int y, int size )
 {
+	SetPosition( x, y );
+
 	mRect.left = x - ( size / 2 );
 	mRect.right = x + ( size / 2 );
 	
@@ -42,8 +50,10 @@ void GDIRect::SetRect( int x, int y, int size )
 	mRect.bottom = y + ( size / 2 );
 }
 
-void GDIRect::SetRect( OtterVector2i pos, int size )
+void GDIRect::SetRect( OtterVector2f pos, int size )
 {
+	SetPosition( pos );
+
 	mRect.left = pos.x - ( size / 2 );
 	mRect.right = pos.x + ( size / 2 );
 	
@@ -53,6 +63,8 @@ void GDIRect::SetRect( OtterVector2i pos, int size )
 
 void GDIRect::SetRect( int left, int top, int right, int bottom )
 {
+	SetPosition( abs( left - right ) / 2, abs( top - bottom ) / 2 );
+
 	mRect.left = left;
 	mRect.right = right;
 	

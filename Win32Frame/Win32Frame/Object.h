@@ -12,14 +12,18 @@ public:
 
 	virtual void Draw( HDC hdc ) = 0;
 
-	virtual void Translate( int x, int y );
-	virtual void Translate( OtterVector2i trans );
+	virtual void Translate( float x, float y );
+	virtual void Translate( OtterVector2f trans );
+	void SetPosition( float x, float y );
+	void SetPosition( OtterVector2f pos );
+
+	OtterVector2f GetPosition();
 
 protected:
 	
 	
 protected:
-	OtterVector2i mPosition;
+	OtterVector2f mPosition;
 };
 
 #endif __OBJECT_H__

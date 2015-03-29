@@ -2,6 +2,7 @@
 #define __WIN32_FRAME_H__
 
 #include "Scene.h"
+#include "InputSystem.h"
 
 class Win32Frame
 {

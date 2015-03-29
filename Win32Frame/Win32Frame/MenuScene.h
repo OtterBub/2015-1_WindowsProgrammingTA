@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "GDIRect.h"
+#include <string>
 
 class MenuScene : public Scene
 {
@@ -20,6 +21,7 @@ public:
 
 private:
 	GDIRect mRect;
+	std::wstring mStr;
 };
 
 #endif

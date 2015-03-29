@@ -1,4 +1,5 @@
 #include "Win32Frame.h"
+#include <ctime>
 
 Win32Frame::Win32Frame()
 {
@@ -20,6 +21,12 @@ void Win32Frame::Exit()
 
 void Win32Frame::Update( double dt )
 {
+	static clock_t prevTime = std::clock();
+	
+	if( mCurrentScene != nullptr )
+		mCurrentScene->Update( (double)( std::clock() - prevTime ) / CLOCKS_PER_SEC );
+
+	prevTime = std::clock();
 }
 
 void Win32Frame::Draw( HWND hwnd, HDC hdc )
