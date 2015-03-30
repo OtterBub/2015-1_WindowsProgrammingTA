@@ -7,8 +7,8 @@
 class Win32Frame
 {
 public:
-	Win32Frame();
 	~Win32Frame();
+	static Win32Frame& GetInstance();
 
 	void Initialize();
 	void Exit();
@@ -23,8 +23,11 @@ public:
 	void ChangeScene( Scene* scene );
 
 private:
+	Win32Frame();
 	Scene* mCurrentScene;
 
 };
+
+#define WIN32FRAME Win32Frame::GetInstance()
 
 #endif __WIN32_FRAME_H__

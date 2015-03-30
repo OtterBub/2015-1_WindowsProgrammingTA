@@ -9,6 +9,12 @@ Win32Frame::~Win32Frame()
 {
 }
 
+Win32Frame& Win32Frame::GetInstance()
+{
+	static Win32Frame instance;
+	return instance;
+}
+
 
 void Win32Frame::Initialize()
 {

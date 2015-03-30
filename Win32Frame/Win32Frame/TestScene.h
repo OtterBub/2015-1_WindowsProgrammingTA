@@ -6,7 +6,7 @@
 class TestScene : public Scene
 {
 public:
-	TestScene( Win32Frame* frame );
+	TestScene();
 	~TestScene();
 
 	void Enter();

@@ -8,7 +8,7 @@
 class MenuScene : public Scene
 {
 public:
-	MenuScene( Win32Frame* frame );
+	MenuScene();
 	~MenuScene();
 
 	void Enter();

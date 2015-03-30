@@ -55,7 +55,6 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszMcdP
 
 LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 {
-	static Win32Frame frame;
 	HDC hdc;
 	PAINTSTRUCT ps;
 
@@ -63,8 +62,8 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 	switch( uMsg )
 	{
 		case WM_CREATE:
-			frame.Initialize();
-			frame.ChangeScene( new MenuScene( &frame ) );
+			WIN32FRAME.Initialize();
+			WIN32FRAME.ChangeScene( new MenuScene( ) );
 			SetTimer( hWnd, 0, 16, NULL );
 			break;
 
@@ -86,7 +85,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			FillRect( BackBuffDC, &clientRect, (HBRUSH)GetStockObject(WHITE_BRUSH) );
 
 			// Draw
-			frame.Draw( hWnd, BackBuffDC );
+			WIN32FRAME.Draw( hWnd, BackBuffDC );
 			
 			// Draw Second Buffer to Main Buffer
 			BitBlt( hdc, 0, 0, clientRect.right, clientRect.bottom, BackBuffDC, 0, 0, SRCCOPY );
@@ -101,17 +100,17 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_CHAR:
-			frame.KeyChar( wParam, lParam );
+			WIN32FRAME.KeyChar( wParam, lParam );
 			break;
 
 		case WM_KEYDOWN:
 			OTTER_INPUT.SetKey( wParam, true );
-			//frame.KeyDown( wParam, lParam );
+			//WIN32FRAME.KeyDown( wParam, lParam );
 			break;
 
 		case WM_KEYUP:
 			OTTER_INPUT.SetKey( wParam, false );
-			//frame.KeyUp( wParam, lParam );
+			//WIN32FRAME.KeyUp( wParam, lParam );
 			break;
 
 		case WM_LBUTTONDOWN:
@@ -127,7 +126,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_TIMER:
-			frame.Update( 0 );
+			WIN32FRAME.Update( 0 );
 			InvalidateRect( hWnd, NULL, false );
 			break;
 

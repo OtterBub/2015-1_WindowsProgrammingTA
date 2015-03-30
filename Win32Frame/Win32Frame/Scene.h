@@ -9,7 +9,7 @@ class Win32Frame;
 class Scene
 {
 public:
-	Scene( Win32Frame* frame ){ mFrame = frame; };
+	Scene() {};
 	virtual ~Scene(){ };
 
 	virtual void Enter() = 0;
@@ -24,7 +24,6 @@ public:
 
 
 protected:
-	Win32Frame* mFrame;
 };
 
 #endif __SCENE_H__

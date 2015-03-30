@@ -2,8 +2,7 @@
 #include "PlayScene.h"
 #include "Win32Frame.h"
 
-TestScene::TestScene( Win32Frame* frame ) :
-Scene( frame )
+TestScene::TestScene()
 {
 
 }
@@ -37,5 +36,5 @@ void TestScene::Draw( HWND hwnd, HDC hdc )
 
 void TestScene::KeyDown( WPARAM wParam, LPARAM lParam )
 {
-	mFrame->ChangeScene( new PlayScene( mFrame ) );
+
 }

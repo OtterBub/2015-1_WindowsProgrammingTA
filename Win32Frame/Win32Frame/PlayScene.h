@@ -6,7 +6,7 @@
 class PlayScene : public Scene
 {
 public:
-	PlayScene( Win32Frame* frame );
+	PlayScene();
 	~PlayScene();
 
 	void Enter();

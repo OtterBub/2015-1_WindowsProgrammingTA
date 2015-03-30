@@ -3,8 +3,7 @@
 #include "Win32Frame.h"
 #include "InputSystem.h"
 
-MenuScene::MenuScene( Win32Frame* frame ) :
-Scene( frame )
+MenuScene::MenuScene( )
 {
 }
 
@@ -57,5 +56,5 @@ void MenuScene::Draw( HWND hwnd, HDC hdc )
 
 void MenuScene::KeyDown( WPARAM wParam, LPARAM lParam )
 {
-	mFrame->ChangeScene( new PlayScene( mFrame ) );
+	
 }
