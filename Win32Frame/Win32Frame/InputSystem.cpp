@@ -51,44 +51,14 @@ bool Input::GetKeyUp( int keycode )
 	return mKeyUp[keycode];
 }
 
-bool Input::GetMouseRDown()
-{
-	return true;
-}
-bool Input::GetMouseRUp()
-{
-	return true;
-}
-bool Input::GetMouseLDown()
-{
-	return true;
-}
-bool Input::GetMouseLUp()
-{
-	return true;
-}
-bool Input::GetMouseMDown()
-{
-	return true;
-}
-bool Input::GetMouseMUp()
-{
-	return true;
-}
-
 OtterVector2i Input::GetMousePosition()
 {
 	return OtterVector2i( 0, 0 );
 }
 
-void Input::SetMouseRButton( bool down )
+void Input::SetMouseButton( int mouseEvent, bool down )
 {
-}
-void Input::SetMouseLButton( bool down )
-{
-}
-void Input::SetMouseMButton( bool down )
-{
+	
 }
 void Input::SetMousePosition( int x, int y )
 {

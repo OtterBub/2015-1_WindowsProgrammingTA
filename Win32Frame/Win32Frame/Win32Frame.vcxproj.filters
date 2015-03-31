@@ -70,9 +70,6 @@
     <ClCompile Include="TestScene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="PlayScene.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="MenuScene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
@@ -90,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="InputSystem.cpp">
       <Filter>Source\System</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScene.cpp">
+      <Filter>Source\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

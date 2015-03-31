@@ -3,8 +3,10 @@
 
 #include "OtterVector.cpp"
 
+
 class Input
 {
+
 public:
 	~Input();
 	static Input& GetInstance();
@@ -14,29 +16,25 @@ public:
 	bool GetKeyDown( int keycode );
 	bool GetKeyUp( int keycode );
 
-	bool GetMouseRDown();
-	bool GetMouseRUp();
-	bool GetMouseLDown();
-	bool GetMouseLUp();
-	bool GetMouseMDown();
-	bool GetMouseMUp();
+	bool GetMouseDown();
+	bool GetMouseUp();
 
 	OtterVector2i GetMousePosition();
 
-	void SetMouseRButton( bool down );
-	void SetMouseLButton( bool down );
-	void SetMouseMButton( bool down );
+	void SetMouseButton( int mouseEvent, bool down );
 	void SetMousePosition( int x, int y );
 	void SetKey( int keycode, bool down );
 
 private:
 	Input();
-	
+
 private:
 	bool mKeyDown[0xFF];
 	bool mKeyUp[0xFF];
 	bool mAnyKeyDown;
 	bool mAnyKeyUp;
+	bool mMouseDown[1];
+	bool mMouseUp[1];
 	OtterVector2i mCurrentMousePosition;
 };
 
