@@ -4,6 +4,8 @@
 Win32Frame::Win32Frame()
 {
 	mCurrentScene = nullptr;
+	mChangeScene = nullptr;
+	
 }
 Win32Frame::~Win32Frame()
 {
@@ -31,6 +33,19 @@ void Win32Frame::Update( double dt )
 	
 	if( mCurrentScene != nullptr )
 		mCurrentScene->Update( (double)( std::clock() - prevTime ) / CLOCKS_PER_SEC );
+
+	if( mChangeScene != nullptr )
+	{
+		if( mCurrentScene != nullptr )
+		{
+			mCurrentScene->Exit();
+			delete mCurrentScene;
+			mCurrentScene = nullptr;
+		}
+		mCurrentScene = mChangeScene;
+		mChangeScene = nullptr;
+		mCurrentScene->Enter();
+	}
 
 	prevTime = std::clock();
 }
@@ -62,13 +77,5 @@ void Win32Frame::KeyChar( WPARAM wParam, LPARAM lParam )
 
 void Win32Frame::ChangeScene( Scene* scene )
 {
-	if( mCurrentScene != nullptr )
-	{
-		mCurrentScene->Exit();
-		delete mCurrentScene;
-		mCurrentScene = nullptr;
-	}
-	
-	mCurrentScene = scene;
-	mCurrentScene->Enter();
+	mChangeScene = scene;
 }

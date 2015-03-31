@@ -1,5 +1,5 @@
 #include "PlayScene.h"
-#include "TestScene.h"
+#include "MenuScene.h"
 #include "Win32Frame.h"
 
 PlayScene::PlayScene(  )
@@ -22,6 +22,7 @@ void PlayScene::Exit()
 
 void PlayScene::Update( double dt )
 {
+	
 }
 
 void PlayScene::Draw( HWND hwnd, HDC hdc )

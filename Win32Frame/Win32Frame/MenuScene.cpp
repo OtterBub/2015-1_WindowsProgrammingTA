@@ -34,6 +34,11 @@ void MenuScene::Update( double dt )
 	if( OTTER_INPUT.GetKeyDown( 'A' ) )	
 		mRect.Translate( speed * dt, 0 );
 
+	if( OTTER_INPUT.GetAnyKeyDown() )
+	{
+		WIN32FRAME.ChangeScene( new PlayScene() );
+	}
+
 	/*if( OTTER_INPUT.GetAnyKeyDown() )
 		mRect.SetRect( 300, 300, 100 );
 	if( OTTER_INPUT.GetAnyKeyUp() )

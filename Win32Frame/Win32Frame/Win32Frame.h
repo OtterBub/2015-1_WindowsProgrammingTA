@@ -25,6 +25,8 @@ public:
 private:
 	Win32Frame();
 	Scene* mCurrentScene;
+	Scene* mChangeScene;
+	bool mChange;
 
 };
 

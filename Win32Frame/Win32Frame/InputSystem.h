@@ -3,6 +3,7 @@
 
 #include "OtterVector.cpp"
 
+//enum class MOUSE_EVENT ;
 
 class Input
 {
