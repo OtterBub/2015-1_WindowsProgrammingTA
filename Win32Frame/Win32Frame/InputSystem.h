@@ -3,39 +3,49 @@
 
 #include "OtterVector.cpp"
 
-//enum class MOUSE_EVENT ;
+enum MOUSE_MESSAGE
+{
+	MOUSE_L,
+	MOUSE_M,
+	MOUSE_R,
+	MOUSE_END
+};
 
 class Input
 {
-
 public:
 	~Input();
 	static Input& GetInstance();
 
 	bool GetAnyKeyDown();
 	bool GetAnyKeyUp();
-	bool GetKeyDown( int keycode );
-	bool GetKeyUp( int keycode );
+	bool GetKeyDown( unsigned int keycode );
+	bool GetKeyUp( unsigned int keycode );
 
-	bool GetMouseDown();
-	bool GetMouseUp();
+	bool GetMouseDown( MOUSE_MESSAGE message );
+	bool GetMouseUp( MOUSE_MESSAGE message );
+	OtterVector2i GetMouseDownPosition( MOUSE_MESSAGE message );
+	OtterVector2i GetMouseUpPosition( MOUSE_MESSAGE message );
 
 	OtterVector2i GetMousePosition();
 
-	void SetMouseButton( int mouseEvent, bool down );
-	void SetMousePosition( int x, int y );
+	void SetMouseButton( MOUSE_MESSAGE message, OtterVector2i mousePos, bool down );
+	void SetCurrentMousePosition( OtterVector2i mousePos );
 	void SetKey( int keycode, bool down );
 
 private:
 	Input();
 
 private:
+
 	bool mKeyDown[0xFF];
 	bool mKeyUp[0xFF];
 	bool mAnyKeyDown;
 	bool mAnyKeyUp;
-	bool mMouseDown[1];
-	bool mMouseUp[1];
+	bool mMouseDown[MOUSE_MESSAGE::MOUSE_END];
+	bool mMouseUp[MOUSE_MESSAGE::MOUSE_END];
+	OtterVector2i mUpMousePosition[MOUSE_MESSAGE::MOUSE_END];
+	OtterVector2i mDownMousePosition[MOUSE_MESSAGE::MOUSE_END];
 	OtterVector2i mCurrentMousePosition;
 };
 

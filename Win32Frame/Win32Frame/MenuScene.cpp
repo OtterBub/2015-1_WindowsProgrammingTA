@@ -34,22 +34,27 @@ void MenuScene::Update( double dt )
 	if( OTTER_INPUT.GetKeyDown( 'A' ) )	
 		mRect.Translate( speed * dt, 0 );
 
-	if( OTTER_INPUT.GetAnyKeyDown() )
+	mStr = L"MousePos";
+	mStr += std::to_wstring( OTTER_INPUT.GetMousePosition().x );
+	mStr += L", ";
+	mStr += std::to_wstring( OTTER_INPUT.GetMousePosition().y );
+
+	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) )
 	{
-		WIN32FRAME.ChangeScene( new PlayScene() );
+		mStr += L" / MouseLDownPos";
+		mStr += std::to_wstring( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ).x );
+		mStr += L", ";
+		mStr += std::to_wstring( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ).y );
 	}
 
-	/*if( OTTER_INPUT.GetAnyKeyDown() )
-		mRect.SetRect( 300, 300, 100 );
-	if( OTTER_INPUT.GetAnyKeyUp() )
-		mRect.SetRect( 400, 400, 100 );*/
-
-	mStr = L"FPS::";
-	mStr += std::to_wstring( dt );
-	mStr += L" / ";
-	mStr += std::to_wstring( mRect.GetPosition().x );
-	mStr += L", ";
-	mStr += std::to_wstring( mRect.GetPosition().y );
+	if( OTTER_INPUT.GetMouseUp( MOUSE_MESSAGE::MOUSE_L ) )
+	{
+		mStr += L" / MouseLUpPos";
+		mStr += std::to_wstring( OTTER_INPUT.GetMouseUpPosition( MOUSE_MESSAGE::MOUSE_L ).x );
+		mStr += L", ";
+		mStr += std::to_wstring( OTTER_INPUT.GetMouseUpPosition( MOUSE_MESSAGE::MOUSE_L ).y );
+	}
+	
 }
 
 void MenuScene::Draw( HWND hwnd, HDC hdc )

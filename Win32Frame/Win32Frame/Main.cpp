@@ -114,15 +114,23 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_LBUTTONDOWN:
+			OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_L, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), true );
 			break;
 			
 		case WM_LBUTTONUP:
+			OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_L, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), false );
 			break;
 
 		case WM_RBUTTONDOWN:
+			OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_R, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), false );
 			break;
 
 		case WM_RBUTTONUP:
+			OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_R, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), false );
+			break;
+
+		case WM_MOUSEMOVE:
+			OTTER_INPUT.SetCurrentMousePosition( OtterVector2i( LOWORD(lParam), HIWORD(lParam) ) );
 			break;
 
 		case WM_TIMER:

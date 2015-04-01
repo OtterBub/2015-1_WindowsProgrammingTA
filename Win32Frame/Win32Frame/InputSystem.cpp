@@ -8,12 +8,18 @@ Input::Input()
 		mKeyUp[i] = true;
 	}
 
+	for( int i = 0; i < MOUSE_MESSAGE::MOUSE_END; ++i )
+	{
+		mMouseDown[i] = false;
+		mMouseUp[i] = true;
+	}
+
 	mAnyKeyUp = true;
 	mAnyKeyDown = false;
 }
 Input::~Input()
 {
-	
+
 }
 
 Input& Input::GetInstance()
@@ -42,27 +48,56 @@ bool Input::GetAnyKeyUp()
 		return true;
 	}
 }
-bool Input::GetKeyDown( int keycode )
+bool Input::GetKeyDown( unsigned int keycode )
 {
-	return mKeyDown[ keycode ];
+	return mKeyDown[keycode];
 }
-bool Input::GetKeyUp( int keycode )
+bool Input::GetKeyUp( unsigned int keycode )
 {
 	return mKeyUp[keycode];
 }
 
-OtterVector2i Input::GetMousePosition()
+bool Input::GetMouseDown( MOUSE_MESSAGE message )
 {
-	return OtterVector2i( 0, 0 );
+	return mMouseDown[message];
 }
 
-void Input::SetMouseButton( int mouseEvent, bool down )
+bool Input::GetMouseUp( MOUSE_MESSAGE message )
 {
-	
+	return mMouseUp[message];
 }
-void Input::SetMousePosition( int x, int y )
+
+OtterVector2i Input::GetMouseDownPosition( MOUSE_MESSAGE message )
 {
+	return mDownMousePosition[message];
 }
+
+OtterVector2i Input::GetMouseUpPosition( MOUSE_MESSAGE message )
+{
+	return mUpMousePosition[message];
+}
+
+OtterVector2i Input::GetMousePosition()
+{
+	return mCurrentMousePosition;
+}
+
+void Input::SetMouseButton( MOUSE_MESSAGE message, OtterVector2i mousePos, bool down )
+{
+	mMouseDown[message] = down;
+	mMouseUp[message] = !down;
+
+	if( down )
+		mDownMousePosition[message] = mousePos;
+	else
+		mUpMousePosition[message] = mousePos;
+}
+
+void Input::SetCurrentMousePosition( OtterVector2i mousePos )
+{
+	mCurrentMousePosition = mousePos;
+}
+
 void Input::SetKey( int keycode, bool down )
 {
 	mKeyDown[keycode] = down;
