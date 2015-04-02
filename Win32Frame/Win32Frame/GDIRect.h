@@ -7,7 +7,7 @@ class GDIRect : public GDIObject
 {
 public:
 	GDIRect();
-	virtual ~GDIRect();
+	~GDIRect();
 
 	void Draw( HDC hdc );
 

@@ -2,6 +2,7 @@
 #define __PLAYSCENE_H__
 
 #include "Scene.h"
+#include "StageDisplayObject.h"
 
 class PlayScene : public Scene
 {
@@ -18,7 +19,7 @@ public:
 	void KeyDown( WPARAM wParam, LPARAM lParam );
 
 private:
-
+	StageDisplayObject mBoard;
 };
 
 #endif 

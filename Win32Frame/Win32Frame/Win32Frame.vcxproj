@@ -18,7 +18,9 @@
     <ClInclude Include="OtterVector.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="StageDisplayObject.h" />
     <ClInclude Include="TestScene.h" />
+    <ClInclude Include="Utill.h" />
     <ClInclude Include="Win32Frame.h" />
     <ClInclude Include="GDIObject.h" />
     <ClInclude Include="List.h" />
@@ -33,6 +35,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="OtterVector.cpp" />
     <ClCompile Include="PlayScene.cpp" />
+    <ClCompile Include="StageDisplayObject.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="Win32Frame.cpp" />
   </ItemGroup>

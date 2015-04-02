@@ -14,8 +14,8 @@ public:
 
 	virtual void Translate( float x, float y );
 	virtual void Translate( OtterVector2f trans );
-	void SetPosition( float x, float y );
-	void SetPosition( OtterVector2f pos );
+	virtual void SetPosition( float x, float y );
+	virtual void SetPosition( OtterVector2f pos );
 
 	OtterVector2f GetPosition();
 

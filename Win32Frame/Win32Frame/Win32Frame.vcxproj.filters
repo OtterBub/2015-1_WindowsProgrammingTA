@@ -21,6 +21,9 @@
     <Filter Include="Source\Scene">
       <UniqueIdentifier>{5d73b5df-6178-4656-8397-169f488f73a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object\SceneObject">
+      <UniqueIdentifier>{79f2ff13-9372-4939-a4a2-899aea0ada6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="List.h">
@@ -56,6 +59,12 @@
     <ClInclude Include="InputSystem.h">
       <Filter>Source\System</Filter>
     </ClInclude>
+    <ClInclude Include="Utill.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="StageDisplayObject.h">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -90,6 +99,9 @@
     </ClCompile>
     <ClCompile Include="PlayScene.cpp">
       <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="StageDisplayObject.cpp">
+      <Filter>Source\Object\SceneObject</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

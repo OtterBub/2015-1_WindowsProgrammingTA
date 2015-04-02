@@ -9,7 +9,7 @@ public:
 	GDIObject();
 	virtual ~GDIObject();
 
-	virtual void Draw( HDC hdc ) = 0;
+	virtual void Draw( HDC hdc );
 
 	void SetPen( int penStyle, int width, COLORREF color );
 	void SetBrush( COLORREF color );
