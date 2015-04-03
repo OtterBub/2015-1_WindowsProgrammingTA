@@ -69,8 +69,8 @@ void MenuScene::Draw( HWND hwnd, HDC hdc )
 
 	for( int i = 0; i < 360; i += ( 360 / 10.0 ) )
 	{
-		int x = sin( i * ( 3.14 / 180 ) ) * 50;
-		int y = cos( i * ( 3.14 / 180 ) ) * 50;
+		int x = sin( ( i ) * ( 3.14 / 180 ) ) * 50;
+		int y = cos( ( i ) * ( 3.14 / 180 ) ) * 50;
 
 		mRect.SetRect( x + 100, y + 100, 10 );
 		mRect.Draw( hdc );

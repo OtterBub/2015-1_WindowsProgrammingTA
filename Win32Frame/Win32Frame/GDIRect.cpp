@@ -42,23 +42,25 @@ void GDIRect::Translate( OtterVector2f trans )
 void GDIRect::SetRect( int x, int y, int size )
 {
 	SetPosition( x, y );
+	mSize = size;
 
-	mRect.left = x - ( size / 2 );
-	mRect.right = x + ( size / 2 );
+	mRect.left = mPosition.x - ( mSize / 2 );
+	mRect.right = mPosition.x + ( mSize / 2 );
 	
-	mRect.top = y - ( size / 2 );
-	mRect.bottom = y + ( size / 2 );
+	mRect.top = mPosition.y - ( mSize / 2 );
+	mRect.bottom = mPosition.y + ( mSize / 2 );
 }
 
 void GDIRect::SetRect( OtterVector2f pos, int size )
 {
 	SetPosition( pos );
+	mSize = size;
 
-	mRect.left = pos.x - ( size / 2 );
-	mRect.right = pos.x + ( size / 2 );
+	mRect.left = mPosition.x - ( mSize / 2 );
+	mRect.right = mPosition.x + ( mSize / 2 );
 	
-	mRect.top = pos.y - ( size / 2 );
-	mRect.bottom = pos.y + ( size / 2 );
+	mRect.top = mPosition.y - ( mSize / 2 );
+	mRect.bottom = mPosition.y + ( mSize / 2 );
 }
 
 void GDIRect::SetRect( int left, int top, int right, int bottom )
@@ -70,4 +72,15 @@ void GDIRect::SetRect( int left, int top, int right, int bottom )
 	
 	mRect.top = top;
 	mRect.bottom = bottom;
+}
+
+void GDIRect::SetSize( int size )
+{
+	mSize = size;
+	SetRect( mPosition, mSize );
+}
+
+RECT GDIRect::GetRect()
+{
+	return mRect;
 }

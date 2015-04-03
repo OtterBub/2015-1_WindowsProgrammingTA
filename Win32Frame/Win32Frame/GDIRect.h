@@ -17,9 +17,13 @@ public:
 	void SetRect( int x, int y, int size );
 	void SetRect( OtterVector2f pos, int size );
 	void SetRect( int left, int top, int right, int bottom );
+	void SetSize( int size );
+
+	RECT GetRect();
 
 protected:
 	RECT mRect;
+	int mSize;
 };
 
 

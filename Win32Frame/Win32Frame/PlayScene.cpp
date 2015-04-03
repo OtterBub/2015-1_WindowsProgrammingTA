@@ -3,7 +3,7 @@
 #include "Win32Frame.h"
 
 PlayScene::PlayScene(  ) :
-mBoard( 12, 12, 50 )
+mBoard( 12, 12, 10 )
 {
 	
 }
@@ -16,7 +16,6 @@ PlayScene::~PlayScene()
 void PlayScene::Enter()
 {
 	mBoard.SetPosition( 100, 100 );
-	
 }
 
 void PlayScene::Exit()

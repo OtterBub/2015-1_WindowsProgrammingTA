@@ -34,6 +34,18 @@ void StageDisplayObject::Draw( HDC hdc )
 	}
 }
 
+void StageDisplayObject::Translate( float x, float y )
+{
+	Object::Translate( x, y );
+	SetPosition( mPosition.x, mPosition.y );
+}
+
+void StageDisplayObject::Translate( OtterVector2f trans )
+{
+	Object::Translate( trans );
+	SetPosition( mPosition );
+}
+
 void StageDisplayObject::SetPosition( float x, float y )
 {
 	Object::SetPosition( x, y );
@@ -53,15 +65,18 @@ void StageDisplayObject::SetPosition( float x, float y )
 void StageDisplayObject::SetPosition( OtterVector2f pos )
 {
 	Object::SetPosition( pos );
+
+	SetPosition( pos.x, pos.y );
 }
 
 void StageDisplayObject::SetSize( int size )
 {
 	int lTotal = mWidth * mHeight;
+	mSize = size;
 
 	for( int i = 0; i < lTotal; ++i )
 	{
-
+		mRectList[i].SetSize( mSize );
 	}
 }
 
