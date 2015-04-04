@@ -19,10 +19,10 @@ public:
 	void SetRect( int left, int top, int right, int bottom );
 	void SetSize( int size );
 
-	RECT GetRect();
+	OtterRect2f GetRect();
 
 protected:
-	RECT mRect;
+	OtterRect2f mRectf;
 	int mSize;
 };
 

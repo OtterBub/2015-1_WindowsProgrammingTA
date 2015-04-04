@@ -24,6 +24,9 @@
     <Filter Include="Source\Object\SceneObject">
       <UniqueIdentifier>{79f2ff13-9372-4939-a4a2-899aea0ada6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Box2DLite">
+      <UniqueIdentifier>{92a5d470-50a8-49c2-b687-1adc84f56461}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="List.h">
@@ -50,20 +53,20 @@
     <ClInclude Include="Object.h">
       <Filter>Source\Object</Filter>
     </ClInclude>
-    <ClInclude Include="OtterVector.h">
-      <Filter>Source\NewType</Filter>
-    </ClInclude>
     <ClInclude Include="GDIRect.h">
       <Filter>Source\Object</Filter>
     </ClInclude>
     <ClInclude Include="InputSystem.h">
       <Filter>Source\System</Filter>
     </ClInclude>
-    <ClInclude Include="Utill.h">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="StageDisplayObject.h">
       <Filter>Source\Object\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="OtterMath.h">
+      <Filter>Source\NewType</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtill.h">
+      <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +88,6 @@
     <ClCompile Include="GDIObject.cpp">
       <Filter>Source\Object</Filter>
     </ClCompile>
-    <ClCompile Include="OtterVector.cpp">
-      <Filter>Source\NewType</Filter>
-    </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Source\Object</Filter>
     </ClCompile>
@@ -102,6 +102,12 @@
     </ClCompile>
     <ClCompile Include="StageDisplayObject.cpp">
       <Filter>Source\Object\SceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="OtterMath.cpp">
+      <Filter>Source\NewType</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtill.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

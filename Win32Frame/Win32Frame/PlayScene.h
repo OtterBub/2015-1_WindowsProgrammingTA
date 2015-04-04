@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "StageDisplayObject.h"
+#include <string>
 
 class PlayScene : public Scene
 {
@@ -20,6 +21,8 @@ public:
 
 private:
 	StageDisplayObject mBoard;
+	std::wstring mStr[5];
+	int mLineCount;
 };
 
 #endif 

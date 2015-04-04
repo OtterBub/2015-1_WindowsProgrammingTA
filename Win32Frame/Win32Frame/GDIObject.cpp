@@ -36,6 +36,10 @@ void GDIObject::SelectMyObject( HDC hdc )
 {
 	if( mLinePen != NULL )
 		SelectObject( hdc, mLinePen );
+	else
+		SelectObject( hdc, GetStockObject( BLACK_PEN ) );
 	if( mBrush != NULL )
 		SelectObject( hdc, mBrush );
+	else
+		SelectObject( hdc, GetStockObject( WHITE_BRUSH ) );
 }

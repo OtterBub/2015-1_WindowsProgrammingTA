@@ -1,45 +1,37 @@
-﻿Build started 2015-04-03 오후 1:26:22.
+﻿Build started 2015-04-05 오전 6:52:02.
      1>Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GDIRect.cpp InputSystem.cpp List.cpp Main.cpp MenuScene.cpp GDIObject.cpp Object.cpp OtterVector.cpp PlayScene.cpp StageDisplayObject.cpp TestScene.cpp Win32Frame.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GDIRect.cpp InputSystem.cpp List.cpp Main.cpp MenuScene.cpp GDIObject.cpp Object.cpp OtterMath.cpp PlayScene.cpp StageDisplayObject.cpp TestScene.cpp MathUtill.cpp Win32Frame.cpp
          Win32Frame.cpp
+         MathUtill.cpp
          TestScene.cpp
          StageDisplayObject.cpp
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\stagedisplayobject.cpp(60): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\stagedisplayobject.cpp(86): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\stagedisplayobject.cpp(61): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
      1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\stagedisplayobject.cpp(87): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\stagedisplayobject.cpp(88): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
          PlayScene.cpp
-         OtterVector.cpp
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+                 c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\playscene.cpp(30) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+                 c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\playscene.cpp(30) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+         OtterMath.cpp
          Object.cpp
          GDIObject.cpp
          MenuScene.cpp
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(34): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(37): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(70): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(72): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(73): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(38): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(40): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(43): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(45): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
          Main.cpp
          List.cpp
          InputSystem.cpp
          GDIRect.cpp
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(22): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(23): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(25): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(34): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(35): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(37): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(38): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(44): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(47): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(48): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(50): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(51): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(59): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(60): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(62): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(63): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(68): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(15): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(45): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(71): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(72): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(74): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(75): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
          Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.lib" /MACHINE:X86 Debug\GDIRect.obj
@@ -49,14 +41,15 @@
          Debug\MenuScene.obj
          Debug\GDIObject.obj
          Debug\Object.obj
-         Debug\OtterVector.obj
+         Debug\OtterMath.obj
          Debug\PlayScene.obj
          Debug\StageDisplayObject.obj
          Debug\TestScene.obj
+         Debug\MathUtill.obj
          Debug\Win32Frame.obj
          Win32Frame.vcxproj -> C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.exe
      1>Done Building Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.63
+Time Elapsed 00:00:06.12

@@ -18,10 +18,12 @@ public:
 	void Draw( HWND hwnd, HDC hdc );
 
 	void KeyDown( WPARAM wParam, LPARAM lParam );
+	void KeyChar( WPARAM wParam, LPARAM lParam );
 
 private:
-	GDIRect mRect;
-	std::wstring mStr;
+	GDIRect mRect, mRect2;
+	std::wstring mStr[5];
+	int mLineCount;
 };
 
 #endif

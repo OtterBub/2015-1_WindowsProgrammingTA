@@ -21,7 +21,6 @@ protected:
 	HPEN mLinePen;
 	HBRUSH mBrush;
 	COLORREF mLineColor, mBrushColor;
-	RECT mRect;
 };
 
 #endif __GDI_OBJECT_H__

@@ -1,7 +1,7 @@
 #ifndef __OBJECT_H__
 #define __OBJECT_H__
 
-#include "OtterVector.cpp"
+#include "OtterMath.cpp"
 #include <Windows.h>
 
 class Object

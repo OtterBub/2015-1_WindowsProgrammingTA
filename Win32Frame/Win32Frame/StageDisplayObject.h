@@ -20,6 +20,9 @@ public:
 	void SetSize( int size );
 	void SetPostionColor( OtterVector2f pos, COLORREF color );
 
+	int GetCollisionIndex( OtterVector2f point );
+	int GetCollisionIndex( OtterRect2f rect );
+
 private:
 	int mWidth, mHeight, mSize;
 	GDIRect* mRectList;

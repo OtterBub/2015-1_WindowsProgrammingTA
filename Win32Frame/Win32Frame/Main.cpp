@@ -1,8 +1,6 @@
 #include <Windows.h>
 #include "Win32Frame.h"
 #include "MenuScene.h"
-#include "List.cpp"
-#include "Object.h"
 
 #define WINDOW_HEIGHT 800
 #define WINDOW_WIDTH 1280
@@ -14,6 +12,7 @@ HINSTANCE g_hinst;
 LPCTSTR lpszClass = L"Window Class Name"; // Window Name
 
 LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam );
+VOID CALLBACK timer(HWND hwnd, UINT uMsg, UINT_PTR ptr, DWORD dword);
 
 int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszMcdParam, int nCmdShow )
 {
@@ -64,7 +63,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 		case WM_CREATE:
 			WIN32FRAME.Initialize();
 			WIN32FRAME.ChangeScene( new MenuScene( ) );
-			SetTimer( hWnd, 0, 16, NULL );
+			SetTimer( hWnd, 0, 10, timer );
 			break;
 
 		case WM_PAINT:
@@ -114,19 +113,19 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_LBUTTONDOWN:
-			OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_L, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), true );
+			//OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_L, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), true );
 			break;
 			
 		case WM_LBUTTONUP:
-			OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_L, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), false );
+			//OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_L, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), false );
 			break;
 
 		case WM_RBUTTONDOWN:
-			OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_R, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), false );
+			//OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_R, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), false );
 			break;
 
 		case WM_RBUTTONUP:
-			OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_R, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), false );
+			//OTTER_INPUT.SetMouseButton( MOUSE_MESSAGE::MOUSE_R, OtterVector2i( LOWORD(lParam), HIWORD(lParam) ), false );
 			break;
 
 		case WM_MOUSEMOVE:
@@ -134,8 +133,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_TIMER:
-			WIN32FRAME.Update( 0 );
-			InvalidateRect( hWnd, NULL, false );
+			
 			break;
 
 		case WM_DESTROY:
@@ -143,4 +141,10 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 	}
 	return DefWindowProc( hWnd, uMsg, wParam, lParam );
+}
+
+VOID CALLBACK timer(HWND hwnd, UINT uMsg, UINT_PTR ptr, DWORD dword)
+{
+	WIN32FRAME.Update( 0 );
+	InvalidateRect( hwnd, NULL, false );
 }

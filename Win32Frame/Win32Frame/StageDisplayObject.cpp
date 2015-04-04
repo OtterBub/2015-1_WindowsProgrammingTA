@@ -1,4 +1,5 @@
 #include "StageDisplayObject.h"
+#include "MathUtill.cpp"
 
 StageDisplayObject::StageDisplayObject( int width, int height )
 {
@@ -55,8 +56,8 @@ void StageDisplayObject::SetPosition( float x, float y )
 		for( int j = 0; j < mWidth; ++j )
 		{
 			OtterVector2f pos;
-			pos.x = mPosition.x + ( ( mWidth - j ) * mSize );
-			pos.y = mPosition.y + ( ( mHeight - i ) * mSize );
+			pos.x = mPosition.x + ( mSize + ( mWidth - ( mWidth - j ) ) * mSize );
+			pos.y = mPosition.y + ( mSize + ( mHeight - ( mHeight - i ) ) * mSize );
 			mRectList[ ( i * mWidth ) + j ].SetRect( pos.x, pos.y, mSize );
 		}
 	}
@@ -87,5 +88,26 @@ void StageDisplayObject::SetPostionColor( OtterVector2f pos, COLORREF color )
 		int y = pos.y;
 		mRectList[ ( x * mWidth ) + y ].SetBrush( color );
 	}
+}
 
+int StageDisplayObject::GetCollisionIndex( OtterVector2f point )
+{
+	int lTotal = mWidth * mHeight;
+	for( int i = 0; i < lTotal; ++i )
+	{
+		if( CollisionRectToPoint( mRectList[i].GetRect(), point ) )
+			return i;
+	}
+	return -1;
+}
+
+int StageDisplayObject::GetCollisionIndex( OtterRect2f rect )
+{
+	int lTotal = mWidth * mHeight;
+	for( int i = 0; i < lTotal; ++i )
+	{
+		if( CollisionRectToRect( mRectList[i].GetRect(), rect ) )
+			return i;
+	}
+	return -1;
 }
