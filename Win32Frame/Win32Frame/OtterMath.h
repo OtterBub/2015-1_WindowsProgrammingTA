@@ -16,13 +16,26 @@ public:
 	bool Set( T x , T y );
 
 	T GetLength();
-
-	void operator +=( const OtterVector2<T> a );
-	void operator -=( const OtterVector2<T> a );
+	
+	template<typename U>
+	void operator +=( const OtterVector2<U> a );
+	template<typename U>
+	void operator -=( const OtterVector2<U> a );
 
 public:
 	T x, y;
 };
+
+template<typename T, typename U>
+OtterVector2<T> operator+( const OtterVector2<T> a, const OtterVector2<U> b );
+
+template<typename T, typename U>
+OtterVector2<T> operator-( const OtterVector2<T> a, const OtterVector2<U> b );
+
+template<typename T, typename U>
+OtterVector2<T> operator*( const OtterVector2<T> a, const U b );
+
+
 
 template<typename T>
 class OtterRect2
@@ -48,14 +61,5 @@ typedef OtterRect2<double> OtterRect2d;
 typedef OtterRect2<float> OtterRect2f;
 typedef OtterRect2<int> OtterRect2i;
 typedef OtterRect2<unsigned int> OtterRect2ui;
-
-template<typename T>
-OtterVector2<T> operator+( const OtterVector2<T> a, const OtterVector2<T> b );
-
-template<typename T>
-OtterVector2<T> operator-( const OtterVector2<T> a, const OtterVector2<T> b );
-
-template<typename T>
-OtterVector2<T> operator*( const OtterVector2<T> a, const float b );
 
 #endif

@@ -28,10 +28,7 @@ StageDisplayObject::~StageDisplayObject()
 
 void StageDisplayObject::Update( float dt )
 {
-	if( mCheckBlock )
-	{
-		mCheckBlock = false;
-	}
+	
 }
 
 void StageDisplayObject::Draw( HDC hdc )
@@ -98,12 +95,12 @@ void StageDisplayObject::SetIndexColor( int index, COLORREF color )
 	}
 }
 
-void StageDisplayObject::SetPostionColor( OtterVector2f pos, COLORREF color )
+void StageDisplayObject::SetPositionColor( OtterVector2f pos, COLORREF color )
 {
 	if( ( ( pos.x * mWidth ) + pos.y ) < ( mWidth * mHeight ) ){
 		int x = pos.x;
 		int y = pos.y;
-		mRectList[( x * mWidth ) + y].SetBrush( color );
+		mRectList[x + ( y * mWidth )].SetBrush( color );
 	}
 }
 
@@ -157,7 +154,12 @@ COLORREF StageDisplayObject::GetColorRef( int index )
 	return mRectList[index].GetBrushColor();
 }
 
+COLORREF StageDisplayObject::GetColorRef( int x, int y )
+{
+	return mRectList[x + ( y * mWidth )].GetBrushColor();
+}
+
 COLORREF StageDisplayObject::GetColorRef( OtterVector2f index )
 {
-	return GetColorRef( index.x + ( index.y * mHeight ) );
+	return GetColorRef( index.x + ( index.y * mWidth ) );
 }

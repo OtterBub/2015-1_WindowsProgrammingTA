@@ -45,21 +45,23 @@ T OtterVector2<T>::GetLength()
 }
 
 template<typename T>
-void OtterVector2<T>::operator +=( const OtterVector2<T> a )
+template<typename U>
+void OtterVector2<T>::operator +=( const OtterVector2<U> a )
 {
 	this->x += a.x;
 	this->y += a.y;
 }
 
 template<typename T>
-void OtterVector2<T>::operator -=( const OtterVector2<T> a )
+template<typename U>
+void OtterVector2<T>::operator -=( const OtterVector2<U> a )
 {
 	this->x -= a.x;
 	this->y -= a.y;
 }
 
-template<typename T>
-OtterVector2<T> operator +( const OtterVector2<T> a, const OtterVector2<T> b )
+template<typename T, typename U>
+OtterVector2<T> operator +( const OtterVector2<T> a, const OtterVector2<U> b )
 {
 	OtterVector2<T> temp;
 	temp.x = a.x + b.x;
@@ -67,8 +69,8 @@ OtterVector2<T> operator +( const OtterVector2<T> a, const OtterVector2<T> b )
 	return temp;
 }
 
-template<typename T>
-OtterVector2<T> operator-( const OtterVector2<T> a, const OtterVector2<T> b )
+template<typename T, typename U>
+OtterVector2<T> operator-( const OtterVector2<T> a, const OtterVector2<U> b )
 {
 	OtterVector2<T> temp;
 	temp.x = a.x - b.x;
@@ -76,8 +78,8 @@ OtterVector2<T> operator-( const OtterVector2<T> a, const OtterVector2<T> b )
 	return temp;
 }
 
-template<typename T>
-OtterVector2<T> operator*( const OtterVector2<T> a, const float b )
+template<typename T, typename U>
+OtterVector2<T> operator*( const OtterVector2<T> a, const U b )
 {
 	OtterVector2<T> temp = a;
 	temp.x *= b;

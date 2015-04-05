@@ -1,9 +1,53 @@
-﻿Build started 2015-04-05 오후 7:22:27.
-     1>Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" on node 2 (Build target(s)).
+﻿Build started 2015-04-05 오후 9:19:23.
+     1>Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt PlayScene.cpp
-         PlayScene.cpp
-     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\playscene.cpp(20): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameStageObject.cpp GDIRect.cpp InputSystem.cpp List.cpp Main.cpp MenuScene.cpp GDIObject.cpp Object.cpp OtterMath.cpp DeleteBlockTestScene.cpp RectCollisionCheckScene.cpp StageDisplayObject.cpp TestScene.cpp MathUtill.cpp Win32Frame.cpp
+         Win32Frame.cpp
+         MathUtill.cpp
+         TestScene.cpp
+         StageDisplayObject.cpp
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\stagedisplayobject.cpp(67): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\stagedisplayobject.cpp(101): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\stagedisplayobject.cpp(102): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\stagedisplayobject.cpp(164): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         RectCollisionCheckScene.cpp
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+                 c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\rectcollisioncheckscene.cpp(43) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+                 c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\rectcollisioncheckscene.cpp(43) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+         DeleteBlockTestScene.cpp
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(45): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+                 c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(28) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+                 c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(28) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(76): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+                 c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(41) : see reference to function template instantiation 'OtterVector2<int> operator -<int,float>(const OtterVector2<int>,const OtterVector2<float>)' being compiled
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(77): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+         OtterMath.cpp
+         Object.cpp
+         GDIObject.cpp
+         MenuScene.cpp
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(39): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(41): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(44): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(46): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         Main.cpp
+         List.cpp
+         InputSystem.cpp
+         GDIRect.cpp
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(16): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(46): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(72): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(73): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(75): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gdirect.cpp(76): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+         GameStageObject.cpp
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+                 c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gamestageobject.cpp(108) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+                 c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\gamestageobject.cpp(108) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.lib" /MACHINE:X86 Debug\GameStageObject.obj
          Debug\GDIRect.obj
@@ -14,15 +58,15 @@
          Debug\GDIObject.obj
          Debug\Object.obj
          Debug\OtterMath.obj
-         Debug\PlayScene.obj
+         Debug\DeleteBlockTestScene.obj
          Debug\RectCollisionCheckScene.obj
          Debug\StageDisplayObject.obj
          Debug\TestScene.obj
          Debug\MathUtill.obj
          Debug\Win32Frame.obj
          Win32Frame.vcxproj -> C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.exe
-     1>Done Building Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.20
+Time Elapsed 00:00:08.13

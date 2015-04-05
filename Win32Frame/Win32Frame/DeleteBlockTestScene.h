@@ -1,15 +1,15 @@
-#ifndef __PLAYSCENE_H__
-#define __PLAYSCENE_H__
+#ifndef __DELETE_BLOCK_TEST_SCENE_H__
+#define __DELETE_BLOCK_TEST_SCENE_H__
 
 #include "Scene.h"
 #include "GameStageObject.h"
 #include "GDIRect.h"
 
-class PlayScene : public Scene
+class DeleteBlockTestScene : public Scene
 {
 public:
-	PlayScene();
-	~PlayScene();
+	DeleteBlockTestScene();
+	~DeleteBlockTestScene();
 
 	void Enter();
 	void Exit();

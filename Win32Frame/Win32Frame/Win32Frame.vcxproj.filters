@@ -71,7 +71,7 @@
     <ClInclude Include="RectCollisionCheckScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="PlayScene.h">
+    <ClInclude Include="DeleteBlockTestScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
   </ItemGroup>
@@ -118,7 +118,7 @@
     <ClCompile Include="RectCollisionCheckScene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="PlayScene.cpp">
+    <ClCompile Include="DeleteBlockTestScene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
   </ItemGroup>

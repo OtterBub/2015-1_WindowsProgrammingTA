@@ -21,17 +21,17 @@ public:
 
 	void SetSize( int size );
 	void SetIndexColor( int index, COLORREF color );
-	void SetPostionColor( OtterVector2f pos, COLORREF color );
+	void SetPositionColor( OtterVector2f pos, COLORREF color );
 
 	int GetCollisionIndex( OtterVector2f point );
 	int GetCollisionIndex( OtterRect2f rect );
 	std::vector<int> GetCollisionIndexes( OtterRect2f rect );
 	COLORREF GetColorRef( int index );
+	COLORREF GetColorRef( int x, int y );
 	COLORREF GetColorRef( OtterVector2f index );
 
 private:
 	int mWidth, mHeight, mSize;
-	bool mCheckBlock;
 	COLORREF mDefaultColor;
 	GDIRect* mRectList;
 };
