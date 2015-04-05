@@ -1,4 +1,5 @@
 #include <Windows.h>
+#include <ctime>
 #include "Win32Frame.h"
 #include "MenuScene.h"
 
@@ -20,6 +21,8 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszMcdP
 	MSG Message;
 	WNDCLASS WndClass;
 	g_hinst = hInstance;
+
+	srand( (unsigned int)time(NULL) );
 
 	WndClass.cbClsExtra = 0;
 	WndClass.cbWndExtra = 0;

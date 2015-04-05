@@ -13,6 +13,8 @@ public:
 
 	void Translate( float x, float y );
 	void Translate( OtterVector2f trans );
+	void SetPosition( float x, float y );
+	void SetPosition( OtterVector2f pos );
 
 	void SetRect( int x, int y, int size );
 	void SetRect( OtterVector2f pos, int size );

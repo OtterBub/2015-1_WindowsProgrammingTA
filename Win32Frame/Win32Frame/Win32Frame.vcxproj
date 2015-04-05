@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlockObject.h" />
+    <ClInclude Include="CreateBlockTestScene.h" />
     <ClInclude Include="GameStageObject.h" />
     <ClInclude Include="GDIRect.h" />
     <ClInclude Include="InputSystem.h" />
@@ -28,6 +30,8 @@
     <ClInclude Include="List.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BlockObject.cpp" />
+    <ClCompile Include="CreateBlockTestScene.cpp" />
     <ClCompile Include="GameStageObject.cpp" />
     <ClCompile Include="GDIRect.cpp" />
     <ClCompile Include="InputSystem.cpp" />

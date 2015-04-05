@@ -62,9 +62,6 @@
     <ClInclude Include="OtterMath.h">
       <Filter>Source\NewType</Filter>
     </ClInclude>
-    <ClInclude Include="MathUtill.h">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="GameStageObject.h">
       <Filter>Source\Object\SceneObject</Filter>
     </ClInclude>
@@ -73,6 +70,15 @@
     </ClInclude>
     <ClInclude Include="DeleteBlockTestScene.h">
       <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockObject.h">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateBlockTestScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtill.h">
+      <Filter>Source\NewType</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -109,9 +115,6 @@
     <ClCompile Include="OtterMath.cpp">
       <Filter>Source\NewType</Filter>
     </ClCompile>
-    <ClCompile Include="MathUtill.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="GameStageObject.cpp">
       <Filter>Source\Object\SceneObject</Filter>
     </ClCompile>
@@ -120,6 +123,15 @@
     </ClCompile>
     <ClCompile Include="DeleteBlockTestScene.cpp">
       <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockObject.cpp">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateBlockTestScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtill.cpp">
+      <Filter>Source\NewType</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

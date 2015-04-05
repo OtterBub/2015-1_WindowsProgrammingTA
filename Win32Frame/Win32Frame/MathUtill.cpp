@@ -23,3 +23,14 @@ bool CollisionRectToRect( OtterRect2<T1> rect1, OtterRect2<T2> rect2 )
 	else
 		return false;
 }
+
+template<typename T1, typename T2, typename T3>
+bool CollisionRectToRectRange( OtterRect2<T1> rect1, OtterRect2<T2> rect2, T3 range )
+{
+	rect1.point[0] += OtterVector2<T1>( range, range );
+	rect1.point[1] -= OtterVector2<T1>( range, range );
+	rect2.point[0] += OtterVector2<T2>( range, range );
+	rect2.point[1] -= OtterVector2<T2>( range, range );
+
+	return CollisionRectToRect( rect1, rect2 );
+}

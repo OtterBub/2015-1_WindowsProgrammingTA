@@ -40,6 +40,30 @@ void GDIRect::Translate( OtterVector2f trans )
 	mRectf.point[1].y = mPosition.y + halfHeight;
 }
 
+void GDIRect::SetPosition( float x, float y )
+{
+	Object::SetPosition( x, y );
+	float halfWidth = abs( mRectf.point[1].x - mRectf.point[0].x ) / 2;
+	float halfHeight = abs( mRectf.point[1].y - mRectf.point[0].y ) / 2;
+	mRectf.point[0].x = mPosition.x - halfWidth;
+	mRectf.point[1].x = mPosition.x + halfWidth;
+
+	mRectf.point[0].y = mPosition.y - halfHeight;
+	mRectf.point[1].y = mPosition.y + halfHeight;
+}
+
+void GDIRect::SetPosition( OtterVector2f pos )
+{
+	Object::SetPosition( pos );
+	float halfWidth = abs( mRectf.point[1].x - mRectf.point[0].x ) / 2;
+	float halfHeight = abs( mRectf.point[1].y - mRectf.point[0].y ) / 2;
+	mRectf.point[0].x = mPosition.x - halfWidth;
+	mRectf.point[1].x = mPosition.x + halfWidth;
+
+	mRectf.point[0].y = mPosition.y - halfHeight;
+	mRectf.point[1].y = mPosition.y + halfHeight;
+}
+
 
 void GDIRect::SetRect( int x, int y, int size )
 {
