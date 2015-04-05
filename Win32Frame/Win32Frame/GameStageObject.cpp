@@ -39,7 +39,11 @@ void GameStageObject::SetPosition( OtterVector2f pos )
 	Object::SetPosition( pos );
 }
 
-void GameStageObject::CollisionCheck( OtterRect2f rect )
+void GameStageObject::BlockCheck( OtterRect2f rect, COLORREF color )
 {
-	mDisplayObject.GetCollisionIndex( rect );
+	int lIndex = mDisplayObject.GetCollisionIndex( rect );
+	if( lIndex != -1 )
+	{
+		mDisplayObject.SetIndexColor( lIndex, color );
+	}
 }

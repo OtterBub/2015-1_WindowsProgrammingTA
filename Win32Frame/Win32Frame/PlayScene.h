@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "GameStageObject.h"
+#include "GDIRect.h"
 
 class PlayScene : public Scene
 {
@@ -18,6 +19,7 @@ public:
 
 private:
 	GameStageObject mStage;
+	GDIRect mRect;
 };
 
 #endif

@@ -18,7 +18,7 @@ public:
 	void SetPosition( float x, float y );
 	void SetPosition( OtterVector2f pos );
 
-	void CollisionCheck( OtterRect2f rect );
+	void BlockCheck( OtterRect2f rect, COLORREF color );
 
 private:
 	StageDisplayObject mDisplayObject;

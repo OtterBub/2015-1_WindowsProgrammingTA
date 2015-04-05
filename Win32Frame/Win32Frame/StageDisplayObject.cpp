@@ -151,3 +151,13 @@ std::vector< int > StageDisplayObject::GetCollisionIndexes( OtterRect2f rect )
 	}
 	return result;
 }
+
+COLORREF StageDisplayObject::GetColorRef( int index )
+{
+	return mRectList[index].GetBrushColor();
+}
+
+COLORREF StageDisplayObject::GetColorRef( OtterVector2f index )
+{
+	return GetColorRef( index.x + ( index.y * mHeight ) );
+}
