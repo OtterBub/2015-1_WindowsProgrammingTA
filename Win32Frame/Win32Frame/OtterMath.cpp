@@ -39,6 +39,12 @@ bool OtterVector2<T>::Set( T x, T y )
 }
 
 template<typename T>
+T OtterVector2<T>::GetLength()
+{
+	return std::sqrt( ( x * x ) + ( y * y ) );
+}
+
+template<typename T>
 void OtterVector2<T>::operator +=( const OtterVector2<T> a )
 {
 	this->x += a.x;

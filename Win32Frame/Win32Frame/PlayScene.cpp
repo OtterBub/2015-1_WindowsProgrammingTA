@@ -32,6 +32,7 @@ void PlayScene::Update( double dt )
 	static bool lDrag = false;
 	static OtterVector2i prevMousePos = OTTER_INPUT.GetMousePosition();
 	int lIndex;
+	int lIndexList;
 
 	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) )
 	{
@@ -50,12 +51,25 @@ void PlayScene::Update( double dt )
 	
 	mLineCount = 0;
 	lIndex = mBoard.GetCollisionIndex( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ) );
+	if( lIndex >= 0 )
+	{
+		mBoard.SetIndexColor( lIndex, RGB(255, 255, 255) );
+	}
+
+	lIndexList = mBoard.GetCollisionIndex( mRect.GetRect() );
+	if( lIndexList > 0 )
+	{
+		mBoard.SetIndexColor( lIndexList, RGB( 0, 0, 125 ) );
+	}
 
 	prevMousePos = OTTER_INPUT.GetMousePosition();
 
 	OtterVector2f pos = mBoard.GetPosition(  );
 	mStr[0] = L"Index: " + std::to_wstring( lIndex ) + L" ";
-	mStr[0] += std::to_wstring( pos.x ) + L", " + std::to_wstring( pos.y );
+	mStr[0] += std::to_wstring( pos.x ) + L", " + std::to_wstring( pos.y ) + L" / ";
+	mStr[0] += L"RectToRect Index: ";
+	mStr[0] += std::to_wstring(lIndexList) + L" ";
+	
 }
 
 void PlayScene::Draw( HWND hwnd, HDC hdc )

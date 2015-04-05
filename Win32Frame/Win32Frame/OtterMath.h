@@ -1,6 +1,8 @@
 #ifndef __OTTERVECTOR_H__
 #define __OTTERVECTOR_H__
 
+#include <cmath>
+
 template<typename T>
 class OtterVector2
 {
@@ -12,6 +14,8 @@ public:
 	~OtterVector2();
 
 	bool Set( T x , T y );
+
+	T GetLength();
 
 	void operator +=( const OtterVector2<T> a );
 	void operator -=( const OtterVector2<T> a );
