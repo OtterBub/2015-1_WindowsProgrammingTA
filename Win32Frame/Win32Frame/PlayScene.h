@@ -21,6 +21,7 @@ public:
 
 private:
 	StageDisplayObject mBoard;
+	GDIRect mRect;
 	std::wstring mStr[5];
 	int mLineCount;
 };
