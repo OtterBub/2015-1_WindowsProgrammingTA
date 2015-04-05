@@ -1,5 +1,5 @@
 #include "TestScene.h"
-#include "PlayScene.h"
+#include "RectCollisionCheckScene.h"
 #include "Win32Frame.h"
 
 TestScene::TestScene()

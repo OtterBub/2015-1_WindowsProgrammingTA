@@ -10,6 +10,7 @@ public:
 	Object();
 	virtual ~Object();
 
+	virtual void Update( float dt );
 	virtual void Draw( HDC hdc ) = 0;
 
 	virtual void Translate( float x, float y );

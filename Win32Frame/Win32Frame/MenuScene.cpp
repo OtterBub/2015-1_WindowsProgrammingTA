@@ -1,4 +1,5 @@
 #include "MenuScene.h"
+#include "RectCollisionCheckScene.h"
 #include "PlayScene.h"
 #include "Win32Frame.h"
 #include "InputSystem.h"
@@ -46,6 +47,9 @@ void MenuScene::Update( double dt )
 
 	if( OTTER_INPUT.GetKeyDown( 'P' ) )
 		WIN32FRAME.ChangeScene( new PlayScene() );
+
+	if( OTTER_INPUT.GetKeyDown( 'T' ) )
+		WIN32FRAME.ChangeScene( new RectCollisionCheckScene() );
 
 	mStr[mLineCount] = std::to_wstring( dt );
 

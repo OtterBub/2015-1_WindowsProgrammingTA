@@ -7,6 +7,7 @@ StageDisplayObject::StageDisplayObject( int width, int height )
 	mHeight = height;
 	mSize = 10;
 	mRectList = new GDIRect[mWidth * mHeight];
+	mDefaultColor = RGB( 255, 255, 255 );
 	SetPosition( 0, 0 );
 }
 
@@ -16,6 +17,7 @@ StageDisplayObject::StageDisplayObject( int width, int height, int size )
 	mHeight = height;
 	mSize = size;
 	mRectList = new GDIRect[mWidth * mHeight];
+	mDefaultColor = RGB( 255, 255, 255 );
 	SetPosition( 0, 0 );
 }
 
@@ -24,6 +26,13 @@ StageDisplayObject::~StageDisplayObject()
 	delete[] mRectList;
 }
 
+void StageDisplayObject::Update( float dt )
+{
+	if( mCheckBlock )
+	{
+		mCheckBlock = false;
+	}
+}
 
 void StageDisplayObject::Draw( HDC hdc )
 {

@@ -41,9 +41,6 @@
     <ClInclude Include="TestScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="PlayScene.h">
-      <Filter>Source\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="MenuScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
@@ -67,6 +64,15 @@
     </ClInclude>
     <ClInclude Include="MathUtill.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStageObject.h">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RectCollisionCheckScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScene.h">
+      <Filter>Source\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -97,9 +103,6 @@
     <ClCompile Include="InputSystem.cpp">
       <Filter>Source\System</Filter>
     </ClCompile>
-    <ClCompile Include="PlayScene.cpp">
-      <Filter>Source\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="StageDisplayObject.cpp">
       <Filter>Source\Object\SceneObject</Filter>
     </ClCompile>
@@ -107,6 +110,15 @@
       <Filter>Source\NewType</Filter>
     </ClCompile>
     <ClCompile Include="MathUtill.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStageObject.cpp">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="RectCollisionCheckScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScene.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

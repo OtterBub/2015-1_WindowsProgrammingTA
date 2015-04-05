@@ -14,6 +14,9 @@ public:
 	void SetPen( int penStyle, int width, COLORREF color );
 	void SetBrush( COLORREF color );
 
+	COLORREF GetLineColor();
+	COLORREF GetBrushColor();
+
 private:
 	void SelectMyObject( HDC hdc );
 	

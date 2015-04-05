@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameStageObject.h" />
     <ClInclude Include="GDIRect.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="OtterMath.h" />
     <ClInclude Include="PlayScene.h" />
+    <ClInclude Include="RectCollisionCheckScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="StageDisplayObject.h" />
     <ClInclude Include="TestScene.h" />
@@ -26,6 +28,7 @@
     <ClInclude Include="List.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameStageObject.cpp" />
     <ClCompile Include="GDIRect.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="List.cpp" />
@@ -35,6 +38,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="OtterMath.cpp" />
     <ClCompile Include="PlayScene.cpp" />
+    <ClCompile Include="RectCollisionCheckScene.cpp" />
     <ClCompile Include="StageDisplayObject.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="MathUtill.cpp" />

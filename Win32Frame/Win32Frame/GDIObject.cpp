@@ -4,6 +4,8 @@ GDIObject::GDIObject()
 {
 	mLinePen = NULL;
 	mBrush = NULL;
+	mLineColor = RGB( 0, 0, 0 );
+	mBrushColor = RGB( 255, 255, 255 );
 }
 GDIObject::~GDIObject()
 {
@@ -22,14 +24,26 @@ void GDIObject::SetPen( int penStyle, int width, COLORREF color )
 {
 	if( mLinePen != NULL )
 		DeleteObject( mLinePen );
-	mLinePen = CreatePen( penStyle, width, color );
+	mLineColor = color;
+	mLinePen = CreatePen( penStyle, width, mLineColor );
 }
 
 void GDIObject::SetBrush( COLORREF color )
 {
 	if( mBrush != NULL )
 		DeleteObject( mLinePen );
-	mBrush = CreateSolidBrush( color );
+	mBrushColor = color;
+	mBrush = CreateSolidBrush( mBrushColor );
+}
+
+COLORREF GDIObject::GetLineColor()
+{
+	return mLineColor;
+}
+
+COLORREF GDIObject::GetBrushColor()
+{
+	return mBrushColor;
 }
 
 void GDIObject::SelectMyObject( HDC hdc )

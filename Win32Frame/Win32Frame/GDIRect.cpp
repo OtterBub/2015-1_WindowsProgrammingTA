@@ -3,6 +3,7 @@
 
 GDIRect::GDIRect()
 {
+
 }
 
 GDIRect::~GDIRect()

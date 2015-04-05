@@ -11,6 +11,7 @@ public:
 	StageDisplayObject( int width, int height, int size );
 	~StageDisplayObject();
 
+	void Update( float dt );
 	void Draw( HDC hdc );
 
 	void Translate( float x, float y );
@@ -24,10 +25,12 @@ public:
 
 	int GetCollisionIndex( OtterVector2f point );
 	int GetCollisionIndex( OtterRect2f rect );
-	std::vector< int > GetCollisionIndexes( OtterRect2f rect );
+	std::vector<int> GetCollisionIndexes( OtterRect2f rect );
 
 private:
 	int mWidth, mHeight, mSize;
+	bool mCheckBlock;
+	COLORREF mDefaultColor;
 	GDIRect* mRectList;
 };
 
