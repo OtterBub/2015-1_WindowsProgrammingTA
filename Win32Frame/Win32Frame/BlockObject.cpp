@@ -19,7 +19,6 @@ BlockObject::~BlockObject()
 	delete[] mDirList;
 }
 
-
 void BlockObject::Update( float dt )
 {
 }
@@ -88,7 +87,7 @@ bool BlockObject::CollisionCheck( OtterVector2i pos )
 void BlockObject::CreateBlock()
 {
 	static GDIRect checkRect;
-	OtterVector2f prevPos = mRectList[0].GetPosition();
+	OtterVector2i prevPos = mRectList[0].GetPosition();
 	int prevCreateDir = 0;
 	int currentDir = 0;
 	mDirList[0] = -1;
@@ -129,7 +128,7 @@ void BlockObject::CreateBlock()
 		}
 		mDirList[i] = currentDir;
 		prevCreateDir = currentDir;
-		mRectList[i].SetPosition( mRectList[i - 1].GetPosition() + GetRandPosition( currentDir ) );
+		mRectList[i].SetPosition( prevPos + GetRandPosition( currentDir ) );
 		prevPos = mRectList[i].GetPosition();
 	}
 }
@@ -138,13 +137,13 @@ OtterVector2f BlockObject::GetRandPosition( int dir )
 {
 	switch( dir )
 	{
-		case RIGHT:
+		case DIR::RIGHT:
 			return OtterVector2f( mSize, 0 );
-		case LEFT:
+		case DIR::LEFT:
 			return OtterVector2f( -mSize, 0 );
-		case UP:
+		case DIR::UP:
 			return OtterVector2f( 0, -mSize );
-		case DOWN:
+		case DIR::DOWN:
 			return OtterVector2f( 0, mSize );
 		default:
 			return OtterVector2f();

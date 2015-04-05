@@ -4,17 +4,16 @@
 #include "Object.h"
 #include "GDIRect.h"
 
+enum DIR
+{
+	RIGHT,
+	LEFT,
+	UP,
+	DOWN
+};
+
 class BlockObject : public Object
 {
-private:
-	enum CREATE_DIR
-	{
-		RIGHT,
-		LEFT,
-		UP,
-		DOWN
-	};
-
 public:
 	BlockObject( int blockCount, int size );
 	~BlockObject();
