@@ -4,6 +4,7 @@
 BlockObject::BlockObject()
 {
 	mDirList = nullptr;
+	mIsUsed = false;
 	mBlockCount = 0;
 	mSize = 50;
 }
@@ -14,6 +15,7 @@ BlockObject::BlockObject( int blockCount, int size )
 	{
 		blockCount = 1;
 	}
+	mIsUsed = false;
 	mRectListvec.resize( blockCount );
 	mDirList = new int[blockCount];
 	mBlockCount = blockCount;
@@ -113,6 +115,11 @@ void BlockObject::SetColor( COLORREF color )
 	}
 }
 
+void BlockObject::SetUsed( bool set )
+{
+	mIsUsed = set;
+}
+
 bool BlockObject::CollisionCheck( OtterVector2i pos )
 {
 
@@ -210,4 +217,9 @@ OtterVector2f BlockObject::GetRandPosition( int dir )
 		default:
 			return OtterVector2f();
 	}
+}
+
+bool BlockObject::GetUsed()
+{
+	return mIsUsed;
 }

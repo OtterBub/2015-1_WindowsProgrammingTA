@@ -83,9 +83,6 @@
     <ClInclude Include="PlayScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="GDIManager.h">
-      <Filter>Source\System</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

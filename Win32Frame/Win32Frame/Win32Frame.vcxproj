@@ -14,7 +14,6 @@
     <ClInclude Include="BlockObject.h" />
     <ClInclude Include="CreateBlockTestScene.h" />
     <ClInclude Include="GameStageObject.h" />
-    <ClInclude Include="GDIManager.h" />
     <ClInclude Include="GDIRect.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="MenuScene.h" />

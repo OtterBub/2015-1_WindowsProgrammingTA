@@ -29,12 +29,14 @@ public:
 	void SetPosition( OtterVector2f pos );
 	void SetBlock( int blockCount, int size );
 	void SetColor( COLORREF color );
+	void SetUsed( bool set );
 
 	bool CollisionCheck( OtterVector2i pos );
 
 	GDIRect* GetRectList();
 	std::vector<GDIRect> GetRectListvec();
 	int GetBlockCount();
+	bool GetUsed();
 
 private:
 	OtterVector2f GetRandPosition( int dir );
@@ -43,6 +45,7 @@ private:
 private:
 	int mBlockCount, mSize;
 	int* mDirList;
+	bool mIsUsed;
 	GDIRect* mRectList;
 	std::vector<GDIRect> mRectListvec;
 };

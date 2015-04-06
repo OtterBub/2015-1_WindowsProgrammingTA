@@ -1,6 +1,7 @@
 #include "GameStageObject.h"
 #include "InputSystem.h"
 #include "MathUtill.h"
+#include <string>
 
 GameStageObject::GameStageObject( int width, int height ) :
 mDisplayObject( width, height )
@@ -36,24 +37,34 @@ void GameStageObject::Update( float dt )
 	static int lDragBlockIndex = -1;
 	static OtterVector2i prevPos = OTTER_INPUT.GetMousePosition();
 
-	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) )
+
+	// Object Select
+	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) && ( lDragBlockIndex == -1 ) )
 	{
 		lDragBlockIndex = BlockObjectClickCheck( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ) );
 	}
-	else
+	else if( OTTER_INPUT.GetMouseUp( MOUSE_MESSAGE::MOUSE_L ) )
 		lDragBlockIndex = -1;
 
+	// Object Drag
 	if( lDragBlockIndex != -1 )
-	{
 		mBlockList[lDragBlockIndex].Translate( OTTER_INPUT.GetMousePosition() - prevPos );
+
+	for( int blockIndex = 0; blockIndex < mBlockCount; ++blockIndex )
+	{
+		//mBlockCheck = BlockObjectCheck( mBlockList[blockIndex] );
 	}
 
+
+	// Object Delete Check
 	if( mBlockCheck )
 	{
 		mBlockCheck = false;
 		DeleteBlockCheck();
 	}
 
+	mDebugStr = std::to_wstring( lDragBlockIndex );
+	
 	prevPos = OTTER_INPUT.GetMousePosition();
 }
 void GameStageObject::Draw( HDC hdc )
@@ -63,6 +74,8 @@ void GameStageObject::Draw( HDC hdc )
 	if( mBlockList != nullptr )
 		for( int i = 0; i < mBlockCount; ++i )
 			mBlockList[i].Draw( hdc );
+
+	TextOut( hdc, 0, 0, mDebugStr.c_str(), mDebugStr.size() );
 }
 
 void GameStageObject::Translate( float x, float y )
@@ -145,7 +158,7 @@ int GameStageObject::RectCheck( OtterRect2f rect )
 bool GameStageObject::BlockObjectCheck( BlockObject block )
 {
 	
-	GDIRect* rect = block.GetRectList();
+	std::vector<GDIRect> rect = block.GetRectListvec();
 	int rectCount = block.GetBlockCount();
 	int checkCount = 0;
 	int* changeColorIndexList = new int[rectCount];
@@ -168,8 +181,7 @@ bool GameStageObject::BlockObjectCheck( BlockObject block )
 	}
 
 	delete[] changeColorIndexList;
-	delete[] rect;
-	return false;
+	return true;
 }
 
 int GameStageObject::BlockObjectClickCheck( OtterVector2i mousepos )
@@ -184,11 +196,9 @@ int GameStageObject::BlockObjectClickCheck( OtterVector2i mousepos )
 		{
 			if( CollisionRectToPoint( rect[rectIndex].GetRect(), mousepos ) )
 			{
-				++collisionCount;
+				return blockIndex;
 			}
 		}
-		if( collisionCount == rectCount )
-			return blockIndex;
 	}
 
 	return -1;

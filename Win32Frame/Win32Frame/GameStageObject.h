@@ -3,6 +3,7 @@
 
 #include "StageDisplayObject.h"
 #include "BlockObject.h"
+#include <string>
 
 class GameStageObject : public Object
 {
@@ -47,6 +48,8 @@ private:
 	COLORREF* mColorList;
 	bool mBlockCheck;
 	int mWidth, mHeight, mBlockCount;
+
+	std::wstring mDebugStr;
 };
 
 #endif
