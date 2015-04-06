@@ -7,10 +7,11 @@ GDIObject::GDIObject()
 	mBrush = NULL;
 	mLineColor = RGB( 0, 0, 0 );
 	mBrushColor = RGB( 255, 255, 255 );
+	mPenStyle = PS_SOLID;
+	mWidth = 1;
 }
 GDIObject::~GDIObject()
 {
-	printf( "Call Destructor GDIObject" );
 	if( mLinePen != NULL )
 		DeleteObject( mLinePen );
 	if( mBrush != NULL )
@@ -24,18 +25,13 @@ void GDIObject::Draw( HDC hdc )
 
 void GDIObject::SetPen( int penStyle, int width, COLORREF color )
 {
-	if( mLinePen != NULL )
-		DeleteObject( mLinePen );
+	mPenStyle = penStyle;
 	mLineColor = color;
-	mLinePen = CreatePen( penStyle, width, mLineColor );
 }
 
 void GDIObject::SetBrush( COLORREF color )
 {
-	if( mBrush != NULL )
-		DeleteObject( mLinePen );
 	mBrushColor = color;
-	mBrush = CreateSolidBrush( mBrushColor );
 }
 
 COLORREF GDIObject::GetLineColor()
@@ -47,6 +43,21 @@ COLORREF GDIObject::GetBrushColor()
 {
 	return mBrushColor;
 }
+
+void GDIObject::CreateMyObject( )
+{
+	mLinePen = CreatePen( mPenStyle, mWidth, mLineColor );
+	mBrush = CreateSolidBrush( mBrushColor );
+}
+void GDIObject::DeleteMyObject( )
+{
+	DeleteObject( mLinePen );
+	DeleteObject( mBrush );
+	mLinePen = NULL;
+	mBrush = NULL;
+}
+
+
 
 void GDIObject::SelectMyObject( HDC hdc )
 {

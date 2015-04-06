@@ -17,6 +17,9 @@ public:
 	COLORREF GetLineColor();
 	COLORREF GetBrushColor();
 
+	void CreateMyObject( );
+	void DeleteMyObject( );
+
 private:
 	void SelectMyObject( HDC hdc );
 	
@@ -24,6 +27,7 @@ protected:
 	HPEN mLinePen;
 	HBRUSH mBrush;
 	COLORREF mLineColor, mBrushColor;
+	int mPenStyle, mWidth;
 };
 
 #endif __GDI_OBJECT_H__

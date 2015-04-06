@@ -12,8 +12,10 @@ GDIRect::~GDIRect()
 
 void GDIRect::Draw( HDC hdc )
 {
+	GDIObject::CreateMyObject();
 	GDIObject::Draw( hdc );
 	Rectangle( hdc, mRectf.point[0].x, mRectf.point[0].y, mRectf.point[1].x, mRectf.point[1].y );
+	GDIObject::DeleteMyObject();
 }
 
 void GDIRect::Translate( float x, float y )
