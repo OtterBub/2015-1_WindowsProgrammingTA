@@ -99,6 +99,8 @@ void BlockObject::SetBlock( int blockCount, int size )
 		blockCount = 1;
 	}
 	mRectListvec.resize( blockCount );
+	if( mDirList != nullptr )
+		delete[] mDirList;
 	mDirList = new int[blockCount];
 	mBlockCount = blockCount;
 	mSize = size;
@@ -133,11 +135,7 @@ bool BlockObject::CollisionCheck( OtterVector2i pos )
 
 GDIRect* BlockObject::GetRectList()
 {
-
-
-	GDIRect* temp = new GDIRect[mBlockCount];
-	memcpy_s( temp, sizeof( GDIRect ) * mBlockCount, mRectList, sizeof( GDIRect ) * mBlockCount );
-	return temp;
+	return 0;
 }
 
 std::vector<GDIRect> BlockObject::GetRectListvec()

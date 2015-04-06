@@ -1,8 +1,4 @@
 #include "MenuScene.h"
-#include "RectCollisionCheckScene.h"
-#include "DeleteBlockTestScene.h"
-#include "CreateBlockTestScene.h"
-#include "PlayScene.h"
 #include "Win32Frame.h"
 #include "InputSystem.h"
 #include "StageDisplayObject.h"
@@ -46,15 +42,6 @@ void MenuScene::Update( double dt )
 		mRect.Translate( -speed * dt, 0 );
 	else if( OTTER_INPUT.GetKeyDown( 'D' ) )
 		mRect.Translate( speed * dt, 0 );
-
-	if( OTTER_INPUT.GetKeyDown( '1' ) )
-		WIN32FRAME.ChangeScene( new RectCollisionCheckScene() );
-	if( OTTER_INPUT.GetKeyDown( '2' ) )
-		WIN32FRAME.ChangeScene( new DeleteBlockTestScene() );
-	if( OTTER_INPUT.GetKeyDown( '3' ) )
-		WIN32FRAME.ChangeScene( new CreateBlockScene() );
-	if( OTTER_INPUT.GetKeyDown( '4' ) )
-		WIN32FRAME.ChangeScene( new PlayScene() );
 
 	mStr[mLineCount] = std::to_wstring( dt );
 

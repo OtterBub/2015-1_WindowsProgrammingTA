@@ -1,7 +1,71 @@
-﻿  GameStageObject.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(126): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+﻿  Win32Frame.cpp
+  MathUtill.cpp
+  TestScene.cpp
+  StageDisplayObject.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\stagedisplayobject.cpp(67): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\stagedisplayobject.cpp(101): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\stagedisplayobject.cpp(102): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\stagedisplayobject.cpp(164): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+  RectCollisionCheckScene.cpp
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(51) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(51) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\rectcollisioncheckscene.cpp(43) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\rectcollisioncheckscene.cpp(43) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+  PlayScene.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\playscene.cpp(30): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+  DeleteBlockTestScene.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(45): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(28) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(28) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(76): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(41) : see reference to function template instantiation 'OtterVector2<int> operator -<int,float>(const OtterVector2<int>,const OtterVector2<float>)' being compiled
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(77): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+  OtterMath.cpp
+  Object.cpp
+  GDIObject.cpp
+  MenuScene.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\menuscene.cpp(37): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\menuscene.cpp(39): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\menuscene.cpp(42): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\menuscene.cpp(44): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+  Main.cpp
+  List.cpp
+  InputSystem.cpp
+  GDIRect.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(17): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(72): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(98): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(99): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(101): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(102): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+  GameStageObject.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(134): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(58) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(58) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+  CreateBlockTestScene.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\createblocktestscene.cpp(37) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\createblocktestscene.cpp(37) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+  BlockObject.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(208): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(210): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(212): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(214): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(157) : see reference to function template instantiation 'OtterVector2<int>::OtterVector2<float>(const OtterVector2<float>)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(157) : see reference to function template instantiation 'OtterVector2<int>::OtterVector2<float>(const OtterVector2<float>)' being compiled
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(67): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(183) : see reference to function template instantiation 'OtterVector2<int> operator +<int,float>(const OtterVector2<int>,const OtterVector2<float>)' being compiled
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(68): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(183) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(183) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
+  Generating Code...
   Win32Frame.vcxproj -> C:\Myfolder\KPU\2015_First_Semester\WindowProgramming(TA)\Win32Solution\Win32Frame\Debug\Win32Frame.exe

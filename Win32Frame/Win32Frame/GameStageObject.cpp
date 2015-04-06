@@ -35,6 +35,8 @@ GameStageObject::~GameStageObject()
 void GameStageObject::Update( float dt )
 {
 	static int lDragBlockIndex = -1;
+	static int lreleaseBlockIndex = -1;
+	static bool lreleaseBlock = false;
 	static OtterVector2i prevPos = OTTER_INPUT.GetMousePosition();
 
 
@@ -42,19 +44,25 @@ void GameStageObject::Update( float dt )
 	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) && ( lDragBlockIndex == -1 ) )
 	{
 		lDragBlockIndex = BlockObjectClickCheck( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ) );
+		if( lDragBlockIndex != -1 )
+			lreleaseBlock = false;
 	}
-	else if( OTTER_INPUT.GetMouseUp( MOUSE_MESSAGE::MOUSE_L ) )
+	else if( OTTER_INPUT.GetMouseUp( MOUSE_MESSAGE::MOUSE_L ) ){
+		lreleaseBlockIndex = lDragBlockIndex;
 		lDragBlockIndex = -1;
+		lreleaseBlock = true;
+	}
 
 	// Object Drag
-	if( lDragBlockIndex != -1 )
+	if( lDragBlockIndex != -1 ){
 		mBlockList[lDragBlockIndex].Translate( OTTER_INPUT.GetMousePosition() - prevPos );
-
-	for( int blockIndex = 0; blockIndex < mBlockCount; ++blockIndex )
-	{
-		//mBlockCheck = BlockObjectCheck( mBlockList[blockIndex] );
 	}
-
+	else if( lreleaseBlock && ( lreleaseBlockIndex != -1 ) )
+	{
+		mBlockCheck = BlockObjectCheck( mBlockList[lreleaseBlockIndex] );
+		lreleaseBlockIndex = -1;
+		lreleaseBlock = false;
+	}
 
 	// Object Delete Check
 	if( mBlockCheck )
@@ -157,7 +165,6 @@ int GameStageObject::RectCheck( OtterRect2f rect )
 
 bool GameStageObject::BlockObjectCheck( BlockObject block )
 {
-	
 	std::vector<GDIRect> rect = block.GetRectListvec();
 	int rectCount = block.GetBlockCount();
 	int checkCount = 0;
@@ -179,7 +186,6 @@ bool GameStageObject::BlockObjectCheck( BlockObject block )
 		int displayIndex = changeColorIndexList[i];
 		mDisplayObject.SetIndexColor( displayIndex, rect[i].GetBrushColor() );
 	}
-
 	delete[] changeColorIndexList;
 	return true;
 }
