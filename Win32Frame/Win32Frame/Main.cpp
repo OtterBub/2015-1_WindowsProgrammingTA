@@ -1,3 +1,4 @@
+#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 #include <Windows.h>
 #include <ctime>
 #include "Win32Frame.h"

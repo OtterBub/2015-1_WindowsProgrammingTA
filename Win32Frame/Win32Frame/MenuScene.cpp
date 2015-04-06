@@ -2,6 +2,7 @@
 #include "RectCollisionCheckScene.h"
 #include "DeleteBlockTestScene.h"
 #include "CreateBlockTestScene.h"
+#include "PlayScene.h"
 #include "Win32Frame.h"
 #include "InputSystem.h"
 #include "StageDisplayObject.h"
@@ -52,6 +53,8 @@ void MenuScene::Update( double dt )
 		WIN32FRAME.ChangeScene( new DeleteBlockTestScene() );
 	if( OTTER_INPUT.GetKeyDown( '3' ) )
 		WIN32FRAME.ChangeScene( new CreateBlockScene() );
+	if( OTTER_INPUT.GetKeyDown( '4' ) )
+		WIN32FRAME.ChangeScene( new PlayScene() );
 
 	mStr[mLineCount] = std::to_wstring( dt );
 

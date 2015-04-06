@@ -3,6 +3,7 @@
 
 #include "Object.h"
 #include "GDIRect.h"
+#include <vector>
 
 enum DIR
 {
@@ -15,6 +16,7 @@ enum DIR
 class BlockObject : public Object
 {
 public:
+	BlockObject();
 	BlockObject( int blockCount, int size );
 	~BlockObject();
 
@@ -25,8 +27,14 @@ public:
 	void Translate( OtterVector2f trans );
 	void SetPosition( float x, float y );
 	void SetPosition( OtterVector2f pos );
+	void SetBlock( int blockCount, int size );
+	void SetColor( COLORREF color );
 
 	bool CollisionCheck( OtterVector2i pos );
+
+	GDIRect* GetRectList();
+	std::vector<GDIRect> GetRectListvec();
+	int GetBlockCount();
 
 private:
 	OtterVector2f GetRandPosition( int dir );
@@ -36,6 +44,7 @@ private:
 	int mBlockCount, mSize;
 	int* mDirList;
 	GDIRect* mRectList;
+	std::vector<GDIRect> mRectListvec;
 };
 
 #endif 

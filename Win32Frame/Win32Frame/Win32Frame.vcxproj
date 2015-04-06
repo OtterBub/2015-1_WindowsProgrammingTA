@@ -14,12 +14,14 @@
     <ClInclude Include="BlockObject.h" />
     <ClInclude Include="CreateBlockTestScene.h" />
     <ClInclude Include="GameStageObject.h" />
+    <ClInclude Include="GDIManager.h" />
     <ClInclude Include="GDIRect.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="OtterMath.h" />
     <ClInclude Include="DeleteBlockTestScene.h" />
+    <ClInclude Include="PlayScene.h" />
     <ClInclude Include="RectCollisionCheckScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="StageDisplayObject.h" />
@@ -42,6 +44,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="OtterMath.cpp" />
     <ClCompile Include="DeleteBlockTestScene.cpp" />
+    <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="RectCollisionCheckScene.cpp" />
     <ClCompile Include="StageDisplayObject.cpp" />
     <ClCompile Include="TestScene.cpp" />

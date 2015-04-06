@@ -2,6 +2,7 @@
 #define __GAMESTAGE_OBJECT_H__
 
 #include "StageDisplayObject.h"
+#include "BlockObject.h"
 
 class GameStageObject : public Object
 {
@@ -26,18 +27,26 @@ public:
 	void SetPosition( OtterVector2f pos );
 
 	void SetDefaultColor( COLORREF color );
+	void SetBlock( int blockamount, int maxBlockCount, int BlockSize );
 
+	// for TestFunction
 	void BlockCheck( OtterRect2f rect, COLORREF color );
+
+	int RectCheck( OtterRect2f rect );
+	bool BlockObjectCheck( BlockObject block );
+	int BlockObjectClickCheck( OtterVector2i mousepos );
 
 private:
 	void DeleteBlockCheck();
 	void DeleteBlockLine( int line, LINE vh );
 
 private:
+	BlockObject* mBlockList;
 	StageDisplayObject mDisplayObject;
 	COLORREF mDefaultColor;
+	COLORREF* mColorList;
 	bool mBlockCheck;
-	int mWidth, mHeight;
+	int mWidth, mHeight, mBlockCount;
 };
 
 #endif

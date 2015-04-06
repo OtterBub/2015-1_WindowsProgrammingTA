@@ -1,4 +1,6 @@
 #include "GameStageObject.h"
+#include "InputSystem.h"
+#include "MathUtill.h"
 
 GameStageObject::GameStageObject( int width, int height ) :
 mDisplayObject( width, height )
@@ -7,6 +9,9 @@ mDisplayObject( width, height )
 
 	mBlockCheck = false;
 	mDefaultColor = RGB( 255, 255, 255 );
+
+	mBlockList = nullptr;
+	mColorList = nullptr;
 }
 GameStageObject::GameStageObject( int width, int height, int size ) :
 mDisplayObject( width, height, size )
@@ -14,22 +19,50 @@ mDisplayObject( width, height, size )
 	mWidth = width, mHeight = height;
 	mBlockCheck = false;
 	mDefaultColor = RGB( 255, 255, 255 );
+
+	mBlockList = nullptr;
+	mColorList = nullptr;
 }
 GameStageObject::~GameStageObject()
 {
+	if( mBlockList != nullptr )
+		delete[] mBlockList;
+	if( mColorList != nullptr )
+		delete[] mColorList;
 }
 
 void GameStageObject::Update( float dt )
 {
+	static int lDragBlockIndex = -1;
+	static OtterVector2i prevPos = OTTER_INPUT.GetMousePosition();
+
+	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) )
+	{
+		lDragBlockIndex = BlockObjectClickCheck( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ) );
+	}
+	else
+		lDragBlockIndex = -1;
+
+	if( lDragBlockIndex != -1 )
+	{
+		mBlockList[lDragBlockIndex].Translate( OTTER_INPUT.GetMousePosition() - prevPos );
+	}
+
 	if( mBlockCheck )
 	{
 		mBlockCheck = false;
 		DeleteBlockCheck();
 	}
+
+	prevPos = OTTER_INPUT.GetMousePosition();
 }
 void GameStageObject::Draw( HDC hdc )
-{
+{	
 	mDisplayObject.Draw( hdc );
+
+	if( mBlockList != nullptr )
+		for( int i = 0; i < mBlockCount; ++i )
+			mBlockList[i].Draw( hdc );
 }
 
 void GameStageObject::Translate( float x, float y )
@@ -54,14 +87,111 @@ void GameStageObject::SetDefaultColor( COLORREF color )
 	mDefaultColor = color;
 }
 
+void GameStageObject::SetBlock( int blockamount, int maxBlockCount, int BlockSize )
+{
+	if( mColorList == nullptr )
+	{
+		mColorList = new COLORREF[blockamount];
+		for( int i = 0; i < blockamount; ++i )
+		{
+			mColorList[i] = RGB( rand() % 255, rand() % 255, rand() % 255 );
+		}
+	}
+
+	mBlockCount = blockamount;
+	if( mBlockList == nullptr )
+		mBlockList = new BlockObject[blockamount];
+	else
+	{
+		delete[] mBlockList;
+		mBlockList = new BlockObject[blockamount];
+	}
+	
+	for( int i = 0; i < mBlockCount; ++i )
+	{
+		mBlockList[i].SetBlock( rand() % maxBlockCount, BlockSize );
+		mBlockList[i].SetPosition( 800, 100 + ( i * 200 ) );
+		mBlockList[i].SetColor( mColorList[rand() % blockamount] );
+	}
+}
+
 void GameStageObject::BlockCheck( OtterRect2f rect, COLORREF color )
 {
 	int lIndex = mDisplayObject.GetCollisionIndex( rect );
 	if( lIndex != -1 )
 	{
-		mDisplayObject.SetIndexColor( lIndex, color );
-		mBlockCheck = true;
+		if( mDisplayObject.GetColorRef( lIndex ) == mDefaultColor )
+		{
+			mDisplayObject.SetIndexColor( lIndex, color );
+			mBlockCheck = true;
+		}
 	}
+}
+
+int GameStageObject::RectCheck( OtterRect2f rect )
+{
+	int lIndex = mDisplayObject.GetCollisionIndex( rect );
+	if( lIndex != -1 )
+	{
+		if( mDisplayObject.GetColorRef( lIndex ) == mDefaultColor )
+		{
+			return lIndex;
+		}
+	}
+
+	return -1;
+}
+
+bool GameStageObject::BlockObjectCheck( BlockObject block )
+{
+	
+	GDIRect* rect = block.GetRectList();
+	int rectCount = block.GetBlockCount();
+	int checkCount = 0;
+	int* changeColorIndexList = new int[rectCount];
+
+	for( int rectIndex = 0; rectIndex < rectCount; ++rectIndex )
+	{
+		int check = RectCheck( rect[rectIndex].GetRect() );
+		
+		if( check == -1 )
+			return false;
+		else
+			changeColorIndexList[rectIndex] = check;
+	}
+	
+
+	for( int i = 0; i < rectCount; ++i )
+	{
+		int displayIndex = changeColorIndexList[i];
+		mDisplayObject.SetIndexColor( displayIndex, rect[i].GetBrushColor() );
+	}
+
+	delete[] changeColorIndexList;
+	delete[] rect;
+	return false;
+}
+
+int GameStageObject::BlockObjectClickCheck( OtterVector2i mousepos )
+{
+	for( int blockIndex = 0; blockIndex < mBlockCount; ++blockIndex )
+	{
+		std::vector<GDIRect> rect = mBlockList[blockIndex].GetRectListvec();
+		int rectCount = mBlockList[blockIndex].GetBlockCount();
+		int collisionCount = 0;
+
+		for( int rectIndex = 0; rectIndex < rectCount; ++rectIndex )
+		{
+			if( CollisionRectToPoint( rect[rectIndex].GetRect(), mousepos ) )
+			{
+				++collisionCount;
+			}
+		}
+		if( collisionCount == rectCount )
+			return blockIndex;
+	}
+
+	return -1;
 }
 
 void GameStageObject::DeleteBlockCheck()

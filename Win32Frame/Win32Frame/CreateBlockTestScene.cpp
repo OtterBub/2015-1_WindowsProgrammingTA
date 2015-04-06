@@ -1,9 +1,9 @@
 #include "CreateBlockTestScene.h"
 #include "InputSystem.h"
 
-CreateBlockScene::CreateBlockScene() :
-mBlock( 1000, 30 )
+CreateBlockScene::CreateBlockScene()
 {
+
 }
 CreateBlockScene::~CreateBlockScene()
 {
@@ -11,6 +11,7 @@ CreateBlockScene::~CreateBlockScene()
 
 void CreateBlockScene::Enter()
 {
+	mBlock.SetBlock( 1000, 50 );
 	mBlock.SetPosition( 200, 200 );
 }
 void CreateBlockScene::Exit()

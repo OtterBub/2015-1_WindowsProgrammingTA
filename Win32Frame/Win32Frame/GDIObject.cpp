@@ -1,4 +1,5 @@
 #include "GDIObject.h"
+#include <stdio.h>
 
 GDIObject::GDIObject()
 {
@@ -9,6 +10,7 @@ GDIObject::GDIObject()
 }
 GDIObject::~GDIObject()
 {
+	printf( "Call Destructor GDIObject" );
 	if( mLinePen != NULL )
 		DeleteObject( mLinePen );
 	if( mBrush != NULL )

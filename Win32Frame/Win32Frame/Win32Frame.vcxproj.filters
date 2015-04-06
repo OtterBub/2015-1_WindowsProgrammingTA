@@ -80,6 +80,12 @@
     <ClInclude Include="MathUtill.h">
       <Filter>Source\NewType</Filter>
     </ClInclude>
+    <ClInclude Include="PlayScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIManager.h">
+      <Filter>Source\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -132,6 +138,9 @@
     </ClCompile>
     <ClCompile Include="MathUtill.cpp">
       <Filter>Source\NewType</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScene.cpp">
+      <Filter>Source\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,22 +1,30 @@
 #include "BlockObject.h"
 #include "MathUtill.cpp"
 
+BlockObject::BlockObject()
+{
+	mDirList = nullptr;
+	mBlockCount = 0;
+	mSize = 50;
+}
+
 BlockObject::BlockObject( int blockCount, int size )
 {
 	if( blockCount <= 0 )
 	{
 		blockCount = 1;
 	}
-	mRectList = new GDIRect[blockCount]();
+	mRectListvec.resize( blockCount );
 	mDirList = new int[blockCount];
 	mBlockCount = blockCount;
 	mSize = size;
 	CreateBlock();
 }
+
 BlockObject::~BlockObject()
 {
-	delete[] mRectList;
-	delete[] mDirList;
+	if( mDirList != nullptr )
+		delete[] mDirList;
 }
 
 void BlockObject::Update( float dt )
@@ -25,77 +33,131 @@ void BlockObject::Update( float dt )
 void BlockObject::Draw( HDC hdc )
 {
 	for( int i = 0; i < mBlockCount; ++i )
-		mRectList[i].Draw( hdc );
+		mRectListvec[i].Draw( hdc );
 }
 
 void BlockObject::Translate( float x, float y )
 {
 	Object::Translate( x, y );
+	
 	for( int i = 0; i < mBlockCount; ++i )
-		mRectList[i].Translate( x, y );
+		mRectListvec[i].Translate( x, y );
 }
 void BlockObject::Translate( OtterVector2f trans )
 {
 	Object::Translate( trans );
+
+
 	for( int i = 0; i < mBlockCount; ++i )
-		mRectList[i].Translate( trans );
+		mRectListvec[i].Translate( trans );
 }
 void BlockObject::SetPosition( float x, float y )
 {
 	Object::SetPosition( x, y );
-	mRectList[0].SetPosition( x, y );
+
+
+	mRectListvec[0].SetPosition( x, y );
 	for( int i = 1; i < mBlockCount; ++i )
 	{
 		OtterVector2f dirpos = GetRandPosition( mDirList[i] );
 		OtterVector2f setpos = GetPosition() + dirpos;
-		
+
 		if( i != 0 )
 		{
-			setpos = mRectList[i - 1].GetPosition() + dirpos;
+			setpos = mRectListvec[i - 1].GetPosition() + dirpos;
 		}
 
-		mRectList[i].SetPosition( setpos );
+		mRectListvec[i].SetPosition( setpos );
 	}
 }
 void BlockObject::SetPosition( OtterVector2f pos )
 {
 	Object::SetPosition( pos );
-	mRectList[0].SetPosition( pos );
+
+
+	mRectListvec[0].SetPosition( pos );
 	for( int i = 1; i < mBlockCount; ++i )
 	{
 		OtterVector2f dirpos = GetRandPosition( mDirList[i] );
 		OtterVector2f setpos = GetPosition() + dirpos;
-		
+
 		if( i != 0 )
 		{
-			setpos = mRectList[i - 1].GetPosition() + dirpos;
+			setpos = mRectListvec[i - 1].GetPosition() + dirpos;
 		}
 
-		mRectList[i].SetPosition( setpos );
+		mRectListvec[i].SetPosition( setpos );
+	}
+}
+
+void BlockObject::SetBlock( int blockCount, int size )
+{
+	if( blockCount <= 0 )
+	{
+		blockCount = 1;
+	}
+	mRectListvec.resize( blockCount );
+	mDirList = new int[blockCount];
+	mBlockCount = blockCount;
+	mSize = size;
+	CreateBlock();
+}
+
+void BlockObject::SetColor( COLORREF color )
+{
+
+
+	for( int i = 0; i < mBlockCount; ++i )
+	{
+		mRectListvec[i].SetBrush( color );
 	}
 }
 
 bool BlockObject::CollisionCheck( OtterVector2i pos )
 {
+
+
 	for( int i = 0; i < mBlockCount; ++i )
-		if( CollisionRectToPoint( mRectList[i].GetRect(), pos ) )
+		if( CollisionRectToPoint( mRectListvec[i].GetRect(), pos ) )
 			return true;
 
 	return false;
 }
 
+GDIRect* BlockObject::GetRectList()
+{
+
+
+	GDIRect* temp = new GDIRect[mBlockCount];
+	memcpy_s( temp, sizeof( GDIRect ) * mBlockCount, mRectList, sizeof( GDIRect ) * mBlockCount );
+	return temp;
+}
+
+std::vector<GDIRect> BlockObject::GetRectListvec()
+{
+	return mRectListvec;
+}
+
+int BlockObject::GetBlockCount()
+{
+	return mBlockCount;
+}
+
+
+
 void BlockObject::CreateBlock()
 {
+
 	static GDIRect checkRect;
-	OtterVector2i prevPos = mRectList[0].GetPosition();
+	OtterVector2i prevPos = mRectListvec[0].GetPosition();
 	int prevCreateDir = 0;
 	int currentDir = 0;
 	mDirList[0] = -1;
-	mRectList[0].SetSize( mSize );
+	mRectListvec[0].SetSize( mSize );
 	checkRect.SetSize( mSize );
 	for( int i = 1; i < mBlockCount; ++i )
 	{
-		mRectList[i].SetSize( mSize );
+		mRectListvec[i].SetSize( mSize );
 		bool CollisionCheck = true;
 		int lCheckCount = 0;
 		while( CollisionCheck )
@@ -115,7 +177,7 @@ void BlockObject::CreateBlock()
 			}
 			checkRect.SetPosition( prevPos + GetRandPosition( currentDir ) );
 			for( int j = 0; j < i; ++j )
-				if( CollisionRectToRectRange( checkRect.GetRect(), mRectList[j].GetRect(), mSize / 2.f ) )
+				if( CollisionRectToRectRange( checkRect.GetRect(), mRectListvec[j].GetRect(), mSize / 2.f ) )
 				{
 					CollisionCheck = true;
 					lCheckCount++;
@@ -123,13 +185,13 @@ void BlockObject::CreateBlock()
 
 			if( lCheckCount > 10 )
 			{
-				prevPos = mRectList[rand() % i].GetPosition();
+				prevPos = mRectListvec[rand() % i].GetPosition();
 			}
 		}
 		mDirList[i] = currentDir;
 		prevCreateDir = currentDir;
-		mRectList[i].SetPosition( prevPos + GetRandPosition( currentDir ) );
-		prevPos = mRectList[i].GetPosition();
+		mRectListvec[i].SetPosition( prevPos + GetRandPosition( currentDir ) );
+		prevPos = mRectListvec[i].GetPosition();
 	}
 }
 
