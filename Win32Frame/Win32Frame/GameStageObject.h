@@ -46,8 +46,9 @@ private:
 	StageDisplayObject mDisplayObject;
 	COLORREF mDefaultColor;
 	COLORREF* mColorList;
-	bool mBlockCheck;
+	bool mBlockCheck, mCreateNewBlock;
 	int mWidth, mHeight, mBlockCount;
+	int mBlockamount, mMaxBlockCount, mBlockSize;
 
 	std::wstring mDebugStr;
 };

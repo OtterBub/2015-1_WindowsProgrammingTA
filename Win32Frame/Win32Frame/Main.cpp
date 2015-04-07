@@ -98,7 +98,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			EndPaint( hWnd, &ps );
 			
 		}
-			
 			break;
 
 		case WM_CHAR:

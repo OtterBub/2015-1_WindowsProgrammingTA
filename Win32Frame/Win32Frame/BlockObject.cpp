@@ -25,8 +25,8 @@ BlockObject::BlockObject( int blockCount, int size )
 
 BlockObject::~BlockObject()
 {
-	if( mDirList != nullptr )
-		delete[] mDirList;
+	/*if( mDirList != nullptr )
+		delete[] mDirList;*/
 }
 
 void BlockObject::Update( float dt )
@@ -181,6 +181,7 @@ void BlockObject::CreateBlock()
 					currentDir = rand() % 4;
 			}
 			checkRect.SetPosition( prevPos + GetRandPosition( currentDir ) );
+
 			for( int j = 0; j < i; ++j )
 				if( CollisionRectToRectRange( checkRect.GetRect(), mRectListvec[j].GetRect(), mSize / 2.f ) )
 				{

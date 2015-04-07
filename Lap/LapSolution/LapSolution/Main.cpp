@@ -124,6 +124,10 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 	PAINTSTRUCT ps;
 	RECT rect;
 	static HPEN myPen = (HPEN)CreatePen( PS_SOLID, 3, RGB( 255, 0, 0 ) );
+	static bool sDrag = false;
+	static POINT sStartPoint = { 0, };
+	static POINT sEndPoint = { 0, };
+	static POINT sOldPoint = {0, };
 	HPEN OldPen;
 
 	static wchar_t str[250] = L"101010가나다라";
@@ -200,6 +204,44 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 
 		case WM_SYSCHAR:
 			wsprintf( debug, L"WM_SYSCHAR", count );
+			break;
+
+		case WM_LBUTTONDOWN:
+			sDrag = true;
+			sStartPoint.x = LOWORD( lParam );
+			sStartPoint.y = HIWORD( lParam );
+			sOldPoint = sEndPoint = sStartPoint;
+			break;
+
+		case WM_MOUSEMOVE:			
+			if( sDrag )
+			{
+				hdc = GetDC( hWnd );
+
+				SetROP2( hdc, R2_XORPEN );
+				SelectObject( hdc, (HPEN)GetStockObject( WHITE_PEN ) );
+				
+
+				sEndPoint.x = LOWORD( lParam );
+				sEndPoint.y = HIWORD( lParam );
+
+				MoveToEx( hdc, sStartPoint.x, sStartPoint.y, NULL );
+				LineTo( hdc, sEndPoint.x, sEndPoint.y );
+
+				MoveToEx( hdc, sStartPoint.x, sStartPoint.y, NULL );
+				LineTo( hdc, sOldPoint.x, sOldPoint.y );
+
+				sOldPoint = sEndPoint;
+				ReleaseDC( hWnd, hdc );
+
+				wsprintf( debug, L"WM_MOUSEMOVE", count );
+			}
+			InvalidateRect( hWnd, NULL, FALSE );
+			break;
+
+		case WM_LBUTTONUP:
+			sDrag = false;
+			InvalidateRect( hWnd, NULL, TRUE );
 			break;
 
 		case WM_DESTROY:
