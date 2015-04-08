@@ -89,6 +89,27 @@
     <ClInclude Include="PlaceRectTestScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Box2DLite\Arbiter.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\Body.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\Box2D.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\glut.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\Joint.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\MathUtils.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\World.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -150,6 +171,24 @@
     </ClCompile>
     <ClCompile Include="PlaceRectTestScene.cpp">
       <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Body.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Box2D.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Collide.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Joint.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\World.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Arbiter.cpp">
+      <Filter>Source\Box2DLite</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

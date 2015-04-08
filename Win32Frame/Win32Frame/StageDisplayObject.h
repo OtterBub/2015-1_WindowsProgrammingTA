@@ -30,6 +30,7 @@ public:
 	void SetIndexColor( int index, COLORREF color );
 	void SetPositionColor( OtterVector2f pos, COLORREF color );
 	void SetBoardType( int type );
+	void SetAddBody( Vec2 addForce = Vec2( 0, 0 ) );
 
 	int GetCollisionIndex( OtterVector2f point );
 	int GetCollisionIndex( OtterRect2f rect );

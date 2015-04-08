@@ -7,11 +7,13 @@
 #include "PlayScene.h"
 #include <ctime>
 
-Win32Frame::Win32Frame()
+Win32Frame::Win32Frame() :
+mWorld( Vec2( 0.0f, 1000.0f ), 10 )
 {
+	WIN32FRAME.GetBodyList()[GROUND_BODY].Set( Vec2( 1280, 30 ), FLT_MAX );
+	WIN32FRAME.GetBodyList()[GROUND_BODY].position.Set( 1280 / 2.f, 800 );
 	mCurrentScene = nullptr;
 	mChangeScene = nullptr;
-	
 }
 Win32Frame::~Win32Frame()
 {
@@ -23,6 +25,15 @@ Win32Frame& Win32Frame::GetInstance()
 	return instance;
 }
 
+World& Win32Frame::GetWorldInstance()
+{
+	return mWorld;
+}
+
+Body* Win32Frame::GetBodyList()
+{
+	return mBody;
+}
 
 void Win32Frame::Initialize()
 {
@@ -37,6 +48,8 @@ void Win32Frame::Update( double dt )
 {
 	static clock_t prevTime = std::clock();
 	static bool lbKeyDown = false;
+
+	WIN32FRAME.GetWorldInstance().Step( (double)( std::clock() - prevTime ) / CLOCKS_PER_SEC );
 	
 	if( mCurrentScene != nullptr )
 		mCurrentScene->Update( (double)( std::clock() - prevTime ) / CLOCKS_PER_SEC );
@@ -46,6 +59,7 @@ void Win32Frame::Update( double dt )
 		if( mCurrentScene != nullptr )
 		{
 			mCurrentScene->Exit();
+			mWorld.Clear();
 			delete mCurrentScene;
 			mCurrentScene = nullptr;
 		}
@@ -105,4 +119,12 @@ void Win32Frame::KeyChar( WPARAM wParam, LPARAM lParam )
 void Win32Frame::ChangeScene( Scene* scene )
 {
 	mChangeScene = scene;
+}
+
+void Win32Frame::SethWnd( HWND hwnd )
+{
+	mhwnd = hwnd;
+	RECT rect;
+	GetClientRect( hwnd, &rect );
+	WIN32FRAME.GetBodyList()[GROUND_BODY].position.Set( rect.right / 2.f, rect.bottom + 15 );
 }

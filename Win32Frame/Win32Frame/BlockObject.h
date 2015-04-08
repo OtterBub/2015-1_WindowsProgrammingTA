@@ -31,6 +31,7 @@ public:
 	void SetBlock( int blockCount, int size );
 	void SetColor( COLORREF color );
 	void SetUsed( bool set );
+	void SetAddBody( Vec2 addForce = Vec2( 0, 0 ) );
 
 	bool CollisionCheck( OtterVector2i pos );
 

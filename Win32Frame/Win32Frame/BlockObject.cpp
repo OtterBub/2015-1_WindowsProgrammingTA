@@ -139,6 +139,14 @@ void BlockObject::SetUsed( bool set )
 	mIsUsed = set;
 }
 
+void BlockObject::SetAddBody( Vec2 addForce )
+{
+	for( int i = 0; i < mBlockCount; ++i )
+	{
+		mRectListvec[i].SetAddBody( addForce );
+	}
+}
+
 bool BlockObject::CollisionCheck( OtterVector2i pos )
 {
 

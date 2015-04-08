@@ -22,6 +22,10 @@ void CollisionTestScene::Enter()
 	mRect.SetPen( PS_SOLID, 1, RGB( 255, 0, 155 ) );
 
 	mRect2.SetRect( 600, 600, 100 );
+
+	//mRect.SetAddBody();
+	//mRect2.SetAddBody();
+	//WIN32FRAME.GetInstance().GetWorldInstance().Add( &WIN32FRAME.GetBodyList()[GROUND_BODY] );
 }
 
 void CollisionTestScene::Exit()
@@ -33,6 +37,7 @@ void CollisionTestScene::Update( double dt )
 {
 	static float speed = 100;
 	mLineCount = 0;
+
 	if( OTTER_INPUT.GetKeyDown( 'S' ) )	
 		mRect.Translate( 0, speed * dt );
 	else if( OTTER_INPUT.GetKeyDown( 'W' ) )

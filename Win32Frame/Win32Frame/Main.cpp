@@ -10,7 +10,7 @@
 #define WINDOW_POS_Y 0
 
 HINSTANCE g_hinst;
-LPCTSTR lpszClass = L"Window Class Name"; // Window Name
+LPCTSTR lpszClass = L"1212!"; // Window Name
 
 LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam );
 VOID CALLBACK timer(HWND hwnd, UINT uMsg, UINT_PTR ptr, DWORD dword);
@@ -65,7 +65,9 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 	{
 		case WM_CREATE:
 			WIN32FRAME.Initialize();
+			WIN32FRAME.SethWnd( hWnd );
 			WIN32FRAME.ChangeScene( new MenuScene( ) );
+
 			SetTimer( hWnd, 0, 10, timer );
 			break;
 

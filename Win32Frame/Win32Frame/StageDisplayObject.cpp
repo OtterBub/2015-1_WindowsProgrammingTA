@@ -156,13 +156,21 @@ void StageDisplayObject::SetBoardType( int type )
 
 }
 
-int StageDisplayObject::GetCollisionIndex( OtterVector2f point )
+void StageDisplayObject::SetAddBody( Vec2 addForce )
 {
 	for( int i = 0; i < mTotal; ++i )
 	{
 		if( mIgnoreIndex[i] )
 			continue;
 
+		mRectList[i].SetAddBody( addForce );
+	}
+}
+
+int StageDisplayObject::GetCollisionIndex( OtterVector2f point )
+{
+	for( int i = 0; i < mTotal; ++i )
+	{
 		if( CollisionRectToPoint( mRectList[i].GetRect(), point ) )
 			return i;
 	}
@@ -180,9 +188,6 @@ int StageDisplayObject::GetCollisionIndex( OtterRect2f rect )
 
 	for( int i : Indexes )
 	{
-		if( mIgnoreIndex[i] )
-			continue;
-
 		float vectorLength = ( pos - mRectList[i].GetPosition() ).GetLength();
 		if( dist > vectorLength )
 		{
@@ -217,9 +222,6 @@ GDIRect* StageDisplayObject::GetRectList()
 
 	for( int i = 0; i < mTotal; ++i )
 	{
-		if( mIgnoreIndex[i] )
-			continue;
-
 		result[i] = mRectList[i];
 	}
 
@@ -231,9 +233,6 @@ std::vector< int > StageDisplayObject::GetCollisionIndexes( OtterRect2f rect )
 	std::vector< int > result;
 	for( int i = 0; i < mTotal; ++i )
 	{
-		if( mIgnoreIndex[i] )
-			continue;
-
 		if( CollisionRectToRect( mRectList[i].GetRect(), rect ) )
 			result.push_back( i );
 	}

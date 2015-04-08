@@ -48,7 +48,7 @@ private:
 	StageDisplayObject mDisplayObject;
 	COLORREF mDefaultColor;
 	COLORREF* mColorList;
-	bool mBlockCheck, mCreateNewBlock, mGameOver;
+	bool mBlockCheck, mCreateNewBlock, mGameOver, mGameOverScene;
 	int mWidth, mHeight, mBlockCount;
 	int mMaxBlockCount, mBlockSize;
 

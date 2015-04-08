@@ -38,7 +38,7 @@ namespace
 
 	int demoIndex = 0;
 
-	World world = CreateWorld(gravity, iterations);
+	World world = World( gravity, iterations );
 }
 
 //void DrawText(int x, int y, char *string)

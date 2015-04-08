@@ -1,13 +1,14 @@
 #include "GameStageObject.h"
 #include "InputSystem.h"
 #include "MathUtill.h"
+#include "Win32Frame.h"
 #include <string>
 
 GameStageObject::GameStageObject( int width, int height ) :
 mDisplayObject( width, height )
 {
 	mWidth = width, mHeight = height;
-
+	mGameOverScene = false; 
 	mBlockCheck = false;
 	mDefaultColor = RGB( 255, 255, 255 );
 
@@ -24,6 +25,7 @@ GameStageObject::GameStageObject( int width, int height, int size ) :
 mDisplayObject( width, height, size )
 {
 	mWidth = width, mHeight = height;
+	mGameOverScene = false; 
 	mBlockCheck = false;
 	mDefaultColor = RGB( 255, 255, 255 );
 
@@ -53,75 +55,100 @@ void GameStageObject::Update( float dt )
 	static OtterVector2i prevPos = OTTER_INPUT.GetMousePosition();
 	static OtterVector2f prevBlockPos;
 
-	// Object Select
-	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) && ( lDragBlockIndex == -1 ) )
+	if( OTTER_INPUT.GetKeyDown( 'B' ) )
 	{
-		lDragBlockIndex = BlockObjectClickCheck( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ) );
-		if( ( lDragBlockIndex != -1 ) ) {
+		mGameOver = true;
+	}
+
+	if( mGameOver == false )
+	{
+		// Object Select
+		if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) && ( lDragBlockIndex == -1 ) )
+		{
+			lDragBlockIndex = BlockObjectClickCheck( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ) );
+			if( ( lDragBlockIndex != -1 ) ) {
+				lreleaseBlock = false;
+				prevBlockPos = mBlockList[lDragBlockIndex].GetPosition();
+			}
+		}
+		else if( OTTER_INPUT.GetMouseUp( MOUSE_MESSAGE::MOUSE_L ) ){
+			lreleaseBlockIndex = lDragBlockIndex;
+			lDragBlockIndex = -1;
+			lreleaseBlock = true;
+		}
+
+		// Object Drag
+		if( lDragBlockIndex != -1 ){
+			mBlockList[lDragBlockIndex].Translate( OTTER_INPUT.GetMousePosition() - prevPos );
+		}
+		else if( lreleaseBlock && ( lreleaseBlockIndex != -1 ) )
+		{
+			mBlockCheck = BlockObjectCheck( mBlockList[lreleaseBlockIndex] );
+			if( mBlockCheck )
+				mBlockList[lreleaseBlockIndex].SetUsed( true );
+			else
+				mBlockList[lreleaseBlockIndex].SetPosition( prevBlockPos );
+
+			lreleaseBlockIndex = -1;
 			lreleaseBlock = false;
-			prevBlockPos = mBlockList[lDragBlockIndex].GetPosition();
 		}
-	}
-	else if( OTTER_INPUT.GetMouseUp( MOUSE_MESSAGE::MOUSE_L ) ){
-		lreleaseBlockIndex = lDragBlockIndex;
-		lDragBlockIndex = -1;
-		lreleaseBlock = true;
-	}
 
-	// Object Drag
-	if( lDragBlockIndex != -1 ){
-		mBlockList[lDragBlockIndex].Translate( OTTER_INPUT.GetMousePosition() - prevPos );
-	}
-	else if( lreleaseBlock && ( lreleaseBlockIndex != -1 ) )
-	{
-		mBlockCheck = BlockObjectCheck( mBlockList[lreleaseBlockIndex] );
+		// Object Delete Check
 		if( mBlockCheck )
-			mBlockList[lreleaseBlockIndex].SetUsed( true );
-		else
-			mBlockList[lreleaseBlockIndex].SetPosition( prevBlockPos );
-
-		lreleaseBlockIndex = -1;
-		lreleaseBlock = false;
-	}
-
-	// Object Delete Check
-	if( mBlockCheck )
-	{		
-		mBlockCheck = false;
-		DeleteBlockCheck();
-		mCreateNewBlock = true;
-		mGameOver = false;
-		// Check GameOver
-		for( int i = 0; i < mBlockCount; ++i )
 		{
-			if( mBlockList[i].GetUsed() == false )
+			mBlockCheck = false;
+			DeleteBlockCheck();
+			mCreateNewBlock = true;
+			mGameOver = false;
+			// Check GameOver
+			for( int i = 0; i < mBlockCount; ++i )
 			{
-				mCreateNewBlock = false;
-				mGameOver = !( CheckCanPlaceBlock( mBlockList[i] ) );
+				if( mBlockList[i].GetUsed() == false )
+				{
+					mCreateNewBlock = false;
+					mGameOver = !( CheckCanPlaceBlock( mBlockList[i] ) );
+				}
+			}
+		}
+
+		if( mCreateNewBlock )
+		{
+			mCreateNewBlock = false;
+			SetBlock( mBlockCount, mMaxBlockCount, mBlockSize );
+			mGameOver = false;
+			// Check GameOver
+			for( int i = 0; i < mBlockCount; ++i )
+			{
+				if( mBlockList[i].GetUsed() == false )
+				{
+					mCreateNewBlock = false;
+					mGameOver = !( CheckCanPlaceBlock( mBlockList[i] ) );
+				}
 			}
 		}
 	}
 
-	if ( mCreateNewBlock )
+	else
 	{
-		mCreateNewBlock = false;
-		SetBlock( mBlockCount, mMaxBlockCount, mBlockSize );
-		mGameOver = false;
-		// Check GameOver
-		for( int i = 0; i < mBlockCount; ++i )
+		if( mGameOverScene == false )
 		{
-			if( mBlockList[i].GetUsed() == false )
+			mGameOverScene = true;
+			WIN32FRAME.GetWorldInstance().Add( &WIN32FRAME.GetBodyList()[GROUND_BODY] );
+
+			for( int i = 0; i < mBlockCount; ++i )
 			{
-				mCreateNewBlock = false;
-				mGameOver = !( CheckCanPlaceBlock( mBlockList[i] ) );
+				if( mBlockList[i].GetUsed() == false )
+				{
+					mBlockList[i].SetAddBody( Vec2( -100 + rand() % 200, -( 200 + rand() % 200 ) ) );
+				}
 			}
+			mDisplayObject.SetAddBody( Vec2( 0, -50 ) );
 		}
 	}
-
 	mDebugStr = std::to_wstring( lDragBlockIndex );
 	if( mGameOver )
 		mDebugStr += L" / / / GAME OVER";
-	
+
 	
 	prevPos = OTTER_INPUT.GetMousePosition();
 }
@@ -165,6 +192,9 @@ void GameStageObject::SetDefaultColor( COLORREF color )
 
 void GameStageObject::SetBlock( int blockamount, int maxBlockCount, int BlockSize )
 {
+	if( mGameOver )
+		return;
+
 	bool *usedNum = new bool[maxBlockCount];
 	mBlockCount = blockamount;
 	mMaxBlockCount = maxBlockCount;
@@ -242,14 +272,18 @@ bool GameStageObject::BlockObjectCheck( BlockObject& block, bool changeColor )
 	int checkCount = 0;
 	int prevCheck = -1;
 	int* changeColorIndexList = new int[rectCount];
+	bool* IgnoreList = mDisplayObject.GetIgnoreList();
 
 	for( int rectIndex = 0; rectIndex < rectCount; ++rectIndex )
 	{
 		int check = RectCheck( rect[rectIndex].GetRect() );
+
 		if( check == -1 )
 			return false;
-		else if( check == prevCheck )
+		else if( IgnoreList[check] )
 			return false;
+		else if( check == prevCheck )
+			return false;			
 		else
 			changeColorIndexList[rectIndex] = check;
 
@@ -264,6 +298,7 @@ bool GameStageObject::BlockObjectCheck( BlockObject& block, bool changeColor )
 		}
 	}
 	delete[] changeColorIndexList;
+	delete[] IgnoreList;
 	return true;
 }
 

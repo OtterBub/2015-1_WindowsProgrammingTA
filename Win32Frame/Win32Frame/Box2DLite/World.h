@@ -22,7 +22,11 @@ struct Joint;
 
 struct World
 {
+private:
+
+public:
 	World(Vec2 gravity, int iterations) : gravity(gravity), iterations(iterations) {}
+	
 
 	void Add(Body* body);
 	void Add(Joint* joint);
@@ -40,6 +44,7 @@ struct World
 	static bool accumulateImpulses;
 	static bool warmStarting;
 	static bool positionCorrection;
+	static World mWorld;
 };
 
 #endif

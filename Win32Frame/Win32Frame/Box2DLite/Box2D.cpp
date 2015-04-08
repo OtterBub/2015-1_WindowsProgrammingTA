@@ -26,12 +26,6 @@ char* demoStrings[] = {
 	"Demo 8: Dominos",
 	"Demo 9: Multi-pendulum"};
 
-World& CreateWorld( Vec2 grav, int iter )
-{
-	static World instance = World( grav, iter );
-	return instance;
-}
-
 //void DrawText(int x, int y, char *string)
 //{
 //	int len, i;
@@ -58,10 +52,6 @@ World& CreateWorld( Vec2 grav, int iter )
 //	glMatrixMode(GL_MODELVIEW);
 //}
 
-#define scale 25
-#define translate_X 400
-#define translate_Y 600
-
 void DrawBody(Body* body, HDC hdc)
 {
 	Mat22 R(body->rotation);
@@ -71,9 +61,7 @@ void DrawBody(Body* body, HDC hdc)
 	Vec2 v1 = x + R * Vec2(-h.x, -h.y);
 	Vec2 v2 = x + R * Vec2( h.x, -h.y);
 	Vec2 v3 = x + R * Vec2( h.x,  h.y);
-	Vec2 v4 = x + R * Vec2(-h.x,  h.y);
-
-	
+	Vec2 v4 = x + R * Vec2(-h.x,  h.y);	
 
 	/*if (body == bomb)
 		glColor3f(0.4f, 0.9f, 0.4f);
@@ -82,14 +70,14 @@ void DrawBody(Body* body, HDC hdc)
 
 	//glBegin(GL_LINE_LOOP);
 	POINT rect[4];
-	rect[0].x = translate_X - v1.x * scale;
-	rect[0].y = translate_Y - v1.y * scale;
-	rect[1].x = translate_X - v2.x * scale;
-	rect[1].y = translate_Y - v2.y * scale;
-	rect[2].x = translate_X - v3.x * scale;
-	rect[2].y = translate_Y - v3.y * scale;
-	rect[3].x = translate_X - v4.x * scale;
-	rect[3].y = translate_Y - v4.y * scale;
+	rect[0].x = v1.x;
+	rect[0].y = v1.y;
+	rect[1].x = v2.x;
+	rect[1].y = v2.y;
+	rect[2].x = v3.x;
+	rect[2].y = v3.y;
+	rect[3].x = v4.x;
+	rect[3].y = v4.y;
 	Polygon( hdc, rect, 4 );
 
 	/*glVertex2f(v1.x, v1.y);
@@ -114,16 +102,16 @@ void DrawJoint(Joint* joint, HDC hdc)
 	Vec2 p2 = x2 + R2 * joint->localAnchor2;
 
 	POINT line[2][2];
-	line[0][0].x = translate_X - x1.x * scale;
-	line[0][0].y = translate_Y - x1.y * scale;
-	line[0][1].x = translate_X - p1.x * scale;
-	line[0][1].y = translate_Y - p1.y * scale;
+	line[0][0].x = x1.x;
+	line[0][0].y = x1.y;
+	line[0][1].x = p1.x;
+	line[0][1].y = p1.y;
 	Polygon( hdc, line[0], 2 );
 
-	line[1][0].x = translate_X - x2.x * scale;
-	line[1][0].y = translate_Y - x2.y * scale;
-	line[1][1].x = translate_X - p2.x * scale;
-	line[1][1].y = translate_Y - p2.y * scale;
+	line[1][0].x = x2.x;
+	line[1][0].y = x2.y;
+	line[1][1].x = p2.x;
+	line[1][1].y = p2.y;
 	Polygon( hdc, line[1], 2 );
 
 	/*glColor3f(0.5f, 0.5f, 0.8f);
