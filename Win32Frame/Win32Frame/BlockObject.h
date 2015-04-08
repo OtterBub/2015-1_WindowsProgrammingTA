@@ -17,6 +17,7 @@ class BlockObject : public Object
 {
 public:
 	BlockObject();
+	BlockObject( const BlockObject& other );
 	BlockObject( int blockCount, int size );
 	~BlockObject();
 

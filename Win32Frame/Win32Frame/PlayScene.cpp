@@ -12,7 +12,7 @@ PlayScene::~PlayScene()
 
 void PlayScene::Enter()
 {
-	mStage.SetBlock( 3, 5, 50 );
+	mStage.SetBlock( 3, 8, 50 );
 	
 }
 void PlayScene::Exit()
@@ -24,7 +24,7 @@ void PlayScene::Update( double dt )
 {
 	if( OTTER_INPUT.GetKeyDown( 'R' ) )
 	{
-		mStage.SetBlock( 3, 5, 50 );
+		mStage.SetBlock( 3, 8, 50 );
 	}
 
 	mStage.Update( dt );

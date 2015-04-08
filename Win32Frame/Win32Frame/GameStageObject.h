@@ -34,21 +34,22 @@ public:
 	void BlockCheck( OtterRect2f rect, COLORREF color );
 
 	int RectCheck( OtterRect2f rect );
-	bool BlockObjectCheck( BlockObject block );
+	bool BlockObjectCheck( BlockObject& block, bool changeColor = true );
 	int BlockObjectClickCheck( OtterVector2i mousepos );
 
 private:
 	void DeleteBlockCheck();
 	void DeleteBlockLine( int line, LINE vh );
+	bool CheckCanPlaceBlock( BlockObject& block );
 
 private:
 	BlockObject* mBlockList;
 	StageDisplayObject mDisplayObject;
 	COLORREF mDefaultColor;
 	COLORREF* mColorList;
-	bool mBlockCheck, mCreateNewBlock;
+	bool mBlockCheck, mCreateNewBlock, mGameOver;
 	int mWidth, mHeight, mBlockCount;
-	int mBlockamount, mMaxBlockCount, mBlockSize;
+	int mMaxBlockCount, mBlockSize;
 
 	std::wstring mDebugStr;
 };

@@ -1,5 +1,6 @@
 #include "BlockObject.h"
 #include "MathUtill.cpp"
+#include <algorithm>
 
 BlockObject::BlockObject()
 {
@@ -8,6 +9,17 @@ BlockObject::BlockObject()
 	mBlockCount = 0;
 	mSize = 50;
 }
+BlockObject::BlockObject( const BlockObject& other )
+{
+	/*std::copy( other.mDirList, other.mDirList + other.mBlockCount, this->mDirList );
+	this->mBlockCount = other.mBlockCount;
+	this->mSize = other.mSize;
+	this->mIsUsed = other.mIsUsed;
+	this->mRectListvec = other.mRectListvec;
+	this->mPosition = other.mPosition;*/
+	//*this = other;
+}
+
 
 BlockObject::BlockObject( int blockCount, int size )
 {
@@ -25,8 +37,8 @@ BlockObject::BlockObject( int blockCount, int size )
 
 BlockObject::~BlockObject()
 {
-	/*if( mDirList != nullptr )
-		delete[] mDirList;*/
+	if( mDirList != nullptr )
+		delete[] mDirList;
 }
 
 void BlockObject::Update( float dt )
@@ -49,47 +61,33 @@ void BlockObject::Translate( OtterVector2f trans )
 {
 	Object::Translate( trans );
 
-
 	for( int i = 0; i < mBlockCount; ++i )
 		mRectListvec[i].Translate( trans );
 }
 void BlockObject::SetPosition( float x, float y )
 {
 	Object::SetPosition( x, y );
-
-
 	mRectListvec[0].SetPosition( x, y );
+	OtterVector2i prevPos = mRectListvec[0].GetPosition();
+
 	for( int i = 1; i < mBlockCount; ++i )
 	{
-		OtterVector2f dirpos = GetRandPosition( mDirList[i] );
-		OtterVector2f setpos = GetPosition() + dirpos;
-
-		if( i != 0 )
-		{
-			setpos = mRectListvec[i - 1].GetPosition() + dirpos;
-		}
-
-		mRectListvec[i].SetPosition( setpos );
+		mRectListvec[i].SetPosition( prevPos + GetRandPosition( mDirList[i] ) );
+		prevPos = mRectListvec[i].GetPosition();
 	}
 }
 void BlockObject::SetPosition( OtterVector2f pos )
 {
 	Object::SetPosition( pos );
-
-
 	mRectListvec[0].SetPosition( pos );
+	OtterVector2i prevPos = mRectListvec[0].GetPosition();
+
 	for( int i = 1; i < mBlockCount; ++i )
 	{
-		OtterVector2f dirpos = GetRandPosition( mDirList[i] );
-		OtterVector2f setpos = GetPosition() + dirpos;
-
-		if( i != 0 )
-		{
-			setpos = mRectListvec[i - 1].GetPosition() + dirpos;
-		}
-
-		mRectListvec[i].SetPosition( setpos );
+		mRectListvec[i].SetPosition( prevPos + GetRandPosition( mDirList[i] ) );
+		prevPos = mRectListvec[i].GetPosition();
 	}
+
 }
 
 void BlockObject::SetBlock( int blockCount, int size )

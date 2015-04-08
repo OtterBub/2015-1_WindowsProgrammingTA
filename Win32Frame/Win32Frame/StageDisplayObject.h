@@ -25,13 +25,15 @@ public:
 
 	int GetCollisionIndex( OtterVector2f point );
 	int GetCollisionIndex( OtterRect2f rect );
+	int GetTotal();
+	GDIRect* GetRectList();
 	std::vector<int> GetCollisionIndexes( OtterRect2f rect );
 	COLORREF GetColorRef( int index );
 	COLORREF GetColorRef( int x, int y );
 	COLORREF GetColorRef( OtterVector2f index );
 
 private:
-	int mWidth, mHeight, mSize;
+	int mWidth, mHeight, mSize, mTotal;
 	COLORREF mDefaultColor;
 	GDIRect* mRectList;
 };

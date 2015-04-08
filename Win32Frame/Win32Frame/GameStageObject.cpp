@@ -11,13 +11,13 @@ mDisplayObject( width, height )
 	mBlockCheck = false;
 	mDefaultColor = RGB( 255, 255, 255 );
 
-	mBlockamount = 0;
 	mMaxBlockCount = 0;
 	mBlockSize = 0;
-
+	mBlockCount = 0;
 	mBlockList = nullptr;
 	mColorList = nullptr;
 	mCreateNewBlock = false;
+	mGameOver = false;
 }
 GameStageObject::GameStageObject( int width, int height, int size ) :
 mDisplayObject( width, height, size )
@@ -26,13 +26,14 @@ mDisplayObject( width, height, size )
 	mBlockCheck = false;
 	mDefaultColor = RGB( 255, 255, 255 );
 
-	mBlockamount = 0;
 	mMaxBlockCount = 0;
 	mBlockSize = size;
+	mBlockCount = 0;
 
 	mBlockList = nullptr;
 	mColorList = nullptr;
 	mCreateNewBlock = false;
+	mGameOver = false;
 }
 GameStageObject::~GameStageObject()
 {
@@ -48,13 +49,16 @@ void GameStageObject::Update( float dt )
 	static int lreleaseBlockIndex = -1;
 	static bool lreleaseBlock = false;
 	static OtterVector2i prevPos = OTTER_INPUT.GetMousePosition();
+	static OtterVector2f prevBlockPos;
 
 	// Object Select
 	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) && ( lDragBlockIndex == -1 ) )
 	{
 		lDragBlockIndex = BlockObjectClickCheck( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ) );
-		if( lDragBlockIndex != -1 )
+		if( lDragBlockIndex != -1 ) {
 			lreleaseBlock = false;
+			prevBlockPos = mBlockList[lDragBlockIndex].GetPosition();
+		}
 	}
 	else if( OTTER_INPUT.GetMouseUp( MOUSE_MESSAGE::MOUSE_L ) ){
 		lreleaseBlockIndex = lDragBlockIndex;
@@ -71,6 +75,8 @@ void GameStageObject::Update( float dt )
 		mBlockCheck = BlockObjectCheck( mBlockList[lreleaseBlockIndex] );
 		if( mBlockCheck )
 			mBlockList[lreleaseBlockIndex].SetUsed( true );
+		else
+			mBlockList[lreleaseBlockIndex].SetPosition( prevBlockPos );
 
 		lreleaseBlockIndex = -1;
 		lreleaseBlock = false;
@@ -81,13 +87,14 @@ void GameStageObject::Update( float dt )
 	{		
 		mBlockCheck = false;
 		DeleteBlockCheck();
-
 		mCreateNewBlock = true;
+		mGameOver = false;
 		for( int i = 0; i < mBlockCount; ++i )
 		{
 			if( mBlockList[i].GetUsed() == false )
 			{
 				mCreateNewBlock = false;
+				mGameOver = !( CheckCanPlaceBlock( mBlockList[i] ) );
 			}
 		}
 	}
@@ -95,10 +102,13 @@ void GameStageObject::Update( float dt )
 	if ( mCreateNewBlock )
 	{
 		mCreateNewBlock = false;
-		SetBlock( mBlockamount, mBlockCount, mBlockSize );
+		SetBlock( mBlockCount, mMaxBlockCount, mBlockSize );
 	}
 
 	mDebugStr = std::to_wstring( lDragBlockIndex );
+	if( mGameOver )
+		mDebugStr += L" / / / GAME OVER";
+	
 	
 	prevPos = OTTER_INPUT.GetMousePosition();
 }
@@ -143,7 +153,7 @@ void GameStageObject::SetDefaultColor( COLORREF color )
 void GameStageObject::SetBlock( int blockamount, int maxBlockCount, int BlockSize )
 {
 	bool *usedNum = new bool[maxBlockCount];
-	mBlockamount = blockamount;
+	mBlockCount = blockamount;
 	mMaxBlockCount = maxBlockCount;
 	mBlockSize = BlockSize;
 
@@ -158,7 +168,6 @@ void GameStageObject::SetBlock( int blockamount, int maxBlockCount, int BlockSiz
 		}
 	}
 
-	mBlockCount = blockamount;
 	if( mBlockList == nullptr )
 		mBlockList = new BlockObject[blockamount];
 	else
@@ -209,12 +218,12 @@ int GameStageObject::RectCheck( OtterRect2f rect )
 	return -1;
 }
 
-bool GameStageObject::BlockObjectCheck( BlockObject block )
+bool GameStageObject::BlockObjectCheck( BlockObject& block, bool changeColor )
 {
 	std::vector<GDIRect> rect = block.GetRectListvec();
 	int rectCount = block.GetBlockCount();
 	int checkCount = 0;
-	int prevCheck = 0;
+	int prevCheck = -1;
 	int* changeColorIndexList = new int[rectCount];
 
 	for( int rectIndex = 0; rectIndex < rectCount; ++rectIndex )
@@ -230,10 +239,12 @@ bool GameStageObject::BlockObjectCheck( BlockObject block )
 		prevCheck = check;
 	}
 
-	for( int i = 0; i < rectCount; ++i )
-	{
-		int displayIndex = changeColorIndexList[i];
-		mDisplayObject.SetIndexColor( displayIndex, rect[i].GetBrushColor() );
+	if( changeColor ){
+		for( int i = 0; i < rectCount; ++i )
+		{
+			int displayIndex = changeColorIndexList[i];
+			mDisplayObject.SetIndexColor( displayIndex, rect[i].GetBrushColor() );
+		}
 	}
 	delete[] changeColorIndexList;
 	return true;
@@ -310,4 +321,29 @@ void GameStageObject::DeleteBlockLine( int line, LINE vh )
 			mDisplayObject.SetPositionColor( OtterVector2i( i, line ), mDefaultColor );
 		}
 	}
+}
+
+bool GameStageObject::CheckCanPlaceBlock( BlockObject& block )
+{
+	bool lResult = false;
+	int lTotalRectCount = mDisplayObject.GetTotal();
+	GDIRect* RectList = mDisplayObject.GetRectList();
+	OtterVector2f lOriginPosition = block.GetPosition();
+
+	for( int i = 0; i < lTotalRectCount; ++i )
+	{ 
+		if( RectList[i].GetBrushColor() != mDefaultColor )
+			continue; 
+
+		block.SetPosition( RectList[i].GetPosition() );
+		if( BlockObjectCheck( block, false ) )
+		{
+			lResult = true;
+		}
+	}
+
+	block.SetPosition( lOriginPosition );
+
+	delete[] RectList;
+	return lResult;
 }

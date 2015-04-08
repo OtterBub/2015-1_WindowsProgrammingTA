@@ -6,6 +6,7 @@ StageDisplayObject::StageDisplayObject( int width, int height )
 	mWidth = width;
 	mHeight = height;
 	mSize = 10;
+	mTotal = mWidth * mHeight;
 	mRectList = new GDIRect[mWidth * mHeight];
 	mDefaultColor = RGB( 255, 255, 255 );
 	SetPosition( 0, 0 );
@@ -16,6 +17,7 @@ StageDisplayObject::StageDisplayObject( int width, int height, int size )
 	mWidth = width;
 	mHeight = height;
 	mSize = size;
+	mTotal = mWidth * mHeight;
 	mRectList = new GDIRect[mWidth * mHeight];
 	mDefaultColor = RGB( 255, 255, 255 );
 	SetPosition( 0, 0 );
@@ -33,9 +35,7 @@ void StageDisplayObject::Update( float dt )
 
 void StageDisplayObject::Draw( HDC hdc )
 {
-	int lTotal = mWidth * mHeight;
-
-	for( int i = 0; i < lTotal; ++i )
+	for( int i = 0; i < mTotal; ++i )
 	{
 		mRectList[i].Draw( hdc );
 	}
@@ -78,10 +78,9 @@ void StageDisplayObject::SetPosition( OtterVector2f pos )
 
 void StageDisplayObject::SetSize( int size )
 {
-	int lTotal = mWidth * mHeight;
 	mSize = size;
 
-	for( int i = 0; i < lTotal; ++i )
+	for( int i = 0; i < mTotal; ++i )
 	{
 		mRectList[i].SetSize( mSize );
 	}
@@ -106,8 +105,7 @@ void StageDisplayObject::SetPositionColor( OtterVector2f pos, COLORREF color )
 
 int StageDisplayObject::GetCollisionIndex( OtterVector2f point )
 {
-	int lTotal = mWidth * mHeight;
-	for( int i = 0; i < lTotal; ++i )
+	for( int i = 0; i < mTotal; ++i )
 	{
 		if( CollisionRectToPoint( mRectList[i].GetRect(), point ) )
 			return i;
@@ -137,11 +135,29 @@ int StageDisplayObject::GetCollisionIndex( OtterRect2f rect )
 	return result;
 }
 
+int StageDisplayObject::GetTotal()
+{
+	return mTotal;
+}
+GDIRect* StageDisplayObject::GetRectList()
+{
+	if( mTotal == 0 )
+		return 0;
+
+	GDIRect* result = new GDIRect[mTotal];
+
+	for( int i = 0; i < mTotal; ++i )
+	{
+		result[i] = mRectList[i];
+	}
+
+	return result;
+}
+
 std::vector< int > StageDisplayObject::GetCollisionIndexes( OtterRect2f rect )
 {
 	std::vector< int > result;
-	int lTotal = mWidth * mHeight;
-	for( int i = 0; i < lTotal; ++i )
+	for( int i = 0; i < mTotal; ++i )
 	{
 		if( CollisionRectToRect( mRectList[i].GetRect(), rect ) )
 			result.push_back( i );
