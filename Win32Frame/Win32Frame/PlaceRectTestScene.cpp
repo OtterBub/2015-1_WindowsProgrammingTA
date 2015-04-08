@@ -1,20 +1,20 @@
-#include "RectPlaceTestScene.h"
+#include "PlaceRectTestScene.h"
 #include "CollisionTestScene.h"
 #include "Win32Frame.h"
 #include "MathUtill.cpp"
 
-RectPlaceTestScene::RectPlaceTestScene(  ) :
+PlaceRectTestScene::PlaceRectTestScene(  ) :
 mBoard( 12, 12, 50 )
 {
 	
 }
 
-RectPlaceTestScene::~RectPlaceTestScene()
+PlaceRectTestScene::~PlaceRectTestScene()
 {
 }
 
 
-void RectPlaceTestScene::Enter()
+void PlaceRectTestScene::Enter()
 {
 	mBoard.SetPosition( 0, 0 );
 	mRect.SetPosition( 800, 300 );
@@ -22,12 +22,12 @@ void RectPlaceTestScene::Enter()
 	mRect.SetBrush( RGB( 155, 155, 0 ) );
 }
 
-void RectPlaceTestScene::Exit()
+void PlaceRectTestScene::Exit()
 {
 }
 
 
-void RectPlaceTestScene::Update( double dt )
+void PlaceRectTestScene::Update( double dt )
 {
 	static bool lDrag = false;
 	static OtterVector2i prevMousePos = OTTER_INPUT.GetMousePosition();
@@ -73,11 +73,11 @@ void RectPlaceTestScene::Update( double dt )
 	
 }
 
-void RectPlaceTestScene::Draw( HWND hwnd, HDC hdc )
+void PlaceRectTestScene::Draw( HWND hwnd, HDC hdc )
 {
 	mBoard.Draw( hdc );
 	mRect.Draw( hdc );
-	TextOut( hdc, 0, 0, L"RectPlaceTestScene", wcslen( L"RectPlaceTestScene" ) );
+	TextOut( hdc, 0, 0, L"PlaceRectTestScene", wcslen( L"PlaceRectTestScene" ) );
 	for( int i = 0; i <= mLineCount; ++i )
 	{
 		SIZE length;
@@ -86,7 +86,7 @@ void RectPlaceTestScene::Draw( HWND hwnd, HDC hdc )
 	}
 }
 
-void RectPlaceTestScene::KeyDown( WPARAM wParam, LPARAM lParam )
+void PlaceRectTestScene::KeyDown( WPARAM wParam, LPARAM lParam )
 {
 	
 }

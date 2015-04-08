@@ -1,5 +1,5 @@
 #include "TestScene.h"
-#include "RectPlaceTestScene.h"
+#include "PlaceRectTestScene.h"
 #include "Win32Frame.h"
 
 TestScene::TestScene()

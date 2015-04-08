@@ -5,11 +5,11 @@
 #include "StageDisplayObject.h"
 #include <string>
 
-class RectPlaceTestScene : public Scene
+class PlaceRectTestScene : public Scene
 {
 public:
-	RectPlaceTestScene();
-	~RectPlaceTestScene();
+	PlaceRectTestScene();
+	~PlaceRectTestScene();
 
 	void Enter();
 	void Exit();

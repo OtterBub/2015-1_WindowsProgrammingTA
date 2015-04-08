@@ -23,7 +23,7 @@
     <ClInclude Include="OtterMath.h" />
     <ClInclude Include="DeleteBlockTestScene.h" />
     <ClInclude Include="PlayScene.h" />
-    <ClInclude Include="RectPlaceTestScene.h" />
+    <ClInclude Include="PlaceRectTestScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="StageDisplayObject.h" />
     <ClInclude Include="TestScene.h" />
@@ -48,7 +48,7 @@
     <ClCompile Include="OtterMath.cpp" />
     <ClCompile Include="DeleteBlockTestScene.cpp" />
     <ClCompile Include="PlayScene.cpp" />
-    <ClCompile Include="RectPlaceTestScene.cpp" />
+    <ClCompile Include="PlaceRectTestScene.cpp" />
     <ClCompile Include="StageDisplayObject.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="MathUtill.cpp" />

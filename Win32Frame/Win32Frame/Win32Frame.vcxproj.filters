@@ -86,7 +86,7 @@
     <ClInclude Include="GDIButton.h">
       <Filter>Source\Object</Filter>
     </ClInclude>
-    <ClInclude Include="RectPlaceTestScene.h">
+    <ClInclude Include="PlaceRectTestScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
   </ItemGroup>
@@ -148,7 +148,7 @@
     <ClCompile Include="GDIButton.cpp">
       <Filter>Source\Object</Filter>
     </ClCompile>
-    <ClCompile Include="RectPlaceTestScene.cpp">
+    <ClCompile Include="PlaceRectTestScene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
   </ItemGroup>
