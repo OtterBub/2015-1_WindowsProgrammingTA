@@ -16,7 +16,7 @@ public:
 	void Draw( HWND hwnd, HDC hdc );
 
 private:
-	GDIButton mButton;
+	GDIButton mButton[6];
 };
 
 #endif __MENU_SCENE_H__

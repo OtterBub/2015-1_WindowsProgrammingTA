@@ -30,11 +30,14 @@ public:
 
 	void SethWnd( HWND hwnd );
 
+	RECT GetClientRectbyFrame();
+
 private:
 	Win32Frame();
 
 private:
 	HWND mhwnd;
+	RECT mClientRect;
 	Scene* mCurrentScene;
 	Scene* mChangeScene;
 	bool mChange;

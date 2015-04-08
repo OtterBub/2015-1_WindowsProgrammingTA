@@ -140,6 +140,10 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			
 			break;
 
+		case WM_SIZE:
+			WIN32FRAME.SethWnd( hWnd );
+			break;
+
 		case WM_DESTROY:
 			PostQuitMessage( 0 );
 			break;

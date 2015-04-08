@@ -124,7 +124,11 @@ void Win32Frame::ChangeScene( Scene* scene )
 void Win32Frame::SethWnd( HWND hwnd )
 {
 	mhwnd = hwnd;
-	RECT rect;
-	GetClientRect( hwnd, &rect );
-	WIN32FRAME.GetBodyList()[GROUND_BODY].position.Set( rect.right / 2.f, rect.bottom + 15 );
+	GetClientRect( hwnd, &mClientRect );
+	WIN32FRAME.GetBodyList()[GROUND_BODY].position.Set( mClientRect.right / 2.f, mClientRect.bottom + 15 );
+}
+
+RECT Win32Frame::GetClientRectbyFrame()
+{
+	return mClientRect;
 }
