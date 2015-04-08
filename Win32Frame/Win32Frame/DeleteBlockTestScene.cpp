@@ -15,7 +15,6 @@ void DeleteBlockTestScene::Enter()
 	mRect.SetPosition( 800, 300 );
 	mRect.SetSize( 50 );
 	mRect.SetBrush( RGB( 0, 255, 255 ) );
-
 }
 void DeleteBlockTestScene::Exit()
 {

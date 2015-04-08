@@ -16,7 +16,7 @@ PlaceRectTestScene::~PlaceRectTestScene()
 
 void PlaceRectTestScene::Enter()
 {
-	mBoard.SetPosition( 0, 0 );
+	mBoard.SetPosition( 0, 50 );
 	mRect.SetPosition( 800, 300 );
 	mRect.SetSize( 50 );
 	mRect.SetBrush( RGB( 155, 155, 0 ) );

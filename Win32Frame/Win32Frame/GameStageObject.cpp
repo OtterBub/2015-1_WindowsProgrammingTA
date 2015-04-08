@@ -18,6 +18,7 @@ mDisplayObject( width, height )
 	mColorList = nullptr;
 	mCreateNewBlock = false;
 	mGameOver = false;
+	mDisplayObject.SetPosition( 0, 50 );
 }
 GameStageObject::GameStageObject( int width, int height, int size ) :
 mDisplayObject( width, height, size )
@@ -34,6 +35,7 @@ mDisplayObject( width, height, size )
 	mColorList = nullptr;
 	mCreateNewBlock = false;
 	mGameOver = false;
+	mDisplayObject.SetPosition( 0, 50 );
 }
 GameStageObject::~GameStageObject()
 {
@@ -55,7 +57,7 @@ void GameStageObject::Update( float dt )
 	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) && ( lDragBlockIndex == -1 ) )
 	{
 		lDragBlockIndex = BlockObjectClickCheck( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ) );
-		if( lDragBlockIndex != -1 ) {
+		if( ( lDragBlockIndex != -1 ) ) {
 			lreleaseBlock = false;
 			prevBlockPos = mBlockList[lDragBlockIndex].GetPosition();
 		}
@@ -195,7 +197,7 @@ void GameStageObject::SetBlock( int blockamount, int maxBlockCount, int BlockSiz
 		usedNum[blockNum] = true;
 
 		mBlockList[i].SetBlock( 1 + blockNum, BlockSize );
-		mBlockList[i].SetPosition( 800, 100 + ( i * 250 ) );
+		mBlockList[i].SetPosition( 800 + ( i * 100 ), 100 + ( i * 250 ) );
 		mBlockList[i].SetColor( mColorList[rand() % blockamount] );
 	}
 
@@ -264,6 +266,9 @@ int GameStageObject::BlockObjectClickCheck( OtterVector2i mousepos )
 {
 	for( int blockIndex = 0; blockIndex < mBlockCount; ++blockIndex )
 	{
+		if( mBlockList[blockIndex].GetUsed() == true )
+			continue;
+
 		std::vector<GDIRect> rect = mBlockList[blockIndex].GetRectListvec();
 		int rectCount = mBlockList[blockIndex].GetBlockCount();
 		int collisionCount = 0;
