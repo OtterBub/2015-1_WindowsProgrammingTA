@@ -9,7 +9,7 @@ public:
 	GDIRect();
 	~GDIRect();
 
-	void Draw( HDC hdc );
+	virtual void Draw( HDC hdc );
 
 	void Translate( float x, float y );
 	void Translate( OtterVector2f trans );

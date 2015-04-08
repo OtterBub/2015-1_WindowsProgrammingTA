@@ -1,5 +1,5 @@
 #include "RectCollisionCheckScene.h"
-#include "MenuScene.h"
+#include "CollisionTestScene.h"
 #include "Win32Frame.h"
 #include "MathUtill.cpp"
 

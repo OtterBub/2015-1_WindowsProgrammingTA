@@ -17,6 +17,7 @@ public:
 	COLORREF GetLineColor();
 	COLORREF GetBrushColor();
 
+protected:
 	void CreateMyObject( );
 	void DeleteMyObject( );
 

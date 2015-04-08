@@ -41,9 +41,6 @@
     <ClInclude Include="TestScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="MenuScene.h">
-      <Filter>Source\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="GDIObject.h">
       <Filter>Source\Object</Filter>
     </ClInclude>
@@ -83,6 +80,15 @@
     <ClInclude Include="PlayScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionTestScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIButton.h">
+      <Filter>Source\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -95,9 +101,6 @@
       <Filter>Source\System</Filter>
     </ClCompile>
     <ClCompile Include="TestScene.cpp">
-      <Filter>Source\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuScene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="GDIObject.cpp">
@@ -138,6 +141,15 @@
     </ClCompile>
     <ClCompile Include="PlayScene.cpp">
       <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionTestScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIButton.cpp">
+      <Filter>Source\Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

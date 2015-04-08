@@ -14,7 +14,19 @@ void GDIRect::Draw( HDC hdc )
 {
 	GDIObject::CreateMyObject();
 	GDIObject::Draw( hdc );
-	Rectangle( hdc, mRectf.point[0].x, mRectf.point[0].y, mRectf.point[1].x, mRectf.point[1].y );
+	POINT point[4];
+	point[0].x = mRectf.point[0].x;
+	point[0].y = mRectf.point[0].y;
+	point[1].x = mRectf.point[0].x;
+	point[1].y = mRectf.point[1].y;
+	point[2].x = mRectf.point[1].x;
+	point[2].y = mRectf.point[1].y;
+	point[3].x = mRectf.point[1].x;
+	point[3].y = mRectf.point[0].y;
+
+	//Rectangle( hdc, mRectf.point[0].x, mRectf.point[0].y, mRectf.point[1].x, mRectf.point[1].y );
+	
+	Polygon( hdc, point, 4);
 	GDIObject::DeleteMyObject();
 }
 

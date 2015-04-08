@@ -89,6 +89,7 @@ void GameStageObject::Update( float dt )
 		DeleteBlockCheck();
 		mCreateNewBlock = true;
 		mGameOver = false;
+		// Check GameOver
 		for( int i = 0; i < mBlockCount; ++i )
 		{
 			if( mBlockList[i].GetUsed() == false )
@@ -103,6 +104,15 @@ void GameStageObject::Update( float dt )
 	{
 		mCreateNewBlock = false;
 		SetBlock( mBlockCount, mMaxBlockCount, mBlockSize );
+		// Check GameOver
+		for( int i = 0; i < mBlockCount; ++i )
+		{
+			if( mBlockList[i].GetUsed() == false )
+			{
+				mCreateNewBlock = false;
+				mGameOver = !( CheckCanPlaceBlock( mBlockList[i] ) );
+			}
+		}
 	}
 
 	mDebugStr = std::to_wstring( lDragBlockIndex );

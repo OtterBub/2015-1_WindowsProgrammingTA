@@ -1,4 +1,6 @@
 #include "Win32Frame.h"
+#include "MenuScene.h"
+#include "CollisionTestScene.h"
 #include "RectCollisionCheckScene.h"
 #include "DeleteBlockTestScene.h"
 #include "CreateBlockTestScene.h"
@@ -54,15 +56,18 @@ void Win32Frame::Update( double dt )
 	prevTime = std::clock();
 
 
-	//for debug
-
+	//for debug	
 	if( OTTER_INPUT.GetKeyDown( '1' ) )
-		WIN32FRAME.ChangeScene( new RectCollisionCheckScene() );
+		WIN32FRAME.ChangeScene( new MenuScene() );
 	if( OTTER_INPUT.GetKeyDown( '2' ) )
-		WIN32FRAME.ChangeScene( new DeleteBlockTestScene() );
+		WIN32FRAME.ChangeScene( new CollisionTestScene() );
 	if( OTTER_INPUT.GetKeyDown( '3' ) )
-		WIN32FRAME.ChangeScene( new CreateBlockScene() );
+		WIN32FRAME.ChangeScene( new RectCollisionCheckScene() );
 	if( OTTER_INPUT.GetKeyDown( '4' ) )
+		WIN32FRAME.ChangeScene( new DeleteBlockTestScene() );
+	if( OTTER_INPUT.GetKeyDown( '5' ) )
+		WIN32FRAME.ChangeScene( new CreateBlockScene() );
+	if( OTTER_INPUT.GetKeyDown( '6' ) )
 		WIN32FRAME.ChangeScene( new PlayScene() );
 }
 
