@@ -29,6 +29,7 @@ public:
 
 	void SetDefaultColor( COLORREF color );
 	void SetBlock( int blockamount, int maxBlockCount, int BlockSize );
+	void SetBoardType( int type );
 
 	// for TestFunction
 	void BlockCheck( OtterRect2f rect, COLORREF color );

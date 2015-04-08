@@ -7,7 +7,10 @@ StageDisplayObject::StageDisplayObject( int width, int height )
 	mHeight = height;
 	mSize = 10;
 	mTotal = mWidth * mHeight;
+	mBoardType = BOARD_TYPE::DEFAULT;
 	mRectList = new GDIRect[mWidth * mHeight];
+	mIgnoreIndex = new bool[mTotal];
+	memset( mIgnoreIndex, 0, sizeof( bool ) * mTotal );
 	mDefaultColor = RGB( 255, 255, 255 );
 	SetPosition( 0, 0 );
 }
@@ -18,7 +21,10 @@ StageDisplayObject::StageDisplayObject( int width, int height, int size )
 	mHeight = height;
 	mSize = size;
 	mTotal = mWidth * mHeight;
+	mBoardType = BOARD_TYPE::DEFAULT;
 	mRectList = new GDIRect[mWidth * mHeight];
+	mIgnoreIndex = new bool[mTotal];
+	memset( mIgnoreIndex, 0, sizeof( bool ) * mTotal );
 	mDefaultColor = RGB( 255, 255, 255 );
 	SetPosition( 0, 0 );
 }
@@ -26,17 +32,21 @@ StageDisplayObject::StageDisplayObject( int width, int height, int size )
 StageDisplayObject::~StageDisplayObject()
 {
 	delete[] mRectList;
+	delete[] mIgnoreIndex;
 }
 
 void StageDisplayObject::Update( float dt )
 {
-	
+
 }
 
 void StageDisplayObject::Draw( HDC hdc )
 {
 	for( int i = 0; i < mTotal; ++i )
 	{
+		if( mIgnoreIndex[i] )
+			continue;
+
 		mRectList[i].Draw( hdc );
 	}
 }
@@ -103,10 +113,56 @@ void StageDisplayObject::SetPositionColor( OtterVector2f pos, COLORREF color )
 	}
 }
 
+void StageDisplayObject::SetBoardType( int type )
+{
+	switch( type )
+	{
+		case BOARD_TYPE::CORNER:
+		{
+			for( int y = 0; y < mHeight; ++y )
+			{
+				for( int x = 0; x < mWidth; ++x )
+				{
+					if( ( mWidth / 2.f >= x ) && ( mHeight / 2.f <= y ) )
+					{
+						mIgnoreIndex[x + ( y * mWidth )] = true;
+					}
+				}
+			}
+		}
+		break;
+
+		case BOARD_TYPE::BLANK:
+		{
+			for( int y = 0; y < mHeight; ++y )
+			{
+				for( int x = 0; x < mWidth; ++x )
+				{
+					if( ( mWidth / 4.f <= x ) && ( mHeight / 4.f <= y ) &&
+						( mWidth * ( 3 / 4.f ) > x ) && ( mHeight * ( 3 / 4.f ) > y ) )
+					{
+						mIgnoreIndex[x + ( y * mWidth )] = true;
+					}
+				}
+			}
+		}
+		break;
+
+		default:
+			for( int i = 0; i < mTotal; ++i )
+				mIgnoreIndex[i] = false;
+			break;
+	}
+
+}
+
 int StageDisplayObject::GetCollisionIndex( OtterVector2f point )
 {
 	for( int i = 0; i < mTotal; ++i )
 	{
+		if( mIgnoreIndex[i] )
+			continue;
+
 		if( CollisionRectToPoint( mRectList[i].GetRect(), point ) )
 			return i;
 	}
@@ -124,6 +180,9 @@ int StageDisplayObject::GetCollisionIndex( OtterRect2f rect )
 
 	for( int i : Indexes )
 	{
+		if( mIgnoreIndex[i] )
+			continue;
+
 		float vectorLength = ( pos - mRectList[i].GetPosition() ).GetLength();
 		if( dist > vectorLength )
 		{
@@ -139,6 +198,16 @@ int StageDisplayObject::GetTotal()
 {
 	return mTotal;
 }
+
+bool* StageDisplayObject::GetIgnoreList()
+{
+	bool* result = new bool[mTotal];
+	memcpy( result, mIgnoreIndex, sizeof( bool ) * mTotal );
+
+
+	return result;
+}
+
 GDIRect* StageDisplayObject::GetRectList()
 {
 	if( mTotal == 0 )
@@ -148,6 +217,9 @@ GDIRect* StageDisplayObject::GetRectList()
 
 	for( int i = 0; i < mTotal; ++i )
 	{
+		if( mIgnoreIndex[i] )
+			continue;
+
 		result[i] = mRectList[i];
 	}
 
@@ -159,6 +231,9 @@ std::vector< int > StageDisplayObject::GetCollisionIndexes( OtterRect2f rect )
 	std::vector< int > result;
 	for( int i = 0; i < mTotal; ++i )
 	{
+		if( mIgnoreIndex[i] )
+			continue;
+
 		if( CollisionRectToRect( mRectList[i].GetRect(), rect ) )
 			result.push_back( i );
 	}

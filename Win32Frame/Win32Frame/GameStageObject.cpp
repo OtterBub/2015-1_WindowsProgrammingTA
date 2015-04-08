@@ -204,6 +204,11 @@ void GameStageObject::SetBlock( int blockamount, int maxBlockCount, int BlockSiz
 	delete[] usedNum;
 }
 
+void GameStageObject::SetBoardType( int type )
+{
+	mDisplayObject.SetBoardType( type );
+}
+
 void GameStageObject::BlockCheck( OtterRect2f rect, COLORREF color )
 {
 	int lIndex = mDisplayObject.GetCollisionIndex( rect );
@@ -287,37 +292,56 @@ int GameStageObject::BlockObjectClickCheck( OtterVector2i mousepos )
 
 void GameStageObject::DeleteBlockCheck()
 {
-	int widthCount = 0;
+	int *widthCount = new int[mWidth];
 	int *heightCount = new int[mHeight];
-	memset( heightCount, 0, sizeof( int )* mHeight );
+	int *originWidth = new int[mWidth];
+	int *originHeight = new int[mHeight];
+	bool *ignoreList = mDisplayObject.GetIgnoreList();
+
+	memset( widthCount, 0, sizeof( int )*mWidth );
+	memset( originWidth, 0, sizeof( int )*mWidth );
+	memset( heightCount, 0, sizeof( int )*mHeight );
+	memset( originHeight, 0, sizeof( int )*mHeight );
 
 	for( int i = 0; i < mHeight; ++i )
 	{
 		for( int j = 0; j < mWidth; ++j ) 
 		{
+			if( ignoreList[j + ( i * mWidth )] )
+				continue;
+
+			originWidth[i]++;
+			originHeight[j]++;
+
 			if( mDisplayObject.GetColorRef( j, i ) != mDefaultColor )
 			{
-				widthCount++;
+				widthCount[i]++;
 				heightCount[j]++;
 			}
-			if( widthCount == mWidth )
-			{
-				DeleteBlockLine( i, LINE::HORIZONTAL );
-				widthCount = 0;
-			}
 		}
-		widthCount = 0;
 	}
 
 	for( int i = 0; i < mHeight; ++i )
 	{
-		if( heightCount[i] == mHeight )
+		if( ( heightCount[i] == originHeight[i] ) && ( heightCount[i] != 0 ) )
 		{
 			DeleteBlockLine( i, LINE::VERTICAL );
 		}
 	}
 
+	for( int i = 0; i < mWidth; ++i )
+	{
+		if( ( widthCount[i] == originWidth[i] ) && ( widthCount[i] != 0 ) )
+		{
+			DeleteBlockLine( i, LINE::HORIZONTAL );
+		}
+	}
+
+	delete[] widthCount;
+	delete[] originWidth;
 	delete[] heightCount;
+	delete[] originHeight;
+	delete[] ignoreList;
 }
 
 void GameStageObject::DeleteBlockLine( int line, LINE vh )

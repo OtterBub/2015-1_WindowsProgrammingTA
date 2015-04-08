@@ -4,6 +4,13 @@
 #include <vector>
 #include "GDIRect.h"
 
+enum BOARD_TYPE
+{
+	CORNER,
+	BLANK,
+	DEFAULT
+};
+
 class StageDisplayObject : public Object
 {
 public:
@@ -22,10 +29,12 @@ public:
 	void SetSize( int size );
 	void SetIndexColor( int index, COLORREF color );
 	void SetPositionColor( OtterVector2f pos, COLORREF color );
+	void SetBoardType( int type );
 
 	int GetCollisionIndex( OtterVector2f point );
 	int GetCollisionIndex( OtterRect2f rect );
 	int GetTotal();
+	bool* GetIgnoreList();
 	GDIRect* GetRectList();
 	std::vector<int> GetCollisionIndexes( OtterRect2f rect );
 	COLORREF GetColorRef( int index );
@@ -33,7 +42,8 @@ public:
 	COLORREF GetColorRef( OtterVector2f index );
 
 private:
-	int mWidth, mHeight, mSize, mTotal;
+	int mWidth, mHeight, mSize, mTotal, mBoardType;
+	bool* mIgnoreIndex;
 	COLORREF mDefaultColor;
 	GDIRect* mRectList;
 };

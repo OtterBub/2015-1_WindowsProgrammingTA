@@ -30,23 +30,11 @@ Input& Input::GetInstance()
 
 bool Input::GetAnyKeyDown()
 {
-	if( !mAnyKeyDown )
-		return false;
-	else
-	{
-		mAnyKeyDown = false;
-		return true;
-	}
+	return mAnyKeyDown;
 }
 bool Input::GetAnyKeyUp()
 {
-	if( !mAnyKeyUp )
-		return false;
-	else
-	{
-		mAnyKeyUp = false;
-		return true;
-	}
+	return mAnyKeyUp;
 }
 bool Input::GetKeyDown( unsigned int keycode )
 {

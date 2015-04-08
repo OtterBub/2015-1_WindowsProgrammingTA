@@ -12,8 +12,8 @@ PlayScene::~PlayScene()
 
 void PlayScene::Enter()
 {
-	mStage.SetBlock( 3, 8, 50 );
-	
+	mStage.SetBlock( 3, 8, 50 );	
+	mStage.SetBoardType( rand() % 3 );
 }
 void PlayScene::Exit()
 {
@@ -22,12 +22,14 @@ void PlayScene::Exit()
 
 void PlayScene::Update( double dt )
 {
-	if( OTTER_INPUT.GetKeyDown( 'R' ) )
+	static bool lbKeyDown = false;
+	if( OTTER_INPUT.GetKeyDown( 'R' ) && ( lbKeyDown == false ) )
 	{
 		mStage.SetBlock( 3, 8, 50 );
 	}
 
 	mStage.Update( dt );
+	lbKeyDown = OTTER_INPUT.GetAnyKeyDown();
 }
 void PlayScene::Draw( HWND hwnd, HDC hdc )
 {

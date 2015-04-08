@@ -36,6 +36,7 @@ void Win32Frame::Exit()
 void Win32Frame::Update( double dt )
 {
 	static clock_t prevTime = std::clock();
+	static bool lbKeyDown = false;
 	
 	if( mCurrentScene != nullptr )
 		mCurrentScene->Update( (double)( std::clock() - prevTime ) / CLOCKS_PER_SEC );
@@ -57,18 +58,23 @@ void Win32Frame::Update( double dt )
 
 
 	//for debug	
-	if( OTTER_INPUT.GetKeyDown( '1' ) )
-		WIN32FRAME.ChangeScene( new MenuScene() );
-	if( OTTER_INPUT.GetKeyDown( '2' ) )
-		WIN32FRAME.ChangeScene( new CollisionTestScene() );
-	if( OTTER_INPUT.GetKeyDown( '3' ) )
-		WIN32FRAME.ChangeScene( new PlaceRectTestScene() );
-	if( OTTER_INPUT.GetKeyDown( '4' ) )
-		WIN32FRAME.ChangeScene( new DeleteBlockTestScene() );
-	if( OTTER_INPUT.GetKeyDown( '5' ) )
-		WIN32FRAME.ChangeScene( new CreateBlockScene() );
-	if( OTTER_INPUT.GetKeyDown( '6' ) )
-		WIN32FRAME.ChangeScene( new PlayScene() );
+	if( lbKeyDown == false )
+	{
+		if( OTTER_INPUT.GetKeyDown( '1' ) )
+			WIN32FRAME.ChangeScene( new MenuScene() );
+		if( OTTER_INPUT.GetKeyDown( '2' ) )
+			WIN32FRAME.ChangeScene( new CollisionTestScene() );
+		if( OTTER_INPUT.GetKeyDown( '3' ) )
+			WIN32FRAME.ChangeScene( new PlaceRectTestScene() );
+		if( OTTER_INPUT.GetKeyDown( '4' ) )
+			WIN32FRAME.ChangeScene( new DeleteBlockTestScene() );
+		if( OTTER_INPUT.GetKeyDown( '5' ) )
+			WIN32FRAME.ChangeScene( new CreateBlockScene() );
+		if( OTTER_INPUT.GetKeyDown( '6' ) )
+			WIN32FRAME.ChangeScene( new PlayScene() );
+	}
+
+	lbKeyDown = OTTER_INPUT.GetAnyKeyDown();
 }
 
 void Win32Frame::Draw( HWND hwnd, HDC hdc )
