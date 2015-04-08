@@ -16,7 +16,7 @@ CollisionTestScene::~CollisionTestScene()
 
 void CollisionTestScene::Enter()
 {
-	mRect.SetRect( 100, 100, 200, 150 );
+	mRect.SetRect( 300, 300, 400, 450 );
 	
 	mRect.SetBrush( RGB( 100, 0, 100 ) );
 	mRect.SetPen( PS_SOLID, 1, RGB( 255, 0, 155 ) );
@@ -85,15 +85,16 @@ void CollisionTestScene::Update( double dt )
 
 void CollisionTestScene::Draw( HWND hwnd, HDC hdc )
 {
+	mRect.Draw( hdc );
+	mRect2.Draw( hdc );
+
+	TextOut( hdc, 0, 0, L"CollisionTestScene", wcslen( L"CollisionTestScene" ) );
 	for( int i = 0; i <= mLineCount; ++i )
 	{
 		SIZE length;
 		GetTextExtentPoint( hdc, mStr[0].c_str(), mStr[0].length(), &length );
-		TextOut( hdc, 0, 30 * i, mStr[i].c_str(), mStr[i].length() );
+		TextOut( hdc, 0, 30 * ( i + 1 ), mStr[i].c_str(), mStr[i].length() );
 	}
-
-	mRect.Draw( hdc );
-	mRect2.Draw( hdc );
 }
 
 

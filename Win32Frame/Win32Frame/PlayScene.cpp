@@ -32,4 +32,5 @@ void PlayScene::Update( double dt )
 void PlayScene::Draw( HWND hwnd, HDC hdc )
 {
 	mStage.Draw( hdc );
+	TextOut( hdc, 0, 0, L"PlayScene", wcslen( L"PlayScene" ) );
 }

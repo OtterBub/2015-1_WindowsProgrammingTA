@@ -1,7 +1,7 @@
 #include "Win32Frame.h"
 #include "MenuScene.h"
 #include "CollisionTestScene.h"
-#include "RectCollisionCheckScene.h"
+#include "RectPlaceTestScene.h"
 #include "DeleteBlockTestScene.h"
 #include "CreateBlockTestScene.h"
 #include "PlayScene.h"
@@ -62,7 +62,7 @@ void Win32Frame::Update( double dt )
 	if( OTTER_INPUT.GetKeyDown( '2' ) )
 		WIN32FRAME.ChangeScene( new CollisionTestScene() );
 	if( OTTER_INPUT.GetKeyDown( '3' ) )
-		WIN32FRAME.ChangeScene( new RectCollisionCheckScene() );
+		WIN32FRAME.ChangeScene( new RectPlaceTestScene() );
 	if( OTTER_INPUT.GetKeyDown( '4' ) )
 		WIN32FRAME.ChangeScene( new DeleteBlockTestScene() );
 	if( OTTER_INPUT.GetKeyDown( '5' ) )

@@ -62,9 +62,6 @@
     <ClInclude Include="GameStageObject.h">
       <Filter>Source\Object\SceneObject</Filter>
     </ClInclude>
-    <ClInclude Include="RectCollisionCheckScene.h">
-      <Filter>Source\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="DeleteBlockTestScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
@@ -88,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="GDIButton.h">
       <Filter>Source\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RectPlaceTestScene.h">
+      <Filter>Source\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -124,9 +124,6 @@
     <ClCompile Include="GameStageObject.cpp">
       <Filter>Source\Object\SceneObject</Filter>
     </ClCompile>
-    <ClCompile Include="RectCollisionCheckScene.cpp">
-      <Filter>Source\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="DeleteBlockTestScene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
@@ -150,6 +147,9 @@
     </ClCompile>
     <ClCompile Include="GDIButton.cpp">
       <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RectPlaceTestScene.cpp">
+      <Filter>Source\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

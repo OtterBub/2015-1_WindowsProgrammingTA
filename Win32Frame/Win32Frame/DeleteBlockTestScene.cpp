@@ -12,7 +12,7 @@ DeleteBlockTestScene::~DeleteBlockTestScene()
 
 void DeleteBlockTestScene::Enter()
 {
-	mRect.SetPosition( 300, 300 );
+	mRect.SetPosition( 800, 300 );
 	mRect.SetSize( 50 );
 	mRect.SetBrush( RGB( 0, 255, 255 ) );
 
@@ -49,4 +49,5 @@ void DeleteBlockTestScene::Draw( HWND hwnd, HDC hdc )
 {
 	mStage.Draw( hdc );
 	mRect.Draw( hdc );
+	TextOut( hdc, 0, 0, L"DeleteBlockTestScene", wcslen( L"DeleteBlockTestScene" ) );
 }

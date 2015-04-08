@@ -48,6 +48,10 @@ void BlockObject::Draw( HDC hdc )
 {
 	for( int i = 0; i < mBlockCount; ++i )
 		mRectListvec[i].Draw( hdc );
+
+	/*int size = 5;
+	SelectObject( hdc, (HBRUSH)GetStockObject( BLACK_BRUSH ) );
+	Rectangle( hdc, mPosition.x - size, mPosition.y - size, mPosition.x + size, mPosition.y + size );*/
 }
 
 void BlockObject::Translate( float x, float y )
@@ -68,26 +72,43 @@ void BlockObject::SetPosition( float x, float y )
 {
 	Object::SetPosition( x, y );
 	mRectListvec[0].SetPosition( x, y );
-	OtterVector2i prevPos = mRectListvec[0].GetPosition();
-
+	OtterVector2f prevPos = mRectListvec[0].GetPosition();
+	OtterVector2f MaxPos = prevPos;
+	OtterVector2f trans = OtterVector2f();
 	for( int i = 1; i < mBlockCount; ++i )
 	{
 		mRectListvec[i].SetPosition( prevPos + GetRandPosition( mDirList[i] ) );
 		prevPos = mRectListvec[i].GetPosition();
+
+		if( ( MaxPos.x < prevPos.x ) || ( MaxPos.y < prevPos.y ) )
+			MaxPos = prevPos;
 	}
+	
+	trans = mPosition - MaxPos;
+	for( int i = 0; i < mBlockCount; ++i )
+		mRectListvec[i].Translate( trans );
+
 }
 void BlockObject::SetPosition( OtterVector2f pos )
 {
 	Object::SetPosition( pos );
 	mRectListvec[0].SetPosition( pos );
-	OtterVector2i prevPos = mRectListvec[0].GetPosition();
+	OtterVector2f prevPos = mRectListvec[0].GetPosition();
+	OtterVector2f MaxPos = prevPos;
+	OtterVector2f trans = OtterVector2f();
 
 	for( int i = 1; i < mBlockCount; ++i )
 	{
 		mRectListvec[i].SetPosition( prevPos + GetRandPosition( mDirList[i] ) );
 		prevPos = mRectListvec[i].GetPosition();
-	}
 
+		if( ( MaxPos.x < prevPos.x ) || ( MaxPos.y < prevPos.y ) )
+			MaxPos = prevPos;
+	}
+	
+	trans = mPosition - MaxPos;
+	for( int i = 0; i < mBlockCount; ++i )
+		mRectListvec[i].Translate( trans );
 }
 
 void BlockObject::SetBlock( int blockCount, int size )
@@ -107,8 +128,6 @@ void BlockObject::SetBlock( int blockCount, int size )
 
 void BlockObject::SetColor( COLORREF color )
 {
-
-
 	for( int i = 0; i < mBlockCount; ++i )
 	{
 		mRectListvec[i].SetBrush( color );
@@ -152,7 +171,7 @@ void BlockObject::CreateBlock()
 {
 
 	static GDIRect checkRect;
-	OtterVector2i prevPos = mRectListvec[0].GetPosition();
+	OtterVector2f prevPos = mRectListvec[0].GetPosition();
 	int prevCreateDir = 0;
 	int currentDir = 0;
 	mDirList[0] = -1;
@@ -219,4 +238,9 @@ OtterVector2f BlockObject::GetRandPosition( int dir )
 bool BlockObject::GetUsed()
 {
 	return mIsUsed;
+}
+
+OtterVector2f BlockObject::GetMaxPosition()
+{
+	return OtterVector2f();
 }

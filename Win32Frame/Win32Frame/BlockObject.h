@@ -38,6 +38,7 @@ public:
 	std::vector<GDIRect> GetRectListvec();
 	int GetBlockCount();
 	bool GetUsed();
+	OtterVector2f GetMaxPosition();
 
 private:
 	OtterVector2f GetRandPosition( int dir );

@@ -11,7 +11,7 @@ CreateBlockScene::~CreateBlockScene()
 
 void CreateBlockScene::Enter()
 {
-	mBlock.SetBlock( 1000, 50 );
+	mBlock.SetBlock( 1000, 20 );
 	mBlock.SetPosition( 200, 200 );
 }
 void CreateBlockScene::Exit()
@@ -42,4 +42,5 @@ void CreateBlockScene::Update( double dt )
 void CreateBlockScene::Draw( HWND hwnd, HDC hdc )
 {
 	mBlock.Draw( hdc );
+	TextOut( hdc, 0, 0, L"CreateBlockScene", wcslen( L"CreateBlockScene" ) );
 }

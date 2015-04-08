@@ -104,6 +104,7 @@ void GameStageObject::Update( float dt )
 	{
 		mCreateNewBlock = false;
 		SetBlock( mBlockCount, mMaxBlockCount, mBlockSize );
+		mGameOver = false;
 		// Check GameOver
 		for( int i = 0; i < mBlockCount; ++i )
 		{
@@ -224,7 +225,6 @@ int GameStageObject::RectCheck( OtterRect2f rect )
 			return lIndex;
 		}
 	}
-
 	return -1;
 }
 

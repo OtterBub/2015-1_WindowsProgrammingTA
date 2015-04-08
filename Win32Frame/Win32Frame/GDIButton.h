@@ -13,7 +13,6 @@ public:
 	void Draw( HDC hdc );
 
 	void SetText( std::wstring str );
-
 	bool CheckClick( OtterVector2i mousePos );
 
 private:

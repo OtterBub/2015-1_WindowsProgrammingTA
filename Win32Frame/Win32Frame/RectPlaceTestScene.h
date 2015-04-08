@@ -1,15 +1,15 @@
-#ifndef __RECT_COLLISION_CHECK_SCENE_H__
-#define __RECT_COLLISION_CHECK_SCENE_H__
+#ifndef __RECT_PLACE_TEST_SCENE_H__
+#define __RECT_PLACE_TEST_SCENE_H__
 
 #include "Scene.h"
 #include "StageDisplayObject.h"
 #include <string>
 
-class RectCollisionCheckScene : public Scene
+class RectPlaceTestScene : public Scene
 {
 public:
-	RectCollisionCheckScene();
-	~RectCollisionCheckScene();
+	RectPlaceTestScene();
+	~RectPlaceTestScene();
 
 	void Enter();
 	void Exit();
