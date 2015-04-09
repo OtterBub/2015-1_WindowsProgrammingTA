@@ -3,7 +3,7 @@
 
 #include "Scene.h"
 #include "GameStageObject.h"
-#include "GDIRect.h"
+#include "GDIButton.h"
 
 class DeleteBlockTestScene : public Scene
 {
@@ -20,6 +20,7 @@ public:
 private:
 	GameStageObject mStage;
 	GDIRect mRect;
+	GDIButton mButton;
 };
 
 #endif

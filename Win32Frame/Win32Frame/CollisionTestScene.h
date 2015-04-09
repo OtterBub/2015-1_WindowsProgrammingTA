@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "GDIRect.h"
+#include "GDIButton.h"
 #include <string>
 
 class CollisionTestScene : public Scene
@@ -24,6 +25,7 @@ private:
 	GDIRect mRect, mRect2;
 	std::wstring mStr[5];
 	int mLineCount;
+	GDIButton mButton;
 };
 
 #endif

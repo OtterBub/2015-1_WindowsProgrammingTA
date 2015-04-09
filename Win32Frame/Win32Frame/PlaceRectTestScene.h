@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "StageDisplayObject.h"
 #include <string>
+#include "GDIButton.h"
 
 class PlaceRectTestScene : public Scene
 {
@@ -24,6 +25,7 @@ private:
 	GDIRect mRect;
 	std::wstring mStr[5];
 	int mLineCount;
+	GDIButton mButton;
 };
 
 #endif 

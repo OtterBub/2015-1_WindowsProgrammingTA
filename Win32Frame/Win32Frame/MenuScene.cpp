@@ -20,8 +20,8 @@ void MenuScene::Enter()
 	float height = 50 * 0.5;
 	for( int i = 0; i < 5; ++i )
 	{
-		mButton[i].SetRect( ( rect.right * 0.5 ) - width, ( 100 + ( i * height * 2 ) ) - height,
-							( rect.right * 0.5 ) + width, ( 100 + ( i * height * 2 ) ) + height);
+		mButton[i].SetRect( ( rect.right * 0.5 ) - width, ( 150 + ( i * height * 2 ) ) - height,
+							( rect.right * 0.5 ) + width, ( 150 + ( i * height * 2 ) ) + height);
 	}
 
 	mButton[0].SetText( L"CollisiontTest" );
@@ -47,8 +47,6 @@ void MenuScene::Update( double dt )
 		}
 	}
 
-	
-
 	switch( clickIndex )
 	{
 		case 0:
@@ -73,6 +71,8 @@ void MenuScene::Update( double dt )
 }
 void MenuScene::Draw( HWND hwnd, HDC hdc )
 {
+	TextOut( hdc, WIN32FRAME.GetClientRectbyFrame().right / 2.f - 30, 30, L"1212!", wcslen( L"1212!" ) );
+
 	for( int i = 0; i < 5; ++i )
 		mButton[i].Draw( hdc );
 }

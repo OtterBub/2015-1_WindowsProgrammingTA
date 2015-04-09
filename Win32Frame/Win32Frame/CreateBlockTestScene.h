@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "BlockObject.h"
+#include "GDIButton.h"
 
 class CreateBlockScene : public Scene
 {
@@ -19,6 +20,7 @@ public:
 
 private:
 	BlockObject mBlock;
+	GDIButton mButton;
 };
 
 #endif __CREATE_BLOCK_TEST_SCENE_H__

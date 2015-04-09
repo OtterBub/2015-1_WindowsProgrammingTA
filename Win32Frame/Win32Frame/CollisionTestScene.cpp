@@ -3,6 +3,7 @@
 #include "InputSystem.h"
 #include "StageDisplayObject.h"
 #include "MathUtill.cpp"
+#include "MenuScene.h"
 #include <math.h>
 
 CollisionTestScene::CollisionTestScene( )
@@ -16,6 +17,14 @@ CollisionTestScene::~CollisionTestScene()
 
 void CollisionTestScene::Enter()
 {
+	RECT rect = WIN32FRAME.GetClientRectbyFrame();
+	float width = 150;
+	float height = 50 * 0.5;
+	mButton.SetRect( ( rect.right ) - width, ( 100 + ( height * 2 ) ) - height,
+					 ( rect.right ), ( 100 + ( height * 2 ) ) + height );
+
+	mButton.SetText( L"MainMenu" );
+
 	mRect.SetRect( 300, 300, 400, 450 );
 	
 	mRect.SetBrush( RGB( 100, 0, 100 ) );
@@ -37,6 +46,10 @@ void CollisionTestScene::Update( double dt )
 {
 	static float speed = 100;
 	mLineCount = 0;
+
+	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) &&
+		mButton.CheckClick( OTTER_INPUT.GetMouseDownPosition( MOUSE_MESSAGE::MOUSE_L ) ))
+		WIN32FRAME.ChangeScene( new MenuScene() );
 
 	if( OTTER_INPUT.GetKeyDown( 'S' ) )	
 		mRect.Translate( 0, speed * dt );
@@ -100,6 +113,7 @@ void CollisionTestScene::Draw( HWND hwnd, HDC hdc )
 		GetTextExtentPoint( hdc, mStr[0].c_str(), mStr[0].length(), &length );
 		TextOut( hdc, 0, 30 * ( i + 1 ), mStr[i].c_str(), mStr[i].length() );
 	}
+	mButton.Draw( hdc );
 }
 
 
