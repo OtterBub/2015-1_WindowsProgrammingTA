@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{178a77a0-f518-4491-9bc4-1b7f9a6392f4}</UniqueIdentifier>
+      <Extensions>cpp;h</Extensions>
+    </Filter>
+    <Filter Include="Source\Object">
+      <UniqueIdentifier>{5490af23-2c0b-4d4a-93b0-95a6e73ae4af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\NewType">
+      <UniqueIdentifier>{1b387ea0-ab0d-4bbb-a462-363a005810ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System">
+      <UniqueIdentifier>{fb429362-b43a-4cd5-aa34-942397dcff9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{5d73b5df-6178-4656-8397-169f488f73a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\SceneObject">
+      <UniqueIdentifier>{79f2ff13-9372-4939-a4a2-899aea0ada6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Box2DLite">
+      <UniqueIdentifier>{92a5d470-50a8-49c2-b687-1adc84f56461}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="List.h">
+      <Filter>Source\NewType</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32Frame.h">
+      <Filter>Source\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIObject.h">
+      <Filter>Source\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Source\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIRect.h">
+      <Filter>Source\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>Source\System</Filter>
+    </ClInclude>
+    <ClInclude Include="StageDisplayObject.h">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="OtterMath.h">
+      <Filter>Source\NewType</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStageObject.h">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteBlockTestScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockObject.h">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateBlockTestScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtill.h">
+      <Filter>Source\NewType</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionTestScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIButton.h">
+      <Filter>Source\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaceRectTestScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\Arbiter.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\Body.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\Box2D.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\glut.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\Joint.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\MathUtils.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Box2DLite\World.h">
+      <Filter>Source\Box2DLite</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="List.cpp">
+      <Filter>Source\NewType</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32Frame.cpp">
+      <Filter>Source\System</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIObject.cpp">
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIRect.cpp">
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>Source\System</Filter>
+    </ClCompile>
+    <ClCompile Include="StageDisplayObject.cpp">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="OtterMath.cpp">
+      <Filter>Source\NewType</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStageObject.cpp">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteBlockTestScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockObject.cpp">
+      <Filter>Source\Object\SceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateBlockTestScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtill.cpp">
+      <Filter>Source\NewType</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionTestScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GDIButton.cpp">
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaceRectTestScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Body.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Box2D.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Collide.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Joint.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\World.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Box2DLite\Arbiter.cpp">
+      <Filter>Source\Box2DLite</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
