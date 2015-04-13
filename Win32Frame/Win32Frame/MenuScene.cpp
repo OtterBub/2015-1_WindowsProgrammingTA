@@ -1,10 +1,5 @@
 #include "MenuScene.h"
 #include "Win32Frame.h"
-#include "CollisionTestScene.h"
-#include "PlaceRectTestScene.h"
-#include "DeleteBlockTestScene.h"
-#include "CreateBlockTestScene.h"
-#include "PlayScene.h"
 
 MenuScene::MenuScene()
 {
@@ -50,19 +45,6 @@ void MenuScene::Update( double dt )
 	switch( clickIndex )
 	{
 		case 0:
-			WIN32FRAME.ChangeScene( new CollisionTestScene() );
-			break;
-		case 1:
-			WIN32FRAME.ChangeScene( new PlaceRectTestScene() );
-			break;
-		case 2:
-			WIN32FRAME.ChangeScene( new DeleteBlockTestScene() );
-			break;
-		case 3:
-			WIN32FRAME.ChangeScene( new CreateBlockScene() );
-			break;
-		case 4:
-			WIN32FRAME.ChangeScene( new PlayScene() );
 			break;
 		default:
 			break;

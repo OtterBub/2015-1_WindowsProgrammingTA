@@ -6,15 +6,12 @@
 
 #include "Scene.h"
 #include "InputSystem.h"
-#include "Box2DLite\Box2D.h"
 
 class Win32Frame
 {
 public:
 	~Win32Frame();
 	static Win32Frame& GetInstance();
-	World& GetWorldInstance();
-	Body* GetBodyList();
 
 	void Initialize();
 	void Exit();
@@ -41,8 +38,6 @@ private:
 	Scene* mCurrentScene;
 	Scene* mChangeScene;
 	bool mChange;
-	World mWorld;
-	Body mBody[BODY_MAX];
 };
 
 #define WIN32FRAME Win32Frame::GetInstance()

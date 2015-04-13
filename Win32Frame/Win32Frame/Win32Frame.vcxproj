@@ -11,59 +11,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BlockObject.h" />
-    <ClInclude Include="Box2DLite\Arbiter.h" />
-    <ClInclude Include="Box2DLite\Body.h" />
-    <ClInclude Include="Box2DLite\Box2D.h" />
-    <ClInclude Include="Box2DLite\glut.h" />
-    <ClInclude Include="Box2DLite\Joint.h" />
-    <ClInclude Include="Box2DLite\MathUtils.h" />
-    <ClInclude Include="Box2DLite\World.h" />
-    <ClInclude Include="CreateBlockTestScene.h" />
-    <ClInclude Include="GameStageObject.h" />
     <ClInclude Include="GDIButton.h" />
     <ClInclude Include="GDIRect.h" />
     <ClInclude Include="InputSystem.h" />
-    <ClInclude Include="CollisionTestScene.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="OtterMath.h" />
-    <ClInclude Include="DeleteBlockTestScene.h" />
-    <ClInclude Include="PlayScene.h" />
-    <ClInclude Include="PlaceRectTestScene.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="StageDisplayObject.h" />
-    <ClInclude Include="TestScene.h" />
     <ClInclude Include="MathUtill.h" />
     <ClInclude Include="Win32Frame.h" />
     <ClInclude Include="GDIObject.h" />
     <ClInclude Include="List.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BlockObject.cpp" />
-    <ClCompile Include="Box2DLite\Arbiter.cpp" />
-    <ClCompile Include="Box2DLite\Body.cpp" />
-    <ClCompile Include="Box2DLite\Box2D.cpp" />
-    <ClCompile Include="Box2DLite\Collide.cpp" />
-    <ClCompile Include="Box2DLite\Joint.cpp" />
-    <ClCompile Include="Box2DLite\World.cpp" />
-    <ClCompile Include="CreateBlockTestScene.cpp" />
-    <ClCompile Include="GameStageObject.cpp" />
     <ClCompile Include="GDIButton.cpp" />
     <ClCompile Include="GDIRect.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="CollisionTestScene.cpp" />
     <ClCompile Include="GDIObject.cpp" />
     <ClCompile Include="MenuScene.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="OtterMath.cpp" />
-    <ClCompile Include="DeleteBlockTestScene.cpp" />
-    <ClCompile Include="PlayScene.cpp" />
-    <ClCompile Include="PlaceRectTestScene.cpp" />
-    <ClCompile Include="StageDisplayObject.cpp" />
-    <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="MathUtill.cpp" />
     <ClCompile Include="Win32Frame.cpp" />
   </ItemGroup>
