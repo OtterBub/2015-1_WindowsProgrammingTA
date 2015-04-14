@@ -125,10 +125,12 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+	static wchar_t debug[256] = { 0, };
 	int wmId, wmEvent;
 	PAINTSTRUCT ps;
 	HDC hdc;
 	RECT rect;
+	
 
 	switch (message)
 	{
@@ -144,6 +146,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		case IDM_EXIT:
 			DestroyWindow(hWnd);
 			break;
+		case ID_FILE_SAVE:
+			wsprintf( debug, L"filesave" );
+			break;
 		default:
 			return DefWindowProc(hWnd, message, wParam, lParam);
 		}
@@ -158,7 +163,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		rect.right = 200;
 		rect.bottom = 120;
 
-		DrawText( hdc, L"HelloWorld", 10, &rect,
+		DrawText( hdc, debug, wcslen( debug ), &rect,
 				  DT_SINGLELINE | DT_CENTER | DT_VCENTER );
 
 		EndPaint( hWnd, &ps );

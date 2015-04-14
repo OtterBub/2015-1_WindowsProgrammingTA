@@ -1,4 +1,6 @@
 #include <Windows.h>
+#include <stdio.h>
+#include "resource.h"
 #include "List.cpp"
 
 #define WINDOW_HEIGHT 800
@@ -65,7 +67,7 @@ public:
 			DeleteObject( mLinePen );
 		mBrush = CreateSolidBrush( color );
 	}
-	
+
 private:
 	HPEN mLinePen;
 	HBRUSH mBrush;
@@ -93,7 +95,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszMcdP
 	WndClass.hInstance = hInstance;
 	WndClass.lpfnWndProc = (WNDPROC)WndProc;
 	WndClass.lpszClassName = lpszClass;
-	WndClass.lpszMenuName = NULL;
+	WndClass.lpszMenuName = MAKEINTRESOURCE( IDR_MENU1 );
 	WndClass.style = CS_HREDRAW | CS_VREDRAW;
 
 	RegisterClass( &WndClass );
@@ -119,7 +121,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszMcdP
 LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 {
 	static OtterList<int> list;
-	
+
 	HDC hdc;
 	PAINTSTRUCT ps;
 	RECT rect;
@@ -127,19 +129,90 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 	static bool sDrag = false;
 	static POINT sStartPoint = { 0, };
 	static POINT sEndPoint = { 0, };
-	static POINT sOldPoint = {0, };
+	static POINT sOldPoint = { 0, };
 	HPEN OldPen;
+
+	OPENFILENAME ofn;
 
 	static wchar_t str[250] = L"101010가나다라";
 	static wchar_t debug[300] = L"";
+	static wchar_t *loadText = 0;
 	static int count = 0;
 	static MyRect lRect;
 
 	switch( uMsg )
 	{
+		case WM_COMMAND:
+			switch( LOWORD( wParam ) )
+			{
+				case ID_FILE_LOAD:
+				{
+					wchar_t lpstrFile[300] = { 0, };
+					memset( &ofn, 0, sizeof( OPENFILENAME ) );
+					ofn.lStructSize = sizeof( OPENFILENAME );
+					ofn.hwndOwner = hWnd;
+					ofn.lpstrFilter = L"Every File(*.*)\0*.*\0Text File\0*.txt;";
+					ofn.lpstrFile = lpstrFile;
+					ofn.nMaxFile = 300;
+					ofn.lpstrInitialDir = L".";
+					if( GetOpenFileName( &ofn ) )
+					{
+						int fileCount = 0;
+						int size = 0;
+						wchar_t msgBoxText[300] = { 0, };
+						wsprintf( msgBoxText, L"%s 파일을 여시겠습니까?", ofn.lpstrFile );
+						MessageBox( hWnd, msgBoxText, L"열기 선택", MB_OK );
+						FILE *file;
+						file = _wfopen( ofn.lpstrFile, L"r" );
+						fseek( file, 0, SEEK_END );
+						size = ftell( file );
+						size += 1;
+						fseek( file, 0, SEEK_SET );
+
+						if( loadText )
+							free( loadText );
+						loadText = (wchar_t*)malloc( sizeof( wchar_t ) * size );
+
+						fgetws( loadText, size, file );
+						fclose( file );
+					}
+				}
+					break;
+				case ID_FILE_SAVE:
+				{
+					wchar_t lpstrFile[300] = { 0, };
+					memset( &ofn, 0, sizeof( OPENFILENAME ) );
+					ofn.lStructSize = sizeof( OPENFILENAME );
+					ofn.hwndOwner = hWnd;
+					ofn.lpstrFilter = L"Every File(*.*)\0*.*\0Text File\0*.txt;";
+					ofn.lpstrFile = lpstrFile;
+					ofn.nMaxFile = 300;
+					ofn.lpstrInitialDir = L".";
+					if( GetSaveFileName( &ofn ) )
+					{
+						int fileCount = 0;
+						int size = 0;
+						wchar_t msgBoxText[300] = { 0, };
+						wsprintf( msgBoxText, L"%s 파일을 저장 하시겠습니까?", ofn.lpstrFile );
+						MessageBox( hWnd, msgBoxText, L"저장 선택", MB_OK );
+						FILE *file;
+						file = _wfopen( ofn.lpstrFile, L"w" );
+
+						fputws( loadText, file );
+
+						fclose( file );
+					}
+				}
+					break;
+
+				default:
+					break;
+			}
+			break;
+
 		case WM_CREATE:
 			count = wcslen( str );
-			lRect.SetBrush( RGB( 255, 255, 0) );
+			lRect.SetBrush( RGB( 255, 255, 0 ) );
 			lRect.SetRect( 50, 50, 100, 10 );
 			list.Add( 10 );
 			list.Add( 20 );
@@ -150,11 +223,14 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 		case WM_PAINT:
 			hdc = BeginPaint( hWnd, &ps );
 
-			OldPen = (HPEN)SelectObject( hdc, GetStockObject(BLACK_PEN) );
-			
+			OldPen = (HPEN)SelectObject( hdc, GetStockObject( BLACK_PEN ) );
+
 			TextOut( hdc, 0, 0, debug, wcslen( debug ) );
 			lRect.Draw( hdc );
 			SelectObject( hdc, OldPen );
+
+			if( loadText )
+				TextOut( hdc, 300, 300, loadText, wcslen( loadText ) );
 
 			EndPaint( hWnd, &ps );
 			break;
@@ -170,7 +246,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_KEYDOWN:
-			
+
 
 			if( wParam == VK_UP )
 			{
@@ -192,13 +268,13 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 				lRect.Translate( 10, 0 );
 				lRect.SetBrush( RGB( 0, 0, 255 ) );
 			}
-			
+
 
 			InvalidateRect( hWnd, NULL, true );
 			break;
 
 		case WM_SYSKEYDOWN:
-			
+
 			wsprintf( debug, L"WM_SYSKEYDOWN", count );
 			break;
 
@@ -213,14 +289,14 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			sOldPoint = sEndPoint = sStartPoint;
 			break;
 
-		case WM_MOUSEMOVE:			
+		case WM_MOUSEMOVE:
 			if( sDrag )
 			{
 				hdc = GetDC( hWnd );
 
 				SetROP2( hdc, R2_XORPEN );
 				SelectObject( hdc, (HPEN)GetStockObject( WHITE_PEN ) );
-				
+
 
 				sEndPoint.x = LOWORD( lParam );
 				sEndPoint.y = HIWORD( lParam );
