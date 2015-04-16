@@ -1,5 +1,5 @@
 #include "GDIButton.h"
-#include "MathUtill.h"
+#include "MathUtill.cpp"
 
 GDIButton::GDIButton()
 {
