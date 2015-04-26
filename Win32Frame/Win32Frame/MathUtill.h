@@ -1,7 +1,7 @@
 #ifndef __UTILL_H__
 #define __UTILL_H__
 
-#include "OtterMath.cpp"
+#include "OtterMath.h"
 
 template<typename T1, typename T2>
 bool CollisionRectToPoint( OtterRect2<T1> rect, OtterVector2<T2> point );

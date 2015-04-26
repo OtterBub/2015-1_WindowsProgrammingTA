@@ -1,7 +1,7 @@
 #ifndef __INPUT_SYS_H__
 #define __INPUT_SYS_H__
 
-#include "OtterMath.cpp"
+#include "OtterMath.h"
 
 enum MOUSE_MESSAGE
 {
