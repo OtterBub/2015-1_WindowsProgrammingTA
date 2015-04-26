@@ -17,6 +17,11 @@ Win32Frame& Win32Frame::GetInstance()
 	return instance;
 }
 
+void Win32Frame::Initialize( HINSTANCE hInst )
+{
+	mhInstance = hInst;
+}
+
 void Win32Frame::Initialize()
 {
 }
@@ -87,6 +92,11 @@ void Win32Frame::SethWnd( HWND hwnd )
 RECT Win32Frame::GetClientRectbyFrame()
 {
 	return mClientRect;
+}
+
+HINSTANCE Win32Frame::GetHInstance()
+{
+	return mhInstance;
 }
 
 void Win32Frame::ChangeScene()

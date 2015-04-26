@@ -25,7 +25,12 @@ void MenuScene::Enter()
 	mButton[3].SetText( L"CreateBlockTest" );
 	mButton[4].SetText( L"Play" );
 	//mButton[5].SetText( L"MenuScene" );
+
+	//bmpExercising = LoadBitmap( WIN32FRAME.GetHInstance(), MAKEINTRESOURCE( IDB_MYCAHR ) );
+	mBitmap.FileLoad( L"snapshot.bmp" );
+	mBitmap.SetPosition( 300, 300 );
 }
+
 void MenuScene::Exit()
 {
 }
@@ -53,7 +58,8 @@ void MenuScene::Update( double dt )
 }
 void MenuScene::Draw( HWND hwnd, HDC hdc )
 {
-	TextOut( hdc, WIN32FRAME.GetClientRectbyFrame().right / 2.f - 30, 30, L"1212!", wcslen( L"1212!" ) );
+	mBitmap.Draw( hdc );
+	TextOut( hdc, WIN32FRAME.GetClientRectbyFrame().right / 2.f - 30, 30, L"2048", wcslen( L"2048" ) );
 
 	for( int i = 0; i < 5; ++i )
 		mButton[i].Draw( hdc );

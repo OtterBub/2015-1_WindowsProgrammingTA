@@ -20,7 +20,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszMcdP
 	HWND hWnd;
 	MSG Message;
 	WNDCLASS WndClass;
-	g_hinst = hInstance;
+	WIN32FRAME.Initialize( hInstance );
 
 	srand( (unsigned int)time(NULL) );
 
@@ -59,7 +59,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 {
 	HDC hdc;
 	PAINTSTRUCT ps;
-
 	
 	switch( uMsg )
 	{
@@ -90,7 +89,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 
 			// Draw
 			WIN32FRAME.Draw( hWnd, BackBuffDC );
-			
+
 			// Draw Second Buffer to Main Buffer
 			BitBlt( hdc, 0, 0, clientRect.right, clientRect.bottom, BackBuffDC, 0, 0, SRCCOPY );
 			

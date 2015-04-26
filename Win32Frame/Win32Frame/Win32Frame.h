@@ -6,6 +6,7 @@
 
 #include "Scene.h"
 #include "InputSystem.h"
+#include "resource.h"
 
 class Win32Frame
 {
@@ -13,6 +14,7 @@ public:
 	~Win32Frame();
 	static Win32Frame& GetInstance();
 
+	void Initialize( HINSTANCE hInst );
 	void Initialize();
 	void Exit();
 
@@ -28,6 +30,7 @@ public:
 	void SethWnd( HWND hwnd );
 
 	RECT GetClientRectbyFrame();
+	HINSTANCE GetHInstance();
 
 private:
 	Win32Frame();
@@ -36,6 +39,7 @@ private:
 private:
 	HWND mhwnd;
 	RECT mClientRect;
+	HINSTANCE mhInstance;
 	Scene* mCurrentScene;
 	Scene* mChangeScene;
 	bool mChange;

@@ -1,121 +1,32 @@
-﻿  Win32Frame.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\win32frame.cpp(52): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\win32frame.cpp(128): warning C4244: 'argument' : conversion from 'LONG' to 'float', possible loss of data
-  MathUtill.cpp
-  TestScene.cpp
-  StageDisplayObject.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\stagedisplayobject.cpp(77): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\stagedisplayobject.cpp(110): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\stagedisplayobject.cpp(111): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\stagedisplayobject.cpp(254): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-  PlaceRectTestScene.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\placerecttestscene.cpp(43) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\placerecttestscene.cpp(43) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-  PlayScene.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\playscene.cpp(20): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\playscene.cpp(40): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-  DeleteBlockTestScene.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(20): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(53): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(36) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(36) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(76): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\deleteblocktestscene.cpp(49) : see reference to function template instantiation 'OtterVector2<int> operator -<int,float>(const OtterVector2<int>,const OtterVector2<float>)' being compiled
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(77): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
-  OtterMath.cpp
-  Object.cpp
-  MenuScene.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\menuscene.cpp(24): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\menuscene.cpp(24): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-  GDIObject.cpp
-  CollisionTestScene.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\collisiontestscene.cpp(23): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\collisiontestscene.cpp(50): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\collisiontestscene.cpp(52): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\collisiontestscene.cpp(55): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\collisiontestscene.cpp(57): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-  Main.cpp
-  List.cpp
-  InputSystem.cpp
-  GDIRect.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(8): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(41): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(42): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(43): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(44): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(45): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(46): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(47): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(48): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(119): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(128): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(129): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(130): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(147): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(155): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(156): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(158): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(159): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(163): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-  GDIButton.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(18): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(19): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(20): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(21): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(22): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(23): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(24): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(25): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(27): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(30): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-  GameStageObject.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(142): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(230): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(82) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gamestageobject.cpp(82) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-  CreateBlockTestScene.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\createblocktestscene.cpp(19): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(11): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\createblocktestscene.cpp(46) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\createblocktestscene.cpp(46) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int>)' being compiled
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.cpp(12): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-  World.cpp
-  Generating Code...
-  Compiling...
-  Joint.cpp
-  Collide.cpp
-  Box2D.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(73): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(74): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(75): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(76): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(77): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(78): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(79): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(80): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(105): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(106): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(107): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(108): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(111): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(112): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(113): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(114): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\box2dlite\box2d.cpp(495): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-  Body.cpp
-  Arbiter.cpp
-  BlockObject.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(234): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(236): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(238): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\blockobject.cpp(240): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  Win32Frame.vcxproj -> C:\Myfolder\KPU\2015_First_Semester\WindowProgramming(TA)\Win32Solution\Win32Frame\Debug\Win32Frame.exe
+﻿Build started 2015-04-27 오전 5:51:19.
+     1>Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp MenuScene.cpp Win32Frame.cpp
+         MenuScene.cpp
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(19): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(19): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\administrator\desktop\kpu\2015 first semester\windowsprogramming\win32solution\win32frame\win32frame\menuscene.cpp(62): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         Generating Code...
+         Compiling...
+         Win32Frame.cpp
+         Main.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.lib" /MACHINE:X86 Debug\Resource.res
+         Debug\BitmapObject.obj
+         Debug\ButtonManager.obj
+         Debug\GDIButton.obj
+         Debug\GDIRect.obj
+         Debug\InputSystem.obj
+         Debug\Main.obj
+         Debug\GDIObject.obj
+         Debug\MenuScene.obj
+         Debug\Object.obj
+         Debug\MathUtill.obj
+         Debug\Win32Frame.obj
+         Win32Frame.vcxproj -> C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Debug\Win32Frame.exe
+     1>Done Building Project "C:\Users\Administrator\Desktop\KPU\2015 First Semester\WindowsProgramming\Win32Solution\Win32Frame\Win32Frame\Win32Frame.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.99
