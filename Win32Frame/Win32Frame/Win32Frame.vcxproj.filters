@@ -24,6 +24,9 @@
     <Filter Include="Source\Box2DLite">
       <UniqueIdentifier>{92a5d470-50a8-49c2-b687-1adc84f56461}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object\Button">
+      <UniqueIdentifier>{824df46d-74ed-47bd-b6a7-24df5a8f8962}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="List.h">
@@ -57,7 +60,10 @@
       <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="GDIButton.h">
-      <Filter>Source\Object</Filter>
+      <Filter>Source\Object\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonManager.h">
+      <Filter>Source\Object\Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -92,7 +98,10 @@
       <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="GDIButton.cpp">
-      <Filter>Source\Object</Filter>
+      <Filter>Source\Object\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonManager.cpp">
+      <Filter>Source\Object\Button</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

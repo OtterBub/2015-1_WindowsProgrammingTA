@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ButtonManager.h" />
     <ClInclude Include="GDIButton.h" />
     <ClInclude Include="GDIRect.h" />
     <ClInclude Include="InputSystem.h" />
@@ -24,6 +25,7 @@
     <ClInclude Include="List.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ButtonManager.cpp" />
     <ClCompile Include="GDIButton.cpp" />
     <ClCompile Include="GDIRect.cpp" />
     <ClCompile Include="InputSystem.cpp" />

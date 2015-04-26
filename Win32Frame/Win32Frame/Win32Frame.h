@@ -31,6 +31,7 @@ public:
 
 private:
 	Win32Frame();
+	void ChangeScene();
 
 private:
 	HWND mhwnd;

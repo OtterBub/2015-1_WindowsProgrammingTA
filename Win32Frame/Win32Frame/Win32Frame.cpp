@@ -34,28 +34,16 @@ void Win32Frame::Update( double dt )
 	if( mCurrentScene != nullptr )
 		mCurrentScene->Update( (double)( std::clock() - prevTime ) / CLOCKS_PER_SEC );
 
-	if( mChangeScene != nullptr )
-	{
-		if( mCurrentScene != nullptr )
-		{
-			mCurrentScene->Exit();
-			delete mCurrentScene;
-			mCurrentScene = nullptr;
-		}
-		mCurrentScene = mChangeScene;
-		mChangeScene = nullptr;
-		mCurrentScene->Enter();
-	}
-
+	ChangeScene();
 	prevTime = std::clock();
 
 
-	//for debug	
-	if( lbKeyDown == false )
+	// Change Scene for debug	
+	/*if( lbKeyDown == false )
 	{
 		if( OTTER_INPUT.GetKeyDown( '1' ) )
 			WIN32FRAME.ChangeScene( new MenuScene() );
-	}
+	}*/
 
 	lbKeyDown = OTTER_INPUT.GetAnyKeyDown();
 }
@@ -99,4 +87,20 @@ void Win32Frame::SethWnd( HWND hwnd )
 RECT Win32Frame::GetClientRectbyFrame()
 {
 	return mClientRect;
+}
+
+void Win32Frame::ChangeScene()
+{
+	if( mChangeScene != nullptr )
+	{
+		if( mCurrentScene != nullptr )
+		{
+			mCurrentScene->Exit();
+			delete mCurrentScene;
+			mCurrentScene = nullptr;
+		}
+		mCurrentScene = mChangeScene;
+		mChangeScene = nullptr;
+		mCurrentScene->Enter();
+	}
 }
