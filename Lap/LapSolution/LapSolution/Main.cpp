@@ -217,6 +217,9 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			list.Add( 10 );
 			list.Add( 20 );
 			list.Add( 30 );
+			list.Add( 40 );
+			list.Add( 90 );
+			list.Add( 100 );
 			wsprintf( debug, L"%d", list[1] );
 			break;
 

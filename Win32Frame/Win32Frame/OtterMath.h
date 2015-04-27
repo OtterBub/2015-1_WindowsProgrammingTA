@@ -67,8 +67,6 @@ typedef OtterRect2<unsigned int> OtterRect2ui;
 #ifndef __OTTERVECTOR_CPP__
 #define __OTTERVECTOR_CPP__
 
-#include "OtterMath.h"
-
 // ---------------------------- OtterVector2 ----------------------------
 template<typename T>
 template<typename U>

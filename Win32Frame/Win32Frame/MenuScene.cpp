@@ -55,11 +55,42 @@ void MenuScene::Update( double dt )
 			break;
 	}
 
+	if( OTTER_INPUT.GetKeyDown( 'A' ) )
+		mBitmap.Translate( -1, 0  );
+	if( OTTER_INPUT.GetKeyDown( 'D' ) )
+		mBitmap.Translate( 1, 0  );
+	if( OTTER_INPUT.GetKeyDown( 'W' ) )
+		mBitmap.Translate( 0, -1  );
+	if( OTTER_INPUT.GetKeyDown( 'S' ) )
+		mBitmap.Translate( 0, 1  );
+
+	switch( rand() % 3 )
+	{
+		case 0:
+			mBitmap.FileLoad(L"snapshot.bmp");
+			break;
+		case 1:
+			mBitmap.FileLoad(L"snapshot2.bmp");
+			break;
+		case 2:
+			mBitmap.FileLoad(L"snapshot3.bmp");
+			break;
+		default:
+			break;
+	}
+	
 }
+
 void MenuScene::Draw( HWND hwnd, HDC hdc )
 {
+	std::wstring debug;
 	mBitmap.Draw( hdc );
-	TextOut( hdc, WIN32FRAME.GetClientRectbyFrame().right / 2.f - 30, 30, L"2048", wcslen( L"2048" ) );
+	//TextOut( hdc, WIN32FRAME.GetClientRectbyFrame().right / 2.f - 30, 30, L"2048", wcslen( L"2048" ) );
+
+	debug = std::to_wstring( (int)mBitmap.GetPosition().x );
+	debug += L", ";
+	debug += std::to_wstring( (int)mBitmap.GetPosition().y );
+	TextOut( hdc, 0, 0, debug.c_str(), debug.length() );
 
 	for( int i = 0; i < 5; ++i )
 		mButton[i].Draw( hdc );
