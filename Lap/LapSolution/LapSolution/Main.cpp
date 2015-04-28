@@ -139,6 +139,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 	static wchar_t *loadText = 0;
 	static int count = 0;
 	static MyRect lRect;
+	static HBITMAP hBitmap;
 
 	switch( uMsg )
 	{
@@ -220,14 +221,18 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			list.Add( 40 );
 			list.Add( 90 );
 			list.Add( 100 );
+			hBitmap = (HBITMAP)LoadBitmap( g_hinst, MAKEINTRESOURCE( IDB_BITMAP1 ) );
 			wsprintf( debug, L"%d", list[1] );
 			break;
 
 		case WM_PAINT:
+		{
+			HDC memDc;
 			hdc = BeginPaint( hWnd, &ps );
+			memDc = CreateCompatibleDC( hdc );;
 
 			OldPen = (HPEN)SelectObject( hdc, GetStockObject( BLACK_PEN ) );
-
+			BitBlt( hdc, 0, 0, 48, 48, memDc, 0, 0, SRCCOPY );
 			TextOut( hdc, 0, 0, debug, wcslen( debug ) );
 			lRect.Draw( hdc );
 			SelectObject( hdc, OldPen );
@@ -236,6 +241,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 				TextOut( hdc, 300, 300, loadText, wcslen( loadText ) );
 
 			EndPaint( hWnd, &ps );
+		}
 			break;
 
 		case WM_CHAR:

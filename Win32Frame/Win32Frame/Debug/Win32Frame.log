@@ -1,3 +1,4 @@
-﻿  BitmapObject.cpp
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\bitmapobject.cpp(62): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+﻿  MenuScene.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\menuscene.cpp(19): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\menuscene.cpp(19): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
   Win32Frame.vcxproj -> C:\Myfolder\KPU\2015_First_Semester\WindowProgramming(TA)\Win32Solution\Win32Frame\Debug\Win32Frame.exe
