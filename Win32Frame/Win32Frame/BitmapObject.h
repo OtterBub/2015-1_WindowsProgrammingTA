@@ -24,6 +24,16 @@ public:
 	void Translate( OtterVector2f trans );
 	void SetPosition( float x, float y );
 	void SetPosition( OtterVector2f pos );
+	
+	void SetScale( OtterVector2f scale );
+	void SetScale( float scaleX, float scaleY );
+	void SetDestSize( OtterVector2f destSize );
+	void SetDestSize( float width, float height );
+	void SetSrcRect( OtterRect2f srcRect );
+	void SetSrcRect( OtterVector2f point1, OtterVector2f point2 );
+	void SetSrcRect( float x1, float y1, float x2, float y2 );
+
+	
 
 private:
 	bool GetBitmapInfo();
@@ -31,6 +41,9 @@ private:
 private:
 	HBITMAP mBitmap;
 	BITMAP mBitmapInfo;
+	OtterVector2f mDestScale;
+	OtterVector2f mDestSize;
+	OtterRect2f mSrcRect;
 };
 
 

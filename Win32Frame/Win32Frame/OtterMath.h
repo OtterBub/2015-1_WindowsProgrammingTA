@@ -41,6 +41,7 @@ template<typename T>
 class OtterRect2
 {
 public:
+	OtterRect2( T x1, T y1, T x2, T y2 );
 	OtterRect2( OtterVector2<T> point1, OtterVector2<T> point2 );
 	OtterRect2();
 	~OtterRect2();
@@ -153,6 +154,15 @@ OtterVector2<T> operator*( const OtterVector2<T> a, const U b )
 
 
 // ---------------------------- OtterRect2 ----------------------------
+template<typename T>
+OtterRect2<T>::OtterRect2( T x1, T y1, T x2, T y2 )
+{
+	point[0].x = x1;
+	point[0].y = y1; 
+	point[1].x = x2;
+	point[1].y = y2; 
+}
+
 template<typename T>
 OtterRect2<T>::OtterRect2( OtterVector2<T> point1, OtterVector2<T> point2 )
 {

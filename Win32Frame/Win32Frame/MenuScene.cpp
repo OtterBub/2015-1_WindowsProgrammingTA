@@ -64,7 +64,7 @@ void MenuScene::Update( double dt )
 	if( OTTER_INPUT.GetKeyDown( 'S' ) )
 		mBitmap.Translate( 0, 1  );
 
-	switch( rand() % 3 )
+	switch( rand() % 1 )
 	{
 		case 0:
 			mBitmap.FileLoad(L"snapshot.bmp");
@@ -77,8 +77,7 @@ void MenuScene::Update( double dt )
 			break;
 		default:
 			break;
-	}
-	
+	}	
 }
 
 void MenuScene::Draw( HWND hwnd, HDC hdc )

@@ -68,6 +68,9 @@
     <ClInclude Include="BitmapObject.h">
       <Filter>Source\Object</Filter>
     </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -102,6 +105,9 @@
     </ClCompile>
     <ClCompile Include="BitmapObject.cpp">
       <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>Source\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
