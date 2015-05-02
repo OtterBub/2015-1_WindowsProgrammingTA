@@ -71,6 +71,9 @@
     <ClInclude Include="TestScene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="AnimateObject.h">
+      <Filter>Source\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -108,6 +111,9 @@
     </ClCompile>
     <ClCompile Include="TestScene.cpp">
       <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimateObject.cpp">
+      <Filter>Source\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

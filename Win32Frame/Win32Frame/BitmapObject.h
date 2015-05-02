@@ -29,21 +29,29 @@ public:
 	void SetScale( float scaleX, float scaleY );
 	void SetDestSize( OtterVector2f destSize );
 	void SetDestSize( float width, float height );
-	void SetSrcRect( OtterRect2f srcRect );
-	void SetSrcRect( OtterVector2f point1, OtterVector2f point2 );
-	void SetSrcRect( float x1, float y1, float x2, float y2 );
+	void SetSrcPosition( OtterVector2f pos );
+	void SetSrcPosition( float x, float y );
+	void SetSrcSize( OtterVector2f size );
+	void SetSrcSize( float width, float height );
+	void SetDrawMode( DWORD drawMode );
+	void SetTransparent( bool isTransparent, UINT rgb = RGB(0, 0, 0) );
 
-	
+	const BITMAP GetBitmapInfo();
 
 private:
-	bool GetBitmapInfo();
+	bool CreateBitmapInfo();
 
 private:
+	bool mIsTransparent;
+	UINT mTransparentRGB;
 	HBITMAP mBitmap;
 	BITMAP mBitmapInfo;
 	OtterVector2f mDestScale;
 	OtterVector2f mDestSize;
+	OtterVector2f mSrcPosition;
+	OtterVector2f mSrcSize;
 	OtterRect2f mSrcRect;
+	DWORD mDrawMode;
 };
 
 

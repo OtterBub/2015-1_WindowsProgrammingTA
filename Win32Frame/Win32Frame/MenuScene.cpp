@@ -27,8 +27,12 @@ void MenuScene::Enter()
 	//mButton[5].SetText( L"MenuScene" );
 
 	//bmpExercising = LoadBitmap( WIN32FRAME.GetHInstance(), MAKEINTRESOURCE( IDB_MYCAHR ) );
-	mBitmap.FileLoad( L"snapshot.bmp" );
+	mBitmap.FileLoad( L"chara07_2.bmp" );
 	mBitmap.SetPosition( 300, 300 );
+	mBitmap.SetScale( 3, 3 );
+	mBitmap.SetSrcSize( 32, 48 );
+	mBitmap.SetDestSize( 32, 48 );
+	mBitmap.SetTransparent( true, RGB( 120, 195, 128 ) );
 }
 
 void MenuScene::Exit()
@@ -64,7 +68,7 @@ void MenuScene::Update( double dt )
 	if( OTTER_INPUT.GetKeyDown( 'S' ) )
 		mBitmap.Translate( 0, 1  );
 
-	switch( rand() % 1 )
+	/*switch( rand() % 1 )
 	{
 		case 0:
 			mBitmap.FileLoad(L"snapshot.bmp");
@@ -77,13 +81,28 @@ void MenuScene::Update( double dt )
 			break;
 		default:
 			break;
-	}	
+	}	*/
+	
+	static int count = 0;
+	static int countY = 0;
+	static int spriteWidth = 32, spriteHeight = 48;
+	static double animTime = 0;
+	//mBitmap.SetSrcRect( spriteWidth * ( count ), 0, spriteWidth * (count + 1), 53 );
+	
+	mBitmap.SetSrcPosition( spriteWidth * count, spriteHeight * countY );
+	animTime += dt;
+	if( animTime > 0.5 ) {
+		animTime = 0;
+		count = (count + 1) % 3;
+		if( count == 0 )
+			countY ++;
+	}
 }
 
 void MenuScene::Draw( HWND hwnd, HDC hdc )
 {
 	std::wstring debug;
-	mBitmap.Draw( hdc );
+	
 	//TextOut( hdc, WIN32FRAME.GetClientRectbyFrame().right / 2.f - 30, 30, L"2048", wcslen( L"2048" ) );
 
 	debug = std::to_wstring( (int)mBitmap.GetPosition().x );
@@ -93,4 +112,6 @@ void MenuScene::Draw( HWND hwnd, HDC hdc )
 
 	for( int i = 0; i < 5; ++i )
 		mButton[i].Draw( hdc );
+
+	mBitmap.Draw( hdc );
 }

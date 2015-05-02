@@ -10,25 +10,29 @@
 BitmapObject::BitmapObject()
 {
 	mBitmap = NULL;
+	mDrawMode = SRCCOPY;
 	mDestScale = OtterVector2f( 1, 1 );
+	mIsTransparent = false;
 }
 #ifdef UNICODE
 BitmapObject::BitmapObject( std::wstring filename )
 {
 	mBitmap = (HBITMAP)LoadImage( WIN32FRAME.GetHInstance(), filename.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE );
-	GetBitmapInfo();
+	CreateBitmapInfo();
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
 	mDestScale = OtterVector2f( 1, 1 );
 	mSrcRect = OtterRect2f( 0, 0, mDestSize.x, mDestSize.y );
+	mDrawMode = SRCCOPY;
+	mIsTransparent = false;
 }
 bool BitmapObject::FileLoad( std::wstring filename )
 {
 	if( mBitmap != NULL )
 		DeleteObject( mBitmap );
 	mBitmap = (HBITMAP)LoadImage( WIN32FRAME.GetHInstance(), filename.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE );
-	GetBitmapInfo();
+	CreateBitmapInfo();
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
-	mDestScale = OtterVector2f( 1, 1 );
+	//mDestScale = OtterVector2f( 1, 1 );
 	mSrcRect = OtterRect2f( 0, 0, mDestSize.x, mDestSize.y );
 	return true;
 }
@@ -36,7 +40,7 @@ bool BitmapObject::FileLoad( std::wstring filename )
 BitmapObject::BitmapObject( std::string filename )
 {
 	mBitmap = (HBITMAP)LoadImage( WIN32FRAME.GetHInstance(), filename.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE );
-	GetBitmapInfo();
+	CreateBitmapInfo();
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
 }
 bool BitmapObject::FileLoad( std::string filename )
@@ -44,7 +48,7 @@ bool BitmapObject::FileLoad( std::string filename )
 	if( mBitmap != NULL )
 		DeleteObject( mBitmap );
 	mBitmap = (HBITMAP)LoadImage( WIN32FRAME.GetHInstance(), filename.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE );
-	GetBitmapInfo();
+	CreateBitmapInfo();
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
 	return true;
 }
@@ -55,11 +59,10 @@ BitmapObject::~BitmapObject()
 		DeleteObject( mBitmap );
 }
 
-
-
 void BitmapObject::Update( float dt )
 {
 }
+
 void BitmapObject::Draw( HDC hdc )
 {
 	HDC BitmapDC;
@@ -69,12 +72,21 @@ void BitmapObject::Draw( HDC hdc )
 			mPosition.x - ( mBitmapInfo.bmWidth / 2 ), mPosition.y - ( mBitmapInfo.bmHeight / 2 ),
 			mBitmapInfo.bmWidth, mBitmapInfo.bmHeight, 
 			BitmapDC, 0, 0, SRCCOPY );*/
-	StretchBlt( hdc, 
-				mPosition.x - ( mBitmapInfo.bmWidth / 2 ), mPosition.y - ( mBitmapInfo.bmHeight / 2 ),
-				mDestSize.x * mDestScale.x, mDestSize.y * mDestScale.y,
-				BitmapDC, 
-				mSrcRect.point[0].x, mSrcRect.point[0].y,
-				mSrcRect.point[1].x, mSrcRect.point[1].y, SRCCOPY );
+	if( mIsTransparent == false ) {
+		StretchBlt( hdc,
+					mPosition.x - ( mBitmapInfo.bmWidth / 2 ), mPosition.y - ( mBitmapInfo.bmHeight / 2 ),
+					mDestSize.x * mDestScale.x, mDestSize.y * mDestScale.y,
+					BitmapDC,
+					mSrcPosition.x, mSrcPosition.y,
+					mSrcSize.x, mSrcSize.y, mDrawMode );
+	} else {
+		TransparentBlt( hdc,
+					mPosition.x - ( mBitmapInfo.bmWidth / 2 ), mPosition.y - ( mBitmapInfo.bmHeight / 2 ),
+					mDestSize.x * mDestScale.x, mDestSize.y * mDestScale.y,
+					BitmapDC,
+					mSrcPosition.x, mSrcPosition.y,
+					mSrcSize.x, mSrcSize.y, mTransparentRGB );
+	}
 	DeleteDC( BitmapDC );
 }
 
@@ -113,20 +125,42 @@ void BitmapObject::SetDestSize( float width, float height )
 	mDestSize.x = width;
 	mDestSize.y = height;
 }
-void BitmapObject::SetSrcRect( OtterRect2f srcRect )
+void BitmapObject::SetSrcPosition( OtterVector2f pos )
 {
-	mSrcRect = srcRect;
+	mSrcPosition = pos;
 }
-void BitmapObject::SetSrcRect( OtterVector2f point1, OtterVector2f point2 )
+void BitmapObject::SetSrcPosition( float x, float y )
 {
-	mSrcRect = OtterRect2f( point1, point2 );
+	mSrcPosition.x = x;
+	mSrcPosition.y = y;
 }
-void BitmapObject::SetSrcRect( float x1, float y1, float x2, float y2 )
+void BitmapObject::SetSrcSize( OtterVector2f size )
 {
-	mSrcRect = OtterRect2f( x1, y1, x2, y2 );
+	mSrcSize = size;
+}
+void BitmapObject::SetSrcSize( float width, float height )
+{
+	mSrcSize.x = width;
+	mSrcSize.y = height;
 }
 
-bool BitmapObject::GetBitmapInfo()
+void BitmapObject::SetDrawMode( DWORD drawMode )
+{
+	mDrawMode = drawMode;
+}
+
+void BitmapObject::SetTransparent( bool isTransparent, UINT rgb )
+{
+	mIsTransparent = isTransparent;
+	mTransparentRGB = rgb;
+}
+
+const BITMAP BitmapObject::GetBitmapInfo()
+{
+	return mBitmapInfo;
+}
+
+bool BitmapObject::CreateBitmapInfo()
 {
 	GetObject( mBitmap, sizeof(BITMAP), &mBitmapInfo );
 	return true;
