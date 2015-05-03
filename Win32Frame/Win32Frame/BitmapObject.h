@@ -17,7 +17,7 @@ public:
 #endif
 	~BitmapObject();
 
-	void Update( float dt );
+	void Update( double dt );
 	void Draw( HDC hdc );
 
 	void Translate( float x, float y );

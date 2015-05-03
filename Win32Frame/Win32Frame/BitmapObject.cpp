@@ -34,6 +34,8 @@ bool BitmapObject::FileLoad( std::wstring filename )
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
 	//mDestScale = OtterVector2f( 1, 1 );
 	mSrcRect = OtterRect2f( 0, 0, mDestSize.x, mDestSize.y );
+	if( mBitmap == NULL )
+		return false;
 	return true;
 }
 #else
@@ -59,12 +61,14 @@ BitmapObject::~BitmapObject()
 		DeleteObject( mBitmap );
 }
 
-void BitmapObject::Update( float dt )
+void BitmapObject::Update( double dt )
 {
 }
 
 void BitmapObject::Draw( HDC hdc )
 {
+	if( mBitmap == NULL )
+		return;
 	HDC BitmapDC;
 	BitmapDC = CreateCompatibleDC( hdc );
 	SelectObject( BitmapDC, mBitmap );

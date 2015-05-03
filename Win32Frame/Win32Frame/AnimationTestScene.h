@@ -2,13 +2,13 @@
 #define __MENU_SCENE_H__
 #include "Scene.h"
 #include "GDIButton.h"
-#include "BitmapObject.h"
+#include "AnimateObject.h"
 
-class MenuScene : public Scene
+class AnimationTestScene : public Scene
 {
 public:
-	MenuScene();
-	~MenuScene();
+	AnimationTestScene();
+	~AnimationTestScene();
 
 	void Enter();
 	void Exit();
@@ -19,6 +19,7 @@ public:
 private:
 	GDIButton mButton[6];
 	BitmapObject mBitmap;
+	AnimateObject mAnimObj;
 };
 
 #endif __MENU_SCENE_H__

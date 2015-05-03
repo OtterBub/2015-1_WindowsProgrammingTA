@@ -1,5 +1,5 @@
 #include "Win32Frame.h"
-#include "MenuScene.h"
+#include "AnimationTestScene.h"
 #include "TestScene.h"
 #include <ctime>
 
@@ -48,7 +48,7 @@ void Win32Frame::Update( double dt )
 	if( lbKeyDown == false )
 	{
 		if( OTTER_INPUT.GetKeyDown( '1' ) )
-			WIN32FRAME.ChangeScene( new MenuScene() );
+			WIN32FRAME.ChangeScene( new AnimationTestScene() );
 		else if( OTTER_INPUT.GetKeyDown( '2' ) )
 			WIN32FRAME.ChangeScene( new TestScene() );
 	}

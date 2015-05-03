@@ -3,7 +3,7 @@
 Object::Object(){}
 Object::~Object(){}
 
-void Object::Update( float dt )
+void Object::Update( double dt )
 {}
 
 void Object::Translate( float x, float y )

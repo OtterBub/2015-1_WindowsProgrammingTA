@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include <ctime>
 #include "Win32Frame.h"
-#include "MenuScene.h"
+#include "AnimationTestScene.h"
 
 #define WINDOW_HEIGHT 800
 #define WINDOW_WIDTH 1280
@@ -65,7 +65,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 		case WM_CREATE:
 			WIN32FRAME.Initialize();
 			WIN32FRAME.SethWnd( hWnd );
-			WIN32FRAME.ChangeScene( new MenuScene( ) );
+			WIN32FRAME.ChangeScene( new AnimationTestScene( ) );
 
 			SetTimer( hWnd, 0, 10, timer );
 			break;

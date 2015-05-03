@@ -1,14 +1,14 @@
-#include "MenuScene.h"
+#include "AnimationTestScene.h"
 #include "Win32Frame.h"
 
-MenuScene::MenuScene()
+AnimationTestScene::AnimationTestScene()
 {
 }
-MenuScene::~MenuScene()
+AnimationTestScene::~AnimationTestScene()
 {
 }
 
-void MenuScene::Enter()
+void AnimationTestScene::Enter()
 {
 	RECT rect = WIN32FRAME.GetClientRectbyFrame();
 	float width = 150 * 0.5;
@@ -24,7 +24,7 @@ void MenuScene::Enter()
 	mButton[2].SetText( L"DeleteBlockTest" );
 	mButton[3].SetText( L"CreateBlockTest" );
 	mButton[4].SetText( L"Play" );
-	//mButton[5].SetText( L"MenuScene" );
+	//mButton[5].SetText( L"AnimationTestScene" );
 
 	//bmpExercising = LoadBitmap( WIN32FRAME.GetHInstance(), MAKEINTRESOURCE( IDB_MYCAHR ) );
 	mBitmap.FileLoad( L"chara07_2.bmp" );
@@ -33,13 +33,24 @@ void MenuScene::Enter()
 	mBitmap.SetSrcSize( 32, 48 );
 	mBitmap.SetDestSize( 32, 48 );
 	mBitmap.SetTransparent( true, RGB( 120, 195, 128 ) );
+
+	mAnimObj.LoadSpriteImage( L"chara07_2.bmp" );
+	mAnimObj.AutoCreateAnimation( L"DOWN", 0.25, OtterVector2f( 32, 48 ), OtterVector2i(3, 0), OtterVector2i( 3, 1 ) );
+	mAnimObj.AutoCreateAnimation( L"LEFT", 0.25, OtterVector2f( 32, 48 ), OtterVector2i(3, 1), OtterVector2i( 3, 1 ) );
+	mAnimObj.AutoCreateAnimation( L"RIGHT", 0.25, OtterVector2f( 32, 48 ), OtterVector2i(3, 2), OtterVector2i( 3, 1 ) );
+	mAnimObj.AutoCreateAnimation( L"UP", 0.25, OtterVector2f( 32, 48 ), OtterVector2i(3, 3), OtterVector2i( 3, 1 ) );
+	mAnimObj.SetAnimClip( L"DOWN" );
+	mAnimObj.SetPosition( 300, 300 );
+	mAnimObj.SetImageSize( 32, 48 );
+	mAnimObj.SetScale( 4, 4 );
+	mAnimObj.SetTransparent( true, RGB( 120, 195, 128 ) );
 }
 
-void MenuScene::Exit()
+void AnimationTestScene::Exit()
 {
 }
 
-void MenuScene::Update( double dt )
+void AnimationTestScene::Update( double dt )
 {
 	int clickIndex = -1;
 	if( OTTER_INPUT.GetMouseDown( MOUSE_MESSAGE::MOUSE_L ) )
@@ -59,14 +70,22 @@ void MenuScene::Update( double dt )
 			break;
 	}
 
-	if( OTTER_INPUT.GetKeyDown( 'A' ) )
-		mBitmap.Translate( -1, 0  );
-	if( OTTER_INPUT.GetKeyDown( 'D' ) )
-		mBitmap.Translate( 1, 0  );
-	if( OTTER_INPUT.GetKeyDown( 'W' ) )
-		mBitmap.Translate( 0, -1  );
-	if( OTTER_INPUT.GetKeyDown( 'S' ) )
-		mBitmap.Translate( 0, 1  );
+	if( OTTER_INPUT.GetKeyDown( 'A' ) ){
+		mAnimObj.Translate( -1, 0  );
+		mAnimObj.SetAnimClip( L"LEFT" );
+	}
+	if( OTTER_INPUT.GetKeyDown( 'D' ) ){
+		mAnimObj.Translate( 1, 0  );
+		mAnimObj.SetAnimClip( L"RIGHT" );
+	}
+	if( OTTER_INPUT.GetKeyDown( 'W' ) ){
+		mAnimObj.Translate( 0, -1  );
+		mAnimObj.SetAnimClip( L"UP" );
+	}
+	if( OTTER_INPUT.GetKeyDown( 'S' ) ){
+		mAnimObj.Translate( 0, 1  );
+		mAnimObj.SetAnimClip( L"DOWN" );
+	}
 
 	/*switch( rand() % 1 )
 	{
@@ -96,10 +115,14 @@ void MenuScene::Update( double dt )
 		count = (count + 1) % 3;
 		if( count == 0 )
 			countY ++;
+		if( countY >=8 )
+			countY = 0;
 	}
+
+	mAnimObj.Update( dt );
 }
 
-void MenuScene::Draw( HWND hwnd, HDC hdc )
+void AnimationTestScene::Draw( HWND hwnd, HDC hdc )
 {
 	std::wstring debug;
 	
@@ -110,8 +133,6 @@ void MenuScene::Draw( HWND hwnd, HDC hdc )
 	debug += std::to_wstring( (int)mBitmap.GetPosition().y );
 	TextOut( hdc, 0, 0, debug.c_str(), debug.length() );
 
-	for( int i = 0; i < 5; ++i )
-		mButton[i].Draw( hdc );
-
 	mBitmap.Draw( hdc );
+	mAnimObj.Draw( hdc );
 }
