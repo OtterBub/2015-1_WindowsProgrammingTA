@@ -2,7 +2,6 @@
 
 AnimateObject::AnimateObject()
 {
-	mAnimationDelay =1.0f;
 	mAnimTime = 0;
 	mAnimIndex = 0;
 }
@@ -41,7 +40,7 @@ void AnimateObject::Translate( float x, float y )
 	Object::Translate( x, y );
 	mBitmap.Translate( x, y );
 }
-void AnimateObject::Translate( OtterVector2f trans )
+void AnimateObject::Translate( const OtterVector2f& trans )
 {
 	Object::Translate( trans );
 	mBitmap.Translate( trans );
@@ -51,12 +50,12 @@ void AnimateObject::SetPosition( float x, float y )
 	Object::SetPosition( x, y );
 	mBitmap.SetPosition( x, y );
 }
-void AnimateObject::SetPosition( OtterVector2f pos )
+void AnimateObject::SetPosition( const OtterVector2f& pos )
 {
 	Object::SetPosition( pos );
 	mBitmap.SetPosition( pos );
 }
-void AnimateObject::SetScale( OtterVector2f scale )
+void AnimateObject::SetScale( const OtterVector2f& scale )
 {
 	mBitmap.SetScale( scale );
 }
@@ -64,7 +63,7 @@ void AnimateObject::SetScale( float scaleX, float scaleY )
 {
 	mBitmap.SetScale( scaleX, scaleY );
 }
-void AnimateObject::SetImageSize( OtterVector2f imgSize )
+void AnimateObject::SetImageSize( const OtterVector2f& imgSize )
 {
 	mBitmap.SetDestSize( imgSize );
 }
@@ -102,7 +101,8 @@ bool AnimateObject::LoadSpriteImage( std::wstring fileName )
 {
 	return mBitmap.FileLoad( fileName );
 }
-void AnimateObject::AutoCreateAnimation( std::wstring animName, float animDlay, OtterVector2f clipSize, OtterVector2i clipStartNumber, OtterVector2i clipEndNumber )
+void AnimateObject::AutoCreateAnimation( std::wstring animName, float animDlay, const OtterVector2f& clipSize, 
+										 const OtterVector2i& clipStartNumber, const OtterVector2i& clipEndNumber )
 {
 	std::unordered_map<std::wstring, AnimationClipInfo>::iterator it = mAnimationClip.find( animName );
 

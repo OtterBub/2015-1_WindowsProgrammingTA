@@ -1,11 +1,49 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  Main.cpp
+  Win32Frame.cpp
+  TestScene.cpp
+  MathUtill.cpp
+  Object.cpp
   AnimationTestScene.cpp
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\animationtestscene.cpp(19): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\animationtestscene.cpp(19): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\animationtestscene.cpp(112): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Win32Frame.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\animationtestscene.cpp(111): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+  GDIObject.cpp
+  Main.cpp
+  InputSystem.cpp
+  GDIRect.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(19): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(20): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(21): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(22): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(23): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(24): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(25): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(26): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(89): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(116): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(117): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(119): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdirect.cpp(120): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+  GDIButton.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(18): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(19): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(20): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(21): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(22): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(23): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(24): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(25): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(27): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(28): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(29): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gdibutton.cpp(30): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+  GameBoardObject.cpp
+  ButtonManager.cpp
+  BitmapObject.cpp
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\bitmapobject.cpp(22): warning C4244: 'argument' : conversion from 'LONG' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\bitmapobject.cpp(34): warning C4244: 'argument' : conversion from 'LONG' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\bitmapobject.cpp(85): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\bitmapobject.cpp(92): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
   AnimateObject.cpp
+  Generating Code...
   Win32Frame.vcxproj -> C:\Myfolder\KPU\2015_First_Semester\WindowProgramming(TA)\Win32Solution\Win32Frame\\Output\Win32Frame_d.exe

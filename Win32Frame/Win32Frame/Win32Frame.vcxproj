@@ -14,6 +14,7 @@
     <ClInclude Include="AnimateObject.h" />
     <ClInclude Include="BitmapObject.h" />
     <ClInclude Include="ButtonManager.h" />
+    <ClInclude Include="GameBoardObject.h" />
     <ClInclude Include="GDIButton.h" />
     <ClInclude Include="GDIRect.h" />
     <ClInclude Include="InputSystem.h" />
@@ -31,6 +32,7 @@
     <ClCompile Include="AnimateObject.cpp" />
     <ClCompile Include="BitmapObject.cpp" />
     <ClCompile Include="ButtonManager.cpp" />
+    <ClCompile Include="GameBoardObject.cpp" />
     <ClCompile Include="GDIButton.cpp" />
     <ClCompile Include="GDIRect.cpp" />
     <ClCompile Include="InputSystem.cpp" />

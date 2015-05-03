@@ -8,7 +8,7 @@ class OtterVector2
 {
 public:
 	template<typename U>
-	OtterVector2( const OtterVector2<U> other );
+	OtterVector2( const OtterVector2<U>& other );
 	OtterVector2();
 	OtterVector2( T x, T y );
 	~OtterVector2();
@@ -18,22 +18,22 @@ public:
 	T GetLength();
 	
 	template<typename U>
-	void operator +=( const OtterVector2<U> a );
+	void operator +=( const OtterVector2<U>& a );
 	template<typename U>
-	void operator -=( const OtterVector2<U> a );
+	void operator -=( const OtterVector2<U>& a );
 
 public:
 	T x, y;
 };
 
 template<typename T, typename U>
-OtterVector2<T> operator+( const OtterVector2<T> a, const OtterVector2<U> b );
+OtterVector2<T> operator+( const OtterVector2<T>& a, const OtterVector2<U>& b );
 
 template<typename T, typename U>
-OtterVector2<T> operator-( const OtterVector2<T> a, const OtterVector2<U> b );
+OtterVector2<T> operator-( const OtterVector2<T>& a, const OtterVector2<U>& b );
 
 template<typename T, typename U>
-OtterVector2<T> operator*( const OtterVector2<T> a, const U b );
+OtterVector2<T> operator*( const OtterVector2<T>& a, const U& b );
 
 
 
@@ -41,13 +41,13 @@ template<typename T>
 class OtterRect2
 {
 public:
-	OtterRect2( T x1, T y1, T x2, T y2 );
-	OtterRect2( OtterVector2<T> point1, OtterVector2<T> point2 );
+	OtterRect2( const T& x1, const T& y1, const T& x2, const T& y2 );
+	OtterRect2( const OtterVector2<T>& point1, const OtterVector2<T>& point2 );
 	OtterRect2();
 	~OtterRect2();
 
-	void operator +=( const OtterVector2<T> trans );
-	void operator -=( const OtterVector2<T> trans );
+	void operator +=( const OtterVector2<T>& trans );
+	void operator -=( const OtterVector2<T>& trans );
 
 public:
 	OtterVector2<T> point[2];
@@ -71,7 +71,7 @@ typedef OtterRect2<unsigned int> OtterRect2ui;
 // ---------------------------- OtterVector2 ----------------------------
 template<typename T>
 template<typename U>
-OtterVector2<T>::OtterVector2( const OtterVector2<U> other )
+OtterVector2<T>::OtterVector2( const OtterVector2<U>& other )
 {
 	this->x = other.x;
 	this->y = other.y;
@@ -111,7 +111,7 @@ T OtterVector2<T>::GetLength()
 
 template<typename T>
 template<typename U>
-void OtterVector2<T>::operator +=( const OtterVector2<U> a )
+void OtterVector2<T>::operator +=( const OtterVector2<U>& a )
 {
 	this->x += a.x;
 	this->y += a.y;
@@ -119,14 +119,14 @@ void OtterVector2<T>::operator +=( const OtterVector2<U> a )
 
 template<typename T>
 template<typename U>
-void OtterVector2<T>::operator -=( const OtterVector2<U> a )
+void OtterVector2<T>::operator -=( const OtterVector2<U>& a )
 {
 	this->x -= a.x;
 	this->y -= a.y;
 }
 
 template<typename T, typename U>
-OtterVector2<T> operator +( const OtterVector2<T> a, const OtterVector2<U> b )
+OtterVector2<T> operator +( const OtterVector2<T>& a, const OtterVector2<U>& b )
 {
 	OtterVector2<T> temp;
 	temp.x = a.x + b.x;
@@ -135,7 +135,7 @@ OtterVector2<T> operator +( const OtterVector2<T> a, const OtterVector2<U> b )
 }
 
 template<typename T, typename U>
-OtterVector2<T> operator-( const OtterVector2<T> a, const OtterVector2<U> b )
+OtterVector2<T> operator-( const OtterVector2<T>& a, const OtterVector2<U>& b )
 {
 	OtterVector2<T> temp;
 	temp.x = a.x - b.x;
@@ -144,7 +144,7 @@ OtterVector2<T> operator-( const OtterVector2<T> a, const OtterVector2<U> b )
 }
 
 template<typename T, typename U>
-OtterVector2<T> operator*( const OtterVector2<T> a, const U b )
+OtterVector2<T> operator*( const OtterVector2<T>& a, const U& b )
 {
 	OtterVector2<T> temp = a;
 	temp.x *= b;
@@ -155,7 +155,7 @@ OtterVector2<T> operator*( const OtterVector2<T> a, const U b )
 
 // ---------------------------- OtterRect2 ----------------------------
 template<typename T>
-OtterRect2<T>::OtterRect2( T x1, T y1, T x2, T y2 )
+OtterRect2<T>::OtterRect2( const T& x1, const T& y1, const T& x2, const T& y2 )
 {
 	point[0].x = x1;
 	point[0].y = y1; 
@@ -164,7 +164,7 @@ OtterRect2<T>::OtterRect2( T x1, T y1, T x2, T y2 )
 }
 
 template<typename T>
-OtterRect2<T>::OtterRect2( OtterVector2<T> point1, OtterVector2<T> point2 )
+OtterRect2<T>::OtterRect2( const OtterVector2<T>& point1, const OtterVector2<T>& point2 )
 {
 	point[0] = point1;
 	point[1] = point2;
@@ -179,14 +179,14 @@ OtterRect2<T>::~OtterRect2()
 }
 
 template<typename T>
-void OtterRect2<T>::operator +=( const OtterVector2<T> trans )
+void OtterRect2<T>::operator +=( const OtterVector2<T>& trans )
 {
 	point[0] += trans;
 	point[1] += trans;
 }
 
 template<typename T>
-void OtterRect2<T>::operator -=( const OtterVector2<T> trans )
+void OtterRect2<T>::operator -=( const OtterVector2<T>& trans )
 {
 	point[0] -= trans;
 	point[1] -= trans;

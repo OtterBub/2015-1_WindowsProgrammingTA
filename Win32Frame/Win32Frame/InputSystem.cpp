@@ -55,22 +55,22 @@ bool Input::GetMouseUp( MOUSE_MESSAGE message )
 	return mMouseUp[message];
 }
 
-OtterVector2i Input::GetMouseDownPosition( MOUSE_MESSAGE message )
+const OtterVector2i& Input::GetMouseDownPosition( MOUSE_MESSAGE message )
 {
 	return mDownMousePosition[message];
 }
 
-OtterVector2i Input::GetMouseUpPosition( MOUSE_MESSAGE message )
+const OtterVector2i& Input::GetMouseUpPosition( MOUSE_MESSAGE message )
 {
 	return mUpMousePosition[message];
 }
 
-OtterVector2i Input::GetMousePosition()
+const OtterVector2i& Input::GetMousePosition()
 {
 	return mCurrentMousePosition;
 }
 
-void Input::SetMouseButton( MOUSE_MESSAGE message, OtterVector2i mousePos, bool down )
+void Input::SetMouseButton( MOUSE_MESSAGE message, const OtterVector2i& mousePos, bool down )
 {
 	mMouseDown[message] = down;
 	mMouseUp[message] = !down;
@@ -81,7 +81,7 @@ void Input::SetMouseButton( MOUSE_MESSAGE message, OtterVector2i mousePos, bool 
 		mUpMousePosition[message] = mousePos;
 }
 
-void Input::SetCurrentMousePosition( OtterVector2i mousePos )
+void Input::SetCurrentMousePosition( const OtterVector2i& mousePos )
 {
 	mCurrentMousePosition = mousePos;
 }

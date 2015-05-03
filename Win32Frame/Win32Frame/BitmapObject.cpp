@@ -32,7 +32,6 @@ bool BitmapObject::FileLoad( std::wstring filename )
 	mBitmap = (HBITMAP)LoadImage( WIN32FRAME.GetHInstance(), filename.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE );
 	CreateBitmapInfo();
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
-	//mDestScale = OtterVector2f( 1, 1 );
 	mSrcRect = OtterRect2f( 0, 0, mDestSize.x, mDestSize.y );
 	if( mBitmap == NULL )
 		return false;
@@ -44,6 +43,10 @@ BitmapObject::BitmapObject( std::string filename )
 	mBitmap = (HBITMAP)LoadImage( WIN32FRAME.GetHInstance(), filename.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE );
 	CreateBitmapInfo();
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
+	mDestScale = OtterVector2f( 1, 1 );
+	mSrcRect = OtterRect2f( 0, 0, mDestSize.x, mDestSize.y );
+	mDrawMode = SRCCOPY;
+	mIsTransparent = false;
 }
 bool BitmapObject::FileLoad( std::string filename )
 {
@@ -52,6 +55,9 @@ bool BitmapObject::FileLoad( std::string filename )
 	mBitmap = (HBITMAP)LoadImage( WIN32FRAME.GetHInstance(), filename.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE );
 	CreateBitmapInfo();
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
+	mSrcRect = OtterRect2f( 0, 0, mDestSize.x, mDestSize.y );
+	if( mBitmap == NULL )
+		return false;
 	return true;
 }
 #endif
@@ -98,7 +104,7 @@ void BitmapObject::Translate( float x, float y )
 {
 	Object::Translate( x, y );
 }
-void BitmapObject::Translate( OtterVector2f trans )
+void BitmapObject::Translate( const OtterVector2f& trans )
 {
 	Object::Translate( trans );
 }
@@ -106,12 +112,12 @@ void BitmapObject::SetPosition( float x, float y )
 {
 	Object::SetPosition( x, y );
 }
-void BitmapObject::SetPosition( OtterVector2f pos )
+void BitmapObject::SetPosition( const OtterVector2f& pos )
 {
 	Object::SetPosition( pos );
 }
 
-void BitmapObject::SetScale( OtterVector2f scale )
+void BitmapObject::SetScale( const OtterVector2f& scale )
 {
 	mDestScale = scale;
 }
@@ -120,7 +126,7 @@ void BitmapObject::SetScale( float scaleX, float scaleY )
 	mDestScale.x = scaleX;
 	mDestScale.y = scaleY;
 }
-void BitmapObject::SetDestSize( OtterVector2f destSize )
+void BitmapObject::SetDestSize( const OtterVector2f& destSize )
 {
 	mDestSize = destSize;
 }
@@ -129,7 +135,7 @@ void BitmapObject::SetDestSize( float width, float height )
 	mDestSize.x = width;
 	mDestSize.y = height;
 }
-void BitmapObject::SetSrcPosition( OtterVector2f pos )
+void BitmapObject::SetSrcPosition( const OtterVector2f& pos )
 {
 	mSrcPosition = pos;
 }
@@ -138,7 +144,7 @@ void BitmapObject::SetSrcPosition( float x, float y )
 	mSrcPosition.x = x;
 	mSrcPosition.y = y;
 }
-void BitmapObject::SetSrcSize( OtterVector2f size )
+void BitmapObject::SetSrcSize( const OtterVector2f& size )
 {
 	mSrcSize = size;
 }

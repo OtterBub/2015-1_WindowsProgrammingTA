@@ -12,12 +12,12 @@ public:
 	virtual void Draw( HDC hdc );
 
 	void Translate( float x, float y );
-	void Translate( OtterVector2f trans );
+	void Translate( const OtterVector2f& trans );
 	void SetPosition( float x, float y );
-	void SetPosition( OtterVector2f pos );
+	void SetPosition( const OtterVector2f& pos );
 
 	void SetRect( int x, int y, int size );
-	void SetRect( OtterVector2f pos, int size );
+	void SetRect( const OtterVector2f& pos, int size );
 	void SetRect( int left, int top, int right, int bottom );
 	void SetSize( int size );
 	void SetMass( float mass );

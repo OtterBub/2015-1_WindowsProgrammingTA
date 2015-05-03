@@ -26,25 +26,24 @@ public:
 	void Draw( HDC hdc );
 
 	void Translate( float x, float y );
-	void Translate( OtterVector2f trans );
+	void Translate( const OtterVector2f& trans );
 	void SetPosition( float x, float y );
-	void SetPosition( OtterVector2f pos );
-	void SetScale( OtterVector2f scale );
+	void SetPosition( const OtterVector2f& pos );
+	void SetScale( const OtterVector2f& scale );
 	void SetScale( float scaleX, float scaleY );
-	void SetImageSize( OtterVector2f destSize );
+	void SetImageSize( const OtterVector2f& destSize );
 	void SetImageSize( float width, float height );
 	void SetDrawMode( DWORD drawMode );
 	void SetTransparent( bool isTransparent, UINT rgb = RGB(0, 0, 0) );
 
 	void SetAnimClip( std::wstring animName );
 	bool LoadSpriteImage( std::wstring fileName );
-	void AutoCreateAnimation( std::wstring animName, float animDlay, OtterVector2f clipSize, OtterVector2i clipStartNumber, OtterVector2i clipEndNumber );
+	void AutoCreateAnimation( std::wstring animName, float animDlay, const OtterVector2f& clipSize, const OtterVector2i& clipStartNumber, const OtterVector2i& clipEndNumber );
 
 private:
 	BitmapObject mBitmap;
-	float mAnimationDelay;
-	float mAnimTime;
-	int mAnimIndex;
+	double mAnimTime;
+	unsigned int mAnimIndex;
 	std::wstring mCurrentAnimClipName;
 	std::unordered_map<std::wstring, AnimationClipInfo> mAnimationClip;
 	std::vector<AnimationClip>::iterator mAnimClipItor;

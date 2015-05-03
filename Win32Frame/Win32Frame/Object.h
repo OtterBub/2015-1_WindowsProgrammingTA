@@ -14,9 +14,9 @@ public:
 	virtual void Draw( HDC hdc ) = 0;
 
 	virtual void Translate( float x, float y );
-	virtual void Translate( OtterVector2f trans );
+	virtual void Translate( const OtterVector2f& trans );
 	virtual void SetPosition( float x, float y );
-	virtual void SetPosition( OtterVector2f pos );
+	virtual void SetPosition( const OtterVector2f& pos );
 
 	OtterVector2f GetPosition();
 

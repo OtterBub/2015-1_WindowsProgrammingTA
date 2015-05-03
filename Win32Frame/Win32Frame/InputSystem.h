@@ -24,13 +24,13 @@ public:
 
 	bool GetMouseDown( MOUSE_MESSAGE message );
 	bool GetMouseUp( MOUSE_MESSAGE message );
-	OtterVector2i GetMouseDownPosition( MOUSE_MESSAGE message );
-	OtterVector2i GetMouseUpPosition( MOUSE_MESSAGE message );
+	const OtterVector2i& GetMouseDownPosition( MOUSE_MESSAGE message );
+	const OtterVector2i& GetMouseUpPosition( MOUSE_MESSAGE message );
 
-	OtterVector2i GetMousePosition();
+	const OtterVector2i& GetMousePosition();
 
-	void SetMouseButton( MOUSE_MESSAGE message, OtterVector2i mousePos, bool down );
-	void SetCurrentMousePosition( OtterVector2i mousePos );
+	void SetMouseButton( MOUSE_MESSAGE message, const OtterVector2i& mousePos, bool down );
+	void SetCurrentMousePosition( const OtterVector2i& mousePos );
 	void SetKey( int keycode, bool down );
 
 private:

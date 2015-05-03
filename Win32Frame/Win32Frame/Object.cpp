@@ -12,7 +12,7 @@ void Object::Translate( float x, float y )
 	mPosition.y += y;
 }
 
-void Object::Translate( OtterVector2f trans )
+void Object::Translate( const OtterVector2f& trans )
 {
 	mPosition += trans;
 }
@@ -28,7 +28,7 @@ void Object::SetPosition( float x, float y )
 	mPosition.y = y;
 }
 
-void Object::SetPosition( OtterVector2f pos )
+void Object::SetPosition( const OtterVector2f& pos )
 {
 	mPosition = pos;
 }

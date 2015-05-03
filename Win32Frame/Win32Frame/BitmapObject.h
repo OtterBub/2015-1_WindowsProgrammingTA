@@ -21,17 +21,17 @@ public:
 	void Draw( HDC hdc );
 
 	void Translate( float x, float y );
-	void Translate( OtterVector2f trans );
+	void Translate( const OtterVector2f& trans );
 	void SetPosition( float x, float y );
-	void SetPosition( OtterVector2f pos );
+	void SetPosition( const OtterVector2f& pos );
 	
-	void SetScale( OtterVector2f scale );
+	void SetScale( const OtterVector2f& scale );
 	void SetScale( float scaleX, float scaleY );
-	void SetDestSize( OtterVector2f destSize );
+	void SetDestSize( const OtterVector2f& destSize );
 	void SetDestSize( float width, float height );
-	void SetSrcPosition( OtterVector2f pos );
+	void SetSrcPosition( const OtterVector2f& pos );
 	void SetSrcPosition( float x, float y );
-	void SetSrcSize( OtterVector2f size );
+	void SetSrcSize( const OtterVector2f& size );
 	void SetSrcSize( float width, float height );
 	void SetDrawMode( DWORD drawMode );
 	void SetTransparent( bool isTransparent, UINT rgb = RGB(0, 0, 0) );
