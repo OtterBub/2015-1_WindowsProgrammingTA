@@ -35,6 +35,11 @@ OtterVector2<T> operator-( const OtterVector2<T>& a, const OtterVector2<U>& b );
 template<typename T, typename U>
 OtterVector2<T> operator*( const OtterVector2<T>& a, const U& b );
 
+template<typename T, typename U>
+bool operator==( const OtterVector2<T>& a, const OtterVector2<U>& b );
+
+template<typename T, typename U>
+bool operator!=( const OtterVector2<T>& a, const OtterVector2<U>& b );
 
 
 template<typename T>
@@ -150,6 +155,18 @@ OtterVector2<T> operator*( const OtterVector2<T>& a, const U& b )
 	temp.x *= b;
 	temp.y *= b;
 	return temp;
+}
+
+template<typename T, typename U>
+bool operator==( const OtterVector2<T>& a, const OtterVector2<U>& b )
+{
+	return ( a.x == b.x ) && ( a.y == b.y );
+}
+
+template<typename T, typename U>
+bool operator!=( const OtterVector2<T>& a, const OtterVector2<U>& b )
+{
+	return !( ( a.x == b.x ) && ( a.y == b.y ) );
 }
 
 
