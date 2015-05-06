@@ -52,7 +52,7 @@ private:
 	bool CheckPositionRange( int x, int y );
 	int GetBoardIndex( const OtterVector2i& pos );
 	int GetBoardIndex( int x, int y );
-	bool GetCheckPosition( BoardInfo& currentInfo, const OtterVector2i& cal );
+	OtterVector2i GetCheckPosition( BoardInfo& currentInfo, const OtterVector2i& cal );
 
 private:
 	bool mSlideComplete;

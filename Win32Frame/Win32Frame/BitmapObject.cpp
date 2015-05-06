@@ -1,5 +1,6 @@
 #include "BitmapObject.h"
 #include "Win32Frame.h"
+#include "BitmapManager.h"
 
 #ifdef UNICODE
 #define LoadImage  LoadImageW
@@ -17,7 +18,7 @@ BitmapObject::BitmapObject()
 #ifdef UNICODE
 BitmapObject::BitmapObject( std::wstring filename )
 {
-	mBitmap = (HBITMAP)LoadImage( WIN32FRAME.GetHInstance(), filename.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE );
+	mBitmap = BITMAP_MGR.LoadFile( filename );
 	CreateBitmapInfo();
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
 	mDestScale = OtterVector2f( 1, 1 );
@@ -29,7 +30,7 @@ bool BitmapObject::FileLoad( std::wstring filename )
 {
 	if( mBitmap != NULL )
 		DeleteObject( mBitmap );
-	mBitmap = (HBITMAP)LoadImage( WIN32FRAME.GetHInstance(), filename.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE );
+	mBitmap = BITMAP_MGR.LoadFile( filename );
 	CreateBitmapInfo();
 	mDestSize = OtterVector2f( mBitmapInfo.bmWidth, mBitmapInfo.bmHeight );
 	mSrcRect = OtterRect2f( 0, 0, mDestSize.x, mDestSize.y );

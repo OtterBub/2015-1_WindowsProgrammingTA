@@ -77,6 +77,9 @@
     <ClInclude Include="GameBoardObject.h">
       <Filter>Source\Object</Filter>
     </ClInclude>
+    <ClInclude Include="BitmapManager.h">
+      <Filter>Source\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -120,6 +123,9 @@
     </ClCompile>
     <ClCompile Include="GameBoardObject.cpp">
       <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapManager.cpp">
+      <Filter>Source\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -56,16 +56,14 @@ void GameBoardObject::CommandSlide( int slideDir )
 {
 	//std::copy( mBoard.begin(), mBoard.end(), mResultBoard );
 	//mResultBoard = mBoard;
-	bool CheckResult;
+	OtterVector2i CheckResult;
 	switch( slideDir )
 	{
 		case GameSlideDir::UP:
 			for( int indexY = 0; indexY < mBoardSize.y; ++indexY ) {
 				for( int indexX = 0; indexX < mBoardSize.x; ++indexX ) {
 					if( mBoard[GetBoardIndex( indexX, indexY )].number != 0 ) {
-						if( GetCheckPosition( mBoard[GetBoardIndex( indexX, indexY )], OtterVector2i( 0, -1 ) ) ) {
-							mSlideComplete = true;
-						}
+						CheckResult = GetCheckPosition( mBoard[GetBoardIndex( indexX, indexY )], OtterVector2i( 0, -1 ) );
 					}
 				}
 			}
@@ -74,9 +72,7 @@ void GameBoardObject::CommandSlide( int slideDir )
 			for( int indexY = mBoardSize.y - 1; indexY >= 0; --indexY ) {
 				for( int indexX = 0; indexX < mBoardSize.x; ++indexX ) {
 					if( mBoard[GetBoardIndex( indexX, indexY )].number != 0 ) {
-						if( GetCheckPosition( mBoard[GetBoardIndex( indexX, indexY )], OtterVector2i( 0, 1 ) ) ) {
-							mSlideComplete = true;
-						}
+						CheckResult = GetCheckPosition( mBoard[GetBoardIndex( indexX, indexY )], OtterVector2i( 0, 1 ) );
 					}
 				}
 			}
@@ -85,9 +81,7 @@ void GameBoardObject::CommandSlide( int slideDir )
 			for( int indexX = mBoardSize.x - 1; indexX >= 0; --indexX ) {
 				for( int indexY = 0; indexY < mBoardSize.y; ++indexY ) {
 					if( mBoard[GetBoardIndex( indexX, indexY )].number != 0 ) {
-						if( GetCheckPosition( mBoard[GetBoardIndex( indexX, indexY )], OtterVector2i( 1, 0 ) ) ) {
-							mSlideComplete = true;
-						}
+						CheckResult = GetCheckPosition( mBoard[GetBoardIndex( indexX, indexY )], OtterVector2i( 1, 0 ) );
 					}
 				}
 			}
@@ -96,10 +90,7 @@ void GameBoardObject::CommandSlide( int slideDir )
 			for( int indexX = 0; indexX < mBoardSize.x; ++indexX ) {
 				for( int indexY = 0; indexY < mBoardSize.y; ++indexY ) {
 					if( mBoard[GetBoardIndex( indexX, indexY )].number != 0 ) {
-						if( GetCheckPosition( mBoard[GetBoardIndex( indexX, indexY )], OtterVector2i( -1, 0 ) ) ) {
-							mSlideComplete = true;
-
-						}
+						CheckResult = GetCheckPosition( mBoard[GetBoardIndex( indexX, indexY )], OtterVector2i( -1, 0 ) );
 					}
 				}
 			}
@@ -199,7 +190,7 @@ int GameBoardObject::GetBoardIndex( int x, int y )
 {
 	return x + ( y * mBoardSize.x );
 }
-bool GameBoardObject::GetCheckPosition( BoardInfo& currentInfo, const OtterVector2i& cal )
+OtterVector2i GameBoardObject::GetCheckPosition( BoardInfo& currentInfo, const OtterVector2i& cal )
 {
 	OtterVector2i checkPos = currentInfo.pos;
 	OtterVector2i checkPosBackUp = checkPos;
@@ -220,7 +211,6 @@ bool GameBoardObject::GetCheckPosition( BoardInfo& currentInfo, const OtterVecto
 				checking = false;
 				IsEqualNum = true;
 			}
-			
 		}
 		else {
 			checking = false;
@@ -237,9 +227,9 @@ bool GameBoardObject::GetCheckPosition( BoardInfo& currentInfo, const OtterVecto
 			mBoard[GetBoardIndex( checkPos )].number = currentInfo.number;
 
 		mBoard[GetBoardIndex( currentInfo.pos )].number = 0;
-		return true;
+		return checkPos;
 
 	} else {
-		return false;
+		return currentInfo.pos;
 	}
 }

@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimateObject.h" />
+    <ClInclude Include="BitmapManager.h" />
     <ClInclude Include="BitmapObject.h" />
     <ClInclude Include="ButtonManager.h" />
     <ClInclude Include="GameBoardObject.h" />
@@ -30,6 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimateObject.cpp" />
+    <ClCompile Include="BitmapManager.cpp" />
     <ClCompile Include="BitmapObject.cpp" />
     <ClCompile Include="ButtonManager.cpp" />
     <ClCompile Include="GameBoardObject.cpp" />
