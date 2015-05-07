@@ -8,6 +8,7 @@ class BitmapObject : public Object
 {
 public:
 	BitmapObject();
+	BitmapObject( const BitmapObject& other );
 #ifdef UNICODE
 	BitmapObject( std::wstring filename );
 	bool FileLoad( std::wstring filename );

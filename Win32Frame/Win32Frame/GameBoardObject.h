@@ -2,6 +2,7 @@
 #define __GAME_BOARD_OBJECT_H__
 #include "Object.h"
 #include "GDIRect.h"
+#include "AnimateObject.h"
 #include <vector>
 
 enum GameSlideDir
@@ -16,8 +17,26 @@ struct BoardInfo
 {
 	BoardInfo(){ moveState = false, number = 0; }
 	OtterVector2i pos;
+	OtterVector2i destPos;
 	bool moveState;
 	int number;
+};
+
+struct BoardAnim
+{
+	BoardAnim() { 
+		static int count = 0;
+		destPos = OtterVector2i( -1, -1 ); 
+		moveState = false;
+		id = count++;
+	}
+	AnimateObject animObj;
+	OtterVector2i currentPos;	
+	OtterVector2i destPos;
+	OtterVector2f dir;
+	bool moveState;
+	float dist;
+	int id;
 };
 
 class GameBoardObject : public Object 
@@ -41,9 +60,9 @@ public:
 	void SetRectSize( const OtterVector2i& size );
 	void SetRectSize( int width, int height );
 
-	OtterVector2f GetBoardPosition( int x, int y );
 	const BoardInfo& GetBoardInfo( int x, int y );
 	const BoardInfo& GetBoardInfo( const OtterVector2i& pos );
+	void SetDebugMode( bool debug );
 	void RandGeneratorBlock();
 
 private:
@@ -52,14 +71,28 @@ private:
 	bool CheckPositionRange( int x, int y );
 	int GetBoardIndex( const OtterVector2i& pos );
 	int GetBoardIndex( int x, int y );
+	OtterVector2f GetBoardPosition( int x, int y );
+	OtterVector2f GetBoardPosition( const OtterVector2i& pos );
 	OtterVector2i GetCheckPosition( BoardInfo& currentInfo, const OtterVector2i& cal );
+	bool SetBoardAnimDestPos( const OtterVector2i& currentPos, const OtterVector2i& destPos );
+	bool SetBoardAnimDestPos( int curX, int curY, int destX, int destY );
+	bool MoveAnimateObject( double dt );
+	void DeleteBitmap( const OtterVector2i& cur );
+	void DeleteProcess();
+	bool GetMoveState();
+	void ChangeAnimate( AnimateObject& obj, int number );
 
 private:
-	bool mSlideComplete;
+	bool mCommand;
+	bool mBlockMove;
+	float mBoardSpeed;
 	OtterVector2i mBoardSize;
 	OtterVector2f mRectSize;
 	std::vector<BoardInfo> mBoard;
-	std::vector<BoardInfo> mResultBoard;
+	std::vector<BoardInfo> mBoardResult;
+	std::vector<BoardAnim> mBoardAnim;
+	std::vector<BoardAnim> mDeleteAnim;
+	bool mdebug;
 };
 
 #endif 

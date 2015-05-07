@@ -80,6 +80,9 @@
     <ClInclude Include="BitmapManager.h">
       <Filter>Source\System</Filter>
     </ClInclude>
+    <ClInclude Include="AnimateCreator.h">
+      <Filter>Source\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -125,6 +128,9 @@
       <Filter>Source\Object</Filter>
     </ClCompile>
     <ClCompile Include="BitmapManager.cpp">
+      <Filter>Source\System</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimateCreator.cpp">
       <Filter>Source\System</Filter>
     </ClCompile>
   </ItemGroup>

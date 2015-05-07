@@ -17,7 +17,7 @@ void Object::Translate( const OtterVector2f& trans )
 	mPosition += trans;
 }
 
-OtterVector2f Object::GetPosition()
+const OtterVector2f& Object::GetPosition()
 {
 	return mPosition;
 }

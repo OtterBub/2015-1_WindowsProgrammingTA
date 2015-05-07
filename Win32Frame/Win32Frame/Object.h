@@ -18,7 +18,7 @@ public:
 	virtual void SetPosition( float x, float y );
 	virtual void SetPosition( const OtterVector2f& pos );
 
-	OtterVector2f GetPosition();
+	const OtterVector2f& GetPosition();
 
 protected:
 	

@@ -32,6 +32,9 @@ public:
 	RECT GetClientRectbyFrame();
 	HINSTANCE GetHInstance();
 
+	bool GetDebugMode();
+	void SetDebugMode( bool debug );
+
 private:
 	Win32Frame();
 	void ChangeScene();
@@ -42,6 +45,7 @@ private:
 	HINSTANCE mhInstance;
 	Scene* mCurrentScene;
 	Scene* mChangeScene;
+	bool mDebugMode;
 	bool mChange;
 };
 

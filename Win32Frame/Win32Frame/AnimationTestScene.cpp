@@ -1,4 +1,5 @@
 #include "AnimationTestScene.h"
+#include "AnimateCreator.h"
 #include "Win32Frame.h"
 
 AnimationTestScene::AnimationTestScene()
@@ -34,16 +35,12 @@ void AnimationTestScene::Enter()
 	mBitmap.SetDestSize( 32, 48 );
 	mBitmap.SetTransparent( true, RGB( 120, 195, 128 ) );
 
-	mAnimObj.LoadSpriteImage( L"chara07_2.bmp" );
-	mAnimObj.AutoCreateAnimation( L"DOWN", 0.25, OtterVector2f( 32, 48 ), OtterVector2i(3, 0), OtterVector2i( 3, 1 ) );
-	mAnimObj.AutoCreateAnimation( L"LEFT", 0.25, OtterVector2f( 32, 48 ), OtterVector2i(3, 1), OtterVector2i( 3, 1 ) );
-	mAnimObj.AutoCreateAnimation( L"RIGHT", 0.25, OtterVector2f( 32, 48 ), OtterVector2i(3, 2), OtterVector2i( 3, 1 ) );
-	mAnimObj.AutoCreateAnimation( L"UP", 0.25, OtterVector2f( 32, 48 ), OtterVector2i(3, 3), OtterVector2i( 3, 1 ) );
-	mAnimObj.SetAnimClip( L"DOWN" );
-	mAnimObj.SetPosition( 300, 300 );
-	mAnimObj.SetImageSize( 32, 48 );
-	mAnimObj.SetScale( 4, 4 );
-	mAnimObj.SetTransparent( true, RGB( 120, 195, 128 ) );
+	//mAnimObj = ANIM_CREATOR.GetAnimObj( L"CHICKEN" );
+	mAnimObj.LoadSpriteImage( L"effect.bmp" );
+	mAnimObj.AutoCreateAnimation( L"BOOM", 0.1, OtterVector2f( 148.75f, 148.75f ), OtterVector2i( 0, 0 ), OtterVector2i( 4, 4 ) );
+	mAnimObj.SetAnimClip( L"BOOM" );
+	mAnimObj.SetImageSize( 148.75f, 148.75f );
+
 }
 
 void AnimationTestScene::Exit()
@@ -87,6 +84,8 @@ void AnimationTestScene::Update( double dt )
 		mAnimObj.SetAnimClip( L"DOWN" );
 	}
 
+	//mBitmap.SetPosition( mAnimObj.GetPosition() );
+
 	/*switch( rand() % 1 )
 	{
 		case 0:
@@ -128,9 +127,9 @@ void AnimationTestScene::Draw( HWND hwnd, HDC hdc )
 	
 	//TextOut( hdc, WIN32FRAME.GetClientRectbyFrame().right / 2.f - 30, 30, L"2048", wcslen( L"2048" ) );
 
-	debug = std::to_wstring( (int)mBitmap.GetPosition().x );
+	debug = std::to_wstring( (int)mAnimObj.GetPosition().x );
 	debug += L", ";
-	debug += std::to_wstring( (int)mBitmap.GetPosition().y );
+	debug += std::to_wstring( (int)mAnimObj.GetPosition().y );
 	TextOut( hdc, 0, 0, debug.c_str(), debug.length() );
 
 	mBitmap.Draw( hdc );

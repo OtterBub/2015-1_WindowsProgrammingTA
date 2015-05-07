@@ -16,6 +16,7 @@ public:
 	bool Set( T x , T y );
 
 	T GetLength();
+	OtterVector2<T> Normalize();
 	
 	template<typename U>
 	void operator +=( const OtterVector2<U>& a );
@@ -112,6 +113,17 @@ template<typename T>
 T OtterVector2<T>::GetLength()
 {
 	return std::sqrt( ( x * x ) + ( y * y ) );
+}
+
+template<typename T>
+OtterVector2<T> OtterVector2<T>::Normalize()
+{
+	OtterVector2<T> prev = *this;
+	T total = GetLength();
+	this->x = this->x / total;
+	this->y = this->y / total;
+
+	return prev;
 }
 
 template<typename T>

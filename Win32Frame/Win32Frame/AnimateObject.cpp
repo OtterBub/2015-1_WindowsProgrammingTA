@@ -84,10 +84,11 @@ void AnimateObject::SetAnimClip( std::wstring animName )
 {
 	if( mCurrentAnimClipName == animName )
 		return;
+	std::wstring prevClipName = mCurrentAnimClipName;
 	mCurrentAnimClipName = animName;
 	std::unordered_map<std::wstring, AnimationClipInfo>::iterator it = mAnimationClip.find( animName );
 	if( it == mAnimationClip.end() ) {
-		mCurrentAnimClipName.clear();
+		mCurrentAnimClipName = prevClipName;
 	} else {
 		if( mAnimIndex >= mAnimationClip[animName].clipVec.size() )
 			mAnimIndex = 0;

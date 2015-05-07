@@ -15,6 +15,11 @@ BitmapObject::BitmapObject()
 	mDestScale = OtterVector2f( 1, 1 );
 	mIsTransparent = false;
 }
+BitmapObject::BitmapObject( const BitmapObject& other )
+{
+	memcpy( this, &other, sizeof(BitmapObject) );
+}
+
 #ifdef UNICODE
 BitmapObject::BitmapObject( std::wstring filename )
 {
@@ -64,8 +69,6 @@ bool BitmapObject::FileLoad( std::string filename )
 #endif
 BitmapObject::~BitmapObject()
 {
-	if( mBitmap != NULL )
-		DeleteObject( mBitmap );
 }
 
 void BitmapObject::Update( double dt )
@@ -85,14 +88,14 @@ void BitmapObject::Draw( HDC hdc )
 			BitmapDC, 0, 0, SRCCOPY );*/
 	if( mIsTransparent == false ) {
 		StretchBlt( hdc,
-					mPosition.x - ( mBitmapInfo.bmWidth / 2 ), mPosition.y - ( mBitmapInfo.bmHeight / 2 ),
+					mPosition.x - ( ( mDestSize.x * mDestScale.x ) / 2.f ), mPosition.y - ( ( mDestSize.y * mDestScale.y ) / 2.f ),
 					mDestSize.x * mDestScale.x, mDestSize.y * mDestScale.y,
 					BitmapDC,
 					mSrcPosition.x, mSrcPosition.y,
 					mSrcSize.x, mSrcSize.y, mDrawMode );
 	} else {
 		TransparentBlt( hdc,
-					mPosition.x - ( mBitmapInfo.bmWidth / 2 ), mPosition.y - ( mBitmapInfo.bmHeight / 2 ),
+					mPosition.x - ( ( mDestSize.x * mDestScale.x ) / 2 ), mPosition.y - ( ( mDestSize.y * mDestScale.y ) / 2 ),
 					mDestSize.x * mDestScale.x, mDestSize.y * mDestScale.y,
 					BitmapDC,
 					mSrcPosition.x, mSrcPosition.y,

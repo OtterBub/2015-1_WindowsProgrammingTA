@@ -1,5 +1,6 @@
 #include "TestScene.h"
 #include "InputSystem.h"
+#include "Win32Frame.h"
 
 TestScene::TestScene()
 {
@@ -22,6 +23,7 @@ void TestScene::Exit()
 void TestScene::Update( double dt )
 {
 	static bool lKeyDown = false;
+	static bool debug = true;
 	if( OTTER_INPUT.GetKeyDown( 'S' ) && ( lKeyDown == false ) ) {
 		mBoard.CommandSlide( GameSlideDir::DOWN );
 		lKeyDown = true;
@@ -33,6 +35,11 @@ void TestScene::Update( double dt )
 		lKeyDown = true;
 	} else if( OTTER_INPUT.GetKeyDown( 'D' ) && ( lKeyDown == false ) ) {
 		mBoard.CommandSlide( GameSlideDir::RIGHT );
+		lKeyDown = true;
+	} else if( OTTER_INPUT.GetKeyDown( 'B' ) && ( lKeyDown == false ) ) {
+		debug = !debug;
+		WIN32FRAME.SetDebugMode( debug );
+		mBoard.SetDebugMode( debug );
 		lKeyDown = true;
 	}
 	if( !OTTER_INPUT.GetAnyKeyDown() ) {

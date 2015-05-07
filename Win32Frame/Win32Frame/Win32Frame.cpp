@@ -7,6 +7,7 @@ Win32Frame::Win32Frame()
 {
 	mCurrentScene = nullptr;
 	mChangeScene = nullptr;
+	mDebugMode = false;
 }
 Win32Frame::~Win32Frame()
 {
@@ -104,6 +105,7 @@ HINSTANCE Win32Frame::GetHInstance()
 
 void Win32Frame::ChangeScene()
 {
+	mDebugMode = false;
 	if( mChangeScene != nullptr )
 	{
 		if( mCurrentScene != nullptr )
@@ -116,4 +118,13 @@ void Win32Frame::ChangeScene()
 		mChangeScene = nullptr;
 		mCurrentScene->Enter();
 	}
+}
+
+bool Win32Frame::GetDebugMode()
+{
+	return mDebugMode;
+}
+void Win32Frame::SetDebugMode( bool debug )
+{
+	mDebugMode = debug;
 }
