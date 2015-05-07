@@ -97,7 +97,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			DeleteObject( backbuffer );
 			DeleteDC( BackBuffDC );
 			EndPaint( hWnd, &ps );
-			
 		}
 			break;
 

@@ -42,6 +42,7 @@ void TestScene::Update( double dt )
 		mBoard.SetDebugMode( debug );
 		lKeyDown = true;
 	}
+
 	if( !OTTER_INPUT.GetAnyKeyDown() ) {
 		lKeyDown = false;
 	}	

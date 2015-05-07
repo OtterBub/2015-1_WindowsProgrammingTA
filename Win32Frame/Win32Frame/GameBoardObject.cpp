@@ -150,6 +150,10 @@ void GameBoardObject::CommandSlide( int slideDir )
 			break;
 	}
 
+	for( auto it : mBoard ){
+		it.changeNum = false;
+	}
+
 	//std::copy( mResultBoard.begin(), mResultBoard.end(), mBoard );
 	mBoard = mBoardResult;
 }
@@ -283,7 +287,7 @@ OtterVector2i GameBoardObject::GetCheckPosition( BoardInfo& currentInfo, const O
 			
 			if( mBoardResult[GetBoardIndex( checkPos )].number == 0 ) {
 				blankCount++;
-			} else if( firstOtherNum == 0 ){
+			} else if( ( firstOtherNum == 0 ) ){
 				firstOtherNum = mBoardResult[GetBoardIndex( checkPos )].number;
 			}
 			if( ( currentInfo.number == firstOtherNum ) ) {
@@ -302,6 +306,7 @@ OtterVector2i GameBoardObject::GetCheckPosition( BoardInfo& currentInfo, const O
 	if( checkPos != currentInfo.pos ) {
 		if( IsEqualNum ) {
 			mBoardResult[GetBoardIndex( checkPos )].number += currentInfo.number;
+			mBoardResult[GetBoardIndex( checkPos )].changeNum = true;
 			currentInfo.number = 0;
 		}
 		else
