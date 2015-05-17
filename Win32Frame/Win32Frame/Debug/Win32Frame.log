@@ -1,22 +1,22 @@
 ﻿  GameBoardObject.cpp
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(53): warning C4244: 'initializing' : conversion from 'float' to 'LONG', possible loss of data
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(71): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(180): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(181): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(261): warning C4244: 'initializing' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(271): warning C4244: 'initializing' : conversion from 'float' to 'LONG', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(369): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(176): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(177): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(257): warning C4244: 'initializing' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(267): warning C4244: 'initializing' : conversion from 'float' to 'LONG', possible loss of data
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(364): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.h(82): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(176) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int> &)' being compiled
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(176) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int> &)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(172) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int> &)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(172) : see reference to function template instantiation 'OtterVector2<float>::OtterVector2<int>(const OtterVector2<int> &)' being compiled
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.h(83): warning C4244: '=' : conversion from 'const int' to 'float', possible loss of data
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.h(167): warning C4244: '*=' : conversion from 'const double' to 'float', possible loss of data
-          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(367) : see reference to function template instantiation 'OtterVector2<float> operator *<float,double>(const OtterVector2<float> &,const U &)' being compiled
+          c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(362) : see reference to function template instantiation 'OtterVector2<float> operator *<float,double>(const OtterVector2<float> &,const U &)' being compiled
           with
           [
               U=double
           ]
 c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\ottermath.h(168): warning C4244: '*=' : conversion from 'const double' to 'float', possible loss of data
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(337): warning C4715: 'GameBoardObject::SetBoardAnimDestPos' : not all control paths return a value
-c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(354): warning C4715: 'GameBoardObject::SetBoardAnimDestPos' : not all control paths return a value
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(332): warning C4715: 'GameBoardObject::SetBoardAnimDestPos' : not all control paths return a value
+c:\myfolder\kpu\2015_first_semester\windowprogramming(ta)\win32solution\win32frame\win32frame\gameboardobject.cpp(349): warning C4715: 'GameBoardObject::SetBoardAnimDestPos' : not all control paths return a value
   Win32Frame.vcxproj -> C:\Myfolder\KPU\2015_First_Semester\WindowProgramming(TA)\Win32Solution\Win32Frame\\Output\Win32Frame_d.exe
