@@ -15,10 +15,11 @@ enum GameSlideDir
 
 struct BoardInfo
 {
-	BoardInfo(){ moveState = false, number = 0; }
+	BoardInfo(){ moveState = false, number = 0, changeNum = false; }
 	OtterVector2i pos;
 	OtterVector2i destPos;
 	bool moveState;
+	bool changeNum;
 	int number;
 };
 
@@ -36,6 +37,16 @@ struct BoardAnim
 	OtterVector2f dir;
 	bool moveState;
 	float dist;
+	int id;
+};
+
+struct EffectInfo 
+{
+	EffectInfo() { 
+		static int count = 0;
+		id = count++;
+	}
+	OtterVector2f pos;
 	int id;
 };
 

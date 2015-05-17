@@ -95,6 +95,14 @@ AnimateObject AnimateCreator::GetAnimObj( std::wstring objname )
 		//result.SetScale( 4, 4 );
 		result.SetTransparent( true, RGB( 120, 195, 128 ) );
 	}
+	else if( objname == L"BOOM" )
+	{
+		result.LoadSpriteImage( L"effect.bmp" );
+		result.AutoCreateAnimation( L"BOOM", 0.05, OtterVector2f( 148.75f, 148.75f ), OtterVector2i( 0, 0 ), OtterVector2i( 4, 4 ) );
+		result.SetAnimClip( L"BOOM" );
+		result.SetTransparent( true, RGB( 9, 255, 0 ) );
+		result.SetImageSize( 148.75f, 148.75f );
+	}
 
 	return result;
 }

@@ -36,11 +36,7 @@ void AnimationTestScene::Enter()
 	mBitmap.SetTransparent( true, RGB( 120, 195, 128 ) );
 
 	//mAnimObj = ANIM_CREATOR.GetAnimObj( L"CHICKEN" );
-	mAnimObj.LoadSpriteImage( L"effect.bmp" );
-	mAnimObj.AutoCreateAnimation( L"BOOM", 0.1, OtterVector2f( 148.75f, 148.75f ), OtterVector2i( 0, 0 ), OtterVector2i( 4, 4 ) );
-	mAnimObj.SetAnimClip( L"BOOM" );
-	mAnimObj.SetImageSize( 148.75f, 148.75f );
-
+	mAnimObj = ANIM_CREATOR.GetAnimObj( L"BOOM" );
 }
 
 void AnimationTestScene::Exit()
@@ -82,6 +78,16 @@ void AnimationTestScene::Update( double dt )
 	if( OTTER_INPUT.GetKeyDown( 'S' ) ){
 		mAnimObj.Translate( 0, 1  );
 		mAnimObj.SetAnimClip( L"DOWN" );
+	}
+
+	if( OTTER_INPUT.GetKeyDown( 'Z' ) ) {
+		mAnimObj = ANIM_CREATOR.GetAnimObj( L"BOOM" );
+	} else if( OTTER_INPUT.GetKeyDown( 'X' ) ) {
+		mAnimObj = ANIM_CREATOR.GetAnimObj( L"EAGLE" );
+	} else if( OTTER_INPUT.GetKeyDown( 'C' ) ) {	
+		mAnimObj = ANIM_CREATOR.GetAnimObj( L"SEAGULL" );
+	} else if( OTTER_INPUT.GetKeyDown( 'V' ) ) {
+		mAnimObj = ANIM_CREATOR.GetAnimObj( L"SWAN" );
 	}
 
 	//mBitmap.SetPosition( mAnimObj.GetPosition() );
